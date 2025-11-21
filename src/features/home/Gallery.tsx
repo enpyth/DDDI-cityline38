@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { Box, Container, Typography, Grid, Button } from '@mui/material'
 
 const galleryItems = [
-    { src: '/imgs/04.jpg', description: 'Balcony Light Living / Series B' },
-    { src: '/imgs/05.jpg', description: 'Courtyard Living / Series A' },
-    { src: '/imgs/06.jpg', description: 'Balcony Light Living / Series B' },
+    { src: '/imgs/04.jpg', description: 'Balcony Light Living' },
+    { src: '/imgs/05.jpg', description: 'Series A' },
+    { src: '/imgs/06.jpg', description: 'Series B' },
     { src: '/imgs/07.jpg', description: 'Courtyard Living / Series A' },
-    { src: '/imgs/08.jpg', description: 'Balcony Light Living / Series B' },
+    { src: '/imgs/08.jpg', description: '...' },
 ]
 
 export default function Gallery() {
@@ -68,7 +68,7 @@ export default function Gallery() {
                                         transition: 'opacity 0.3s ease',
                                     }}
                                 >
-                                    <Typography variant="h6" sx={{ color: '#fff', fontWeight: 300 }}>
+                                    <Typography variant="h6" sx={{ color: '#FCE6C8', fontWeight: 300 }}>
                                         {item.description}
                                     </Typography>
                                 </Box>

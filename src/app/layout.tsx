@@ -70,8 +70,9 @@ export default async function RootLayout({
             {/* <AppClient> */}
             <Providers>
               <LayoutShell>{children}</LayoutShell>
-            {/* // </AppClient> */}
+              {/* // </AppClient> */}
             </Providers>
+            <Toaster />
           </ThemeProvider>
         </NuqsAdapter>
       </body>

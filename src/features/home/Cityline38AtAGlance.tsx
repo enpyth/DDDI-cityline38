@@ -10,13 +10,30 @@ const images = [
     '/imgs/01.jpg',
     '/imgs/02.jpg',
     '/imgs/03.jpg',
+    '/imgs/04.jpg',
+    '/imgs/05.jpg',
 ]
 
 const AUTO_PLAY_INTERVAL = 5000
 
 export default function Cityline38AtAGlance() {
-    // Images are static for this design
-    // const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(0)
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % images.length)
+        }, AUTO_PLAY_INTERVAL)
+
+        return () => clearInterval(timer)
+    }, [])
+
+    const getIndex = (offset: number) => {
+        return (currentIndex + offset + images.length) % images.length
+    }
+
+    const handleImageClick = (offset: number) => {
+        setCurrentIndex(getIndex(offset))
+    }
 
     return (
         <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10, overflow: 'hidden' }}>
@@ -45,17 +62,19 @@ export default function Cityline38AtAGlance() {
                 >
                     {/* Left Image */}
                     <Box
+                        onClick={() => handleImageClick(-1)}
                         sx={{
                             width: 300,
                             height: 400,
-                            backgroundImage: `url(${images[2]})`,
+                            backgroundImage: `url(${images[getIndex(-1)]})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             transform: 'rotateY(-25deg) scale(0.9)',
-                            transition: 'transform 0.5s ease',
+                            transition: 'all 0.5s ease',
+                            cursor: 'pointer',
                             boxShadow: '-10px 10px 30px rgba(0,0,0,0.5)',
                             '&:hover': {
-                                transform: 'rotateY(0deg) scale(1)',
+                                transform: 'rotateY(-15deg) scale(0.95)',
                                 zIndex: 10,
                             },
                         }}
@@ -66,27 +85,30 @@ export default function Cityline38AtAGlance() {
                         sx={{
                             width: 400,
                             height: 500,
-                            backgroundImage: `url(${images[1]})`,
+                            backgroundImage: `url(${images[getIndex(0)]})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             zIndex: 5,
+                            transition: 'all 0.5s ease',
                             boxShadow: '0px 20px 40px rgba(0,0,0,0.6)',
                         }}
                     />
 
                     {/* Right Image */}
                     <Box
+                        onClick={() => handleImageClick(1)}
                         sx={{
                             width: 300,
                             height: 400,
-                            backgroundImage: `url(${images[0]})`,
+                            backgroundImage: `url(${images[getIndex(1)]})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             transform: 'rotateY(25deg) scale(0.9)',
-                            transition: 'transform 0.5s ease',
+                            transition: 'all 0.5s ease',
+                            cursor: 'pointer',
                             boxShadow: '10px 10px 30px rgba(0,0,0,0.5)',
                             '&:hover': {
-                                transform: 'rotateY(0deg) scale(1)',
+                                transform: 'rotateY(15deg) scale(0.95)',
                                 zIndex: 10,
                             },
                         }}

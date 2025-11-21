@@ -4,9 +4,13 @@ import { managerEmail } from '@/constants/config'
 import { sendEnquiryEmail } from '@/lib/resend'
 
 const enquirySchema = z.object({
-  name: z.string().min(1),
+  firstName: z.string().min(1),
+  lastName: z.string().min(1),
   email: z.string().email(),
-  message: z.string().min(1).max(5000),
+  mobile: z.string().min(1),
+  suburb: z.string().min(1),
+  postcode: z.string().min(1),
+  message: z.string().min(1)
 })
 
 export async function POST(request: Request) {

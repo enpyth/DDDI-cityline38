@@ -49,8 +49,13 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith(route + '/')
   )
 
-  // If the route is not valid and not a static file, redirect to home page
-  if (!isValidRoute && !request.nextUrl.pathname.startsWith('/_next') && !request.nextUrl.pathname.includes('.')) {
+  // Skip validation for API routes and static files
+  const isApiRoute = request.nextUrl.pathname.startsWith('/api/')
+  const isNextInternal = request.nextUrl.pathname.startsWith('/_next')
+  const isStaticFile = request.nextUrl.pathname.includes('.')
+
+  // If the route is not valid and not an API route or static file, redirect to home page
+  if (!isValidRoute && !isApiRoute && !isNextInternal && !isStaticFile) {
     const redirectUrl = request.nextUrl.clone()
     redirectUrl.pathname = '/'
     return NextResponse.redirect(redirectUrl)

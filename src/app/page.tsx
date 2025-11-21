@@ -24,7 +24,7 @@ export default function Home() {
       <SectionSeparator />
       <Location />
       <SectionSeparator />
-      <Floorplans />
+      {/* <Floorplans /> */}
       <ContactForm
         title="Register to Receive the Latest Release Updates"
         subtitle="We will release homes in stages according to construction progress. By registering, you will be the first to receive pricing updates and lots releases."

@@ -40,14 +40,18 @@ export async function sendEmail({ to, subject, react, from }: SendEmailParams) {
 }
 
 export type EnquiryPayload = {
-  name: string
+  firstName: string
+  lastName: string
   email: string
+  mobile: string
+  suburb: string
+  postcode: string
   message: string
 }
 
 export async function sendEnquiryEmail(to: string, payload: EnquiryPayload) {
   const { EnquiryEmail } = await import('./template/enquiry')
-  const subject = `New enquiry from ${payload.name}`
+  const subject = `New enquiry from ${payload.firstName}`
   return sendEmail({
     to,
     subject,
