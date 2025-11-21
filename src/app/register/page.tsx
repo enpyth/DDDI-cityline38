@@ -10,8 +10,8 @@ export default function RegisterPage() {
                 height="50vh"
             />
             <ContactForm
-                title="Complete this form"
-                subtitle="and one of our team members will be in touch."
+                title=""
+                subtitle="Complete this form and one of our team members will be in touch."
             />
         </main>
     )

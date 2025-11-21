@@ -72,10 +72,17 @@ export default function Footer() {
                 Privacy Policy
               </Link>
 
-              <Typography variant="caption" color="grey.400" sx={{ mt: 4, maxWidth: '300px' }}>
-                Acknowledgement of Country We acknowledge the Kaurna people as the Traditional Custodians of this land, and pay our respects to Elders past, present, and emerging.
-              </Typography>
+
             </Box>
+          </Grid>
+
+          <Grid size={{ xs: 12 }} sx={{ textAlign: 'center', mt: 4 }}>
+            <Typography variant="caption" color="grey.400" sx={{ display: 'block', mb: 1 }}>
+              Acknowledgement of Country
+            </Typography>
+            <Typography variant="caption" color="grey.400" sx={{ display: 'block', mx: 'auto' }}>
+              We acknowledge the Kaurna people as the Traditional Custodians of this land, and pay our respects to Elders past, present, and emerging.
+            </Typography>
           </Grid>
         </Grid>
       </Container>

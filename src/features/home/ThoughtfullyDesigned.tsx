@@ -18,8 +18,8 @@ export default function ThoughtfullyDesigned() {
                         A Thoughtfully Designed Living Layout
                     </Typography>
                     <Typography
-                        variant="h5"
-                        sx={{ fontWeight: 300, maxWidth: '780px', mx: 'auto', opacity: 0.9, color: '#FCE6C8' }}
+                        variant="h4"
+                        sx={{ mx: 'auto', opacity: 0.9, color: '#FCE6C8' }}
                     >
                         Where urban convenience meets a calm and orderly neighbourhood.
                     </Typography>

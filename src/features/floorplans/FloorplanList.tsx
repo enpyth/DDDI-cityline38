@@ -1,7 +1,8 @@
 'use client'
 
-import { Box, Container, Typography, Grid, Button, Divider } from '@mui/material'
+import { Box, Container, Typography, Grid, Button } from '@mui/material'
 import Link from 'next/link'
+import SectionSeparator from '@/components/SectionSeparator'
 
 export default function FloorplanList() {
     return (
@@ -15,7 +16,7 @@ export default function FloorplanList() {
 
                 {/* Series 1 */}
                 <Grid container spacing={6} alignItems="center" sx={{ mb: 10 }}>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Box
                             component="img"
                             src="/imgs/01.jpg"
@@ -23,7 +24,7 @@ export default function FloorplanList() {
                             sx={{ width: '100%', borderRadius: 2, height: 'auto' }}
                         />
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Typography variant="h4" sx={{ fontFamily: 'serif', mb: 2 }}>
                             Balcony Light Living Series <br /> (Lot 1–7)
                         </Typography>
@@ -51,11 +52,13 @@ export default function FloorplanList() {
                     </Grid>
                 </Grid>
 
-                <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)', mb: 10 }} />
+                <Box sx={{ mb: 10 }}>
+                    <SectionSeparator />
+                </Box>
 
                 {/* Series 2 */}
                 <Grid container spacing={6} alignItems="center">
-                    <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
+                    <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 2, md: 1 } }}>
                         <Typography variant="h4" sx={{ fontFamily: 'serif', mb: 2 }}>
                             Serene Master Living Series <br /> (Lot 8–13)
                         </Typography>
@@ -81,7 +84,7 @@ export default function FloorplanList() {
                             </Button>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+                    <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 1, md: 2 } }}>
                         <Box
                             component="img"
                             src="/imgs/02.jpg"
