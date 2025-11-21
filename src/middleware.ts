@@ -38,20 +38,14 @@ export async function middleware(request: NextRequest) {
   // Define valid routes that should not be redirected
   const validRoutes = [
     '/',
-    '/about',
-    '/products',
-    '/events',
-    '/products',
-    '/contact',
-    '/auth',
-    '/dashboard',
-    '/api',
-    '/chatkit',
+    '/floorplans',
+    '/register',
+    '/gallery',
   ]
 
   // Check if the current path is a valid route or a sub-route of valid routes
-  const isValidRoute = validRoutes.some(route => 
-    request.nextUrl.pathname === route || 
+  const isValidRoute = validRoutes.some(route =>
+    request.nextUrl.pathname === route ||
     request.nextUrl.pathname.startsWith(route + '/')
   )
 

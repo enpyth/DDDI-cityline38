@@ -1,26 +1,34 @@
-import Hero from '@/features/home/hero'
-import Introduction from '@/features/home/Introduction'
-import Product from '@/features/home/Product'
-import Features from '@/features/home/Features'
-import Stats from '@/features/home/Stats'
-import Testimonials from '@/features/home/Testimonials'
-import CallToAction from '@/features/home/CallToAction'
+import Hero from '@/components/Hero'
+import ThoughtfullyDesigned from '@/features/home/ThoughtfullyDesigned'
+import Cityline38AtAGlance from '@/features/home/Cityline38AtAGlance'
+import Gallery from '@/features/home/Gallery'
+import Location from '@/features/home/Location'
+import Floorplans from '@/features/home/Floorplans'
+import ContactForm from '@/features/home/ContactForm'
+import SectionSeparator from '@/components/SectionSeparator'
 
-export default function HomePage() {
+export default function Home() {
   return (
     <main>
-      <Hero 
-        imageSrc="/banner/banner-about.jpeg" 
-        title="Welcome to NovaTech Solutions"
-        subtitle="Empowering businesses with innovative technology solutions"
-        showCTA={true}
+      <Hero
+        title="Cityline 38"
+        subtitle="The Line Where Life Finds Its Balance."
+        subtitle2="Where urban energy meets everyday calm — perfectly in balance."
+        height="80vh"
       />
-      <Introduction />
-      {/* <Features /> */}
-      <Stats />
-      <Product />
-      <Testimonials />
-      <CallToAction />
+      <ThoughtfullyDesigned />
+      <SectionSeparator />
+      <Cityline38AtAGlance />
+      <SectionSeparator />
+      <Gallery />
+      <SectionSeparator />
+      <Location />
+      <SectionSeparator />
+      <Floorplans />
+      <ContactForm
+        title="Register to Receive the Latest Release Updates"
+        subtitle="We will release homes in stages according to construction progress. By registering, you will be the first to receive pricing updates and lots releases."
+      />
     </main>
   )
 }

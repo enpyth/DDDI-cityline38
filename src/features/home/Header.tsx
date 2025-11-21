@@ -1,110 +1,80 @@
 'use client'
 
 import Link from 'next/link'
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Avatar, Menu, MenuItem, Container } from '@mui/material'
-import LanguageIcon from '@mui/icons-material/Language'
-import LoginIcon from '@mui/icons-material/Login'
-import DashboardIcon from '@mui/icons-material/Dashboard'
-import { useLanguage } from '@/lib/contexts/LanguageContext'
-import { useI18n } from '@/lib/contexts/LanguageContent'
-import { useAuth } from '@/lib/contexts/AuthContext'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
-  const { language, toggleLanguage } = useLanguage()
-  const t = useI18n()
-  const { user, signOut, loading } = useAuth()
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const [mounted, setMounted] = useState(false)
-  const open = Boolean(anchorEl)
-  const router = useRouter()
+  const pathname = usePathname()
 
-  // 防止水合错误
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Floorplans', href: '/floorplans' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Register', href: '/register' },
+  ]
 
-  const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => setAnchorEl(null)
+  const isHome = pathname === '/'
 
   return (
-    <AppBar position="sticky" color="transparent" elevation={0} sx={{ backdropFilter: 'blur(6px)', borderBottom: '1px solid', borderColor: 'divider' }}>
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: '#0B1C33',
+        boxShadow: 'none',
+        borderBottom: '1px solid rgba(255,255,255,0.1)',
+      }}
+    >
       <Container maxWidth="lg">
-        <Toolbar sx={{ px: 0, minHeight: 64 }}>
-          <Typography
-            variant="h6"
-            component={Link}
-            href="/"
-            sx={{ flexGrow: 1, textDecoration: 'none', color: 'text.primary', fontWeight: 700, letterSpacing: '.2px' }}
-          >
-            {t.header.siteTitle}
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-            <Button component={Link} href="/" color="inherit">
-              {t.header.home}
-            </Button>
-            <Button component={Link} href="/about" color="inherit">
-              {t.header.about}
-            </Button>
-            <Button component={Link} href="/products" color="inherit">
-              {t.header.products}
-            </Button>
-            <Button component={Link} href="/events" color="inherit">
-              {t.header.events}
-            </Button>
-            <Button component={Link} href="/membership" color="inherit">
-              {t.header.membership}
-            </Button>
-            <Button component={Link} href="/contact" color="inherit">
-              {t.header.contact}
-            </Button>
-            <Button onClick={toggleLanguage} startIcon={<LanguageIcon />} color="inherit">
-              {t.header.language}
-            </Button>
-            {mounted && user ? (
-              <>
-                <IconButton onClick={handleAvatarClick} size="small" sx={{ ml: 1 }}>
-                  <Avatar sx={{ width: 32, height: 32 }}>
-                    {user.email?.[0]?.toUpperCase() || 'U'}
-                  </Avatar>
-                </IconButton>
-                <Menu
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                  transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        <Toolbar sx={{ justifyContent: 'space-between', minHeight: 100, px: 0 }}>
+          {/* Logo */}
+          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src="/imgs/logo1.svg" alt="Cityline 38" style={{ height: '60px' }} />
+          </Link>
+
+          {/* Navigation */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            {navItems.map((item, index) => (
+              <Box key={item.label} sx={{ display: 'flex', alignItems: 'center' }}>
+                <Button
+                  component={Link}
+                  href={isHome ? item.href : `${item.href}`}
+                  sx={{
+                    color: '#FCE6C8',
+                    textTransform: 'none',
+                    fontSize: '1rem',
+                    letterSpacing: '0.05em',
+                    fontWeight: 300,
+                    opacity: 0.9,
+                    minWidth: 'auto',
+                    px: 2,
+                    '&:hover': {
+                      backgroundColor: 'transparent',
+                      opacity: 1,
+                    },
+                  }}
                 >
-                  <MenuItem disabled>{user.email}</MenuItem>
-                  <MenuItem onClick={() => { handleClose(); router.push('/dashboard') }}>
-                    {t.profileMenu.dashboard}
-                  </MenuItem>
-                  <MenuItem onClick={() => { handleClose(); router.push('/profile') }}>
-                    {t.profileMenu.profile}
-                  </MenuItem>
-                  <MenuItem onClick={() => { handleClose(); signOut() }}>
-                    {t.profileMenu.signOut}
-                  </MenuItem>
-                </Menu>
-              </>
-            ) : (
-              <Button
-                component={Link}
-                href="/auth/sign-in"
-                startIcon={<LoginIcon />}
-                variant="outlined"
-              >
-                {t.header.login}
-              </Button>
-            )}
+                  {item.label}
+                </Button>
+                {index < navItems.length - 1 && (
+                  <Box
+                    component="span"
+                    sx={{
+                      color: '#FCE6C8',
+                      mx: 2,
+                      opacity: 0.5,
+                      fontSize: '1.2rem',
+                      fontWeight: 300
+                    }}
+                  >
+                    |
+                  </Box>
+                )}
+              </Box>
+            ))}
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   )
 }
-
-
