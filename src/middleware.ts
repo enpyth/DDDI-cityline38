@@ -41,6 +41,8 @@ export async function middleware(request: NextRequest) {
     '/floorplans',
     '/register',
     '/gallery',
+    '/terms',
+    '/privacy',
   ]
 
   // Check if the current path is a valid route or a sub-route of valid routes

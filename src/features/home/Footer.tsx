@@ -65,10 +65,10 @@ export default function Footer() {
           {/* Column 3: Legal & Acknowledgement */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: { xs: 'flex-start', md: 'flex-end' }, textAlign: { xs: 'left', md: 'right' } }}>
-              <Link href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.875rem' }}>
+              <Link href="/terms" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.875rem' }}>
                 Terms & Conditions
               </Link>
-              <Link href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.875rem' }}>
+              <Link href="/privacy" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.875rem' }}>
                 Privacy Policy
               </Link>
 

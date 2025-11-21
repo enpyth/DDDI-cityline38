@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { Box, Container, Typography, IconButton } from '@mui/material'
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
-import Image from 'next/image'
 
 const images = [
     '/imgs/01.jpg',
@@ -52,68 +49,99 @@ export default function Cityline38AtAGlance() {
 
                 <Box
                     sx={{
+                        position: 'relative',
+                        height: 500,
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: 4,
                         mb: 10,
                         perspective: '1000px',
                     }}
                 >
-                    {/* Left Image */}
-                    <Box
-                        onClick={() => handleImageClick(-1)}
-                        sx={{
-                            width: 300,
-                            height: 400,
-                            backgroundImage: `url(${images[getIndex(-1)]})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            transform: 'rotateY(-25deg) scale(0.9)',
-                            transition: 'all 0.5s ease',
-                            cursor: 'pointer',
-                            boxShadow: '-10px 10px 30px rgba(0,0,0,0.5)',
-                            '&:hover': {
-                                transform: 'rotateY(-15deg) scale(0.95)',
-                                zIndex: 10,
-                            },
-                        }}
-                    />
+                    {images.map((src, index) => {
+                        // Calculate position relative to current index
+                        let position = (index - currentIndex + images.length) % images.length
+                        if (position > images.length / 2) position -= images.length
 
-                    {/* Center Image */}
-                    <Box
-                        sx={{
-                            width: 400,
-                            height: 500,
-                            backgroundImage: `url(${images[getIndex(0)]})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            zIndex: 5,
-                            transition: 'all 0.5s ease',
-                            boxShadow: '0px 20px 40px rgba(0,0,0,0.6)',
-                        }}
-                    />
+                        // Determine styles based on position
+                        let styles = {}
+                        const isCenter = position === 0
+                        const isLeft = position === -1 || position === images.length - 1
+                        const isRight = position === 1 || position === -(images.length - 1)
 
-                    {/* Right Image */}
-                    <Box
-                        onClick={() => handleImageClick(1)}
-                        sx={{
-                            width: 300,
-                            height: 400,
-                            backgroundImage: `url(${images[getIndex(1)]})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            transform: 'rotateY(25deg) scale(0.9)',
-                            transition: 'all 0.5s ease',
-                            cursor: 'pointer',
-                            boxShadow: '10px 10px 30px rgba(0,0,0,0.5)',
-                            '&:hover': {
-                                transform: 'rotateY(15deg) scale(0.95)',
-                                zIndex: 10,
-                            },
-                        }}
-                    />
+                        // Only show center, immediate left, and immediate right images
+                        // Hide others but keep them in DOM for smooth transition if needed, 
+                        // or just handle the main 3 visible slots.
+                        // For a true carousel feel with 5 images, we can handle:
+                        // 0 (center), -1 (left), 1 (right), and others hidden behind or faded.
 
+                        // Let's define states:
+                        // 0: Center, large, z-index 10
+                        // -1: Left, smaller, rotated, z-index 5
+                        // 1: Right, smaller, rotated, z-index 5
+                        // Others: Hidden/Opacity 0, scale 0.5, z-index 0
+
+                        let transform = 'translateX(0) scale(0.5) rotateY(0deg)'
+                        let opacity = 0
+                        let zIndex = 0
+                        let cursor = 'default'
+
+                        if (isCenter) {
+                            transform = 'translateX(0) scale(1) rotateY(0deg)'
+                            opacity = 1
+                            zIndex = 10
+                            cursor = 'default'
+                        } else if (position === -1) { // Left
+                            transform = 'translateX(-550px) scale(0.8) rotateY(-25deg)'
+                            opacity = 0.8
+                            zIndex = 5
+                            cursor = 'pointer'
+                        } else if (position === 1) { // Right
+                            transform = 'translateX(550px) scale(0.8) rotateY(25deg)'
+                            opacity = 0.8
+                            zIndex = 5
+                            cursor = 'pointer'
+                        } else if (position === -2 || (images.length === 5 && position === 3)) { // Far Left (hidden)
+                            transform = 'translateX(-750px) scale(0.6) rotateY(45deg)'
+                            opacity = 0
+                            zIndex = 1
+                        } else if (position === 2 || (images.length === 5 && position === -3)) { // Far Right (hidden)
+                            transform = 'translateX(750px) scale(0.6) rotateY(-45deg)'
+                            opacity = 0
+                            zIndex = 1
+                        }
+
+                        return (
+                            <Box
+                                key={index}
+                                onClick={() => {
+                                    if (position === -1) handleImageClick(-1)
+                                    if (position === 1) handleImageClick(1)
+                                }}
+                                sx={{
+                                    position: 'absolute',
+                                    width: 600,
+                                    height: 400,
+                                    backgroundImage: `url(${src})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                                    borderRadius: 2,
+                                    boxShadow: opacity > 0 ? '0 20px 50px rgba(0,0,0,0.5)' : 'none',
+                                    transform,
+                                    opacity,
+                                    zIndex,
+                                    cursor,
+                                    pointerEvents: opacity === 0 ? 'none' : 'auto',
+                                    '&:hover': {
+                                        transform: (position === -1 || position === 1) ?
+                                            transform.replace('scale(0.8)', 'scale(0.85)') :
+                                            transform
+                                    }
+                                }}
+                            />
+                        )
+                    })}
                 </Box>
 
                 {/* Location Advantage Section */}
