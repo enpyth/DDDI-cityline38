@@ -112,10 +112,10 @@ export default function ContactForm({
                         zIndex: 2
                     }}
                 >
-                    <Typography variant="h4" sx={{ fontFamily: 'serif', textAlign: 'center', mb: 1 }}>
+                    <Typography variant="h4" sx={{ fontFamily: 'serif', textAlign: 'center', mb: 1, fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
                         {title}
                     </Typography>
-                    <Typography variant="h6" sx={{ fontFamily: 'serif', textAlign: 'center', mb: 6, fontWeight: 400 }}>
+                    <Typography variant="h6" sx={{ fontFamily: 'serif', textAlign: 'center', mb: 6, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
                         {subtitle}
                     </Typography>
 

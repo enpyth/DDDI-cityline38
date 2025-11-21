@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Box, Container, Typography, IconButton } from '@mui/material'
+import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
 
 const images = [
     '/imgs/01.jpg',
@@ -15,6 +15,8 @@ const AUTO_PLAY_INTERVAL = 5000
 
 export default function Cityline38AtAGlance() {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -33,15 +35,16 @@ export default function Cityline38AtAGlance() {
     }
 
     return (
-        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10, overflow: 'hidden' }}>
+        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 }, overflow: 'hidden' }}>
             <Container maxWidth="lg">
                 <Typography
                     variant="h3"
                     sx={{
                         fontFamily: 'serif',
                         textAlign: 'center',
-                        mb: 8,
+                        mb: { xs: 4, md: 8 },
                         color: '#FCE6C8',
+                        fontSize: { xs: '2rem', md: '3rem' }
                     }}
                 >
                     Cityline 38 at a Glance
@@ -50,11 +53,11 @@ export default function Cityline38AtAGlance() {
                 <Box
                     sx={{
                         position: 'relative',
-                        height: 500,
+                        height: { xs: 300, md: 500 },
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        mb: 10,
+                        mb: { xs: 6, md: 10 },
                         perspective: '1000px',
                     }}
                 >
@@ -64,22 +67,12 @@ export default function Cityline38AtAGlance() {
                         if (position > images.length / 2) position -= images.length
 
                         // Determine styles based on position
-                        let styles = {}
                         const isCenter = position === 0
-                        const isLeft = position === -1 || position === images.length - 1
-                        const isRight = position === 1 || position === -(images.length - 1)
 
-                        // Only show center, immediate left, and immediate right images
-                        // Hide others but keep them in DOM for smooth transition if needed, 
-                        // or just handle the main 3 visible slots.
-                        // For a true carousel feel with 5 images, we can handle:
-                        // 0 (center), -1 (left), 1 (right), and others hidden behind or faded.
-
-                        // Let's define states:
-                        // 0: Center, large, z-index 10
-                        // -1: Left, smaller, rotated, z-index 5
-                        // 1: Right, smaller, rotated, z-index 5
-                        // Others: Hidden/Opacity 0, scale 0.5, z-index 0
+                        // Responsive translation values
+                        const xOffset = isMobile ? 40 : 550
+                        const scaleSide = isMobile ? 0.9 : 0.8
+                        const scaleHidden = 0.6
 
                         let transform = 'translateX(0) scale(0.5) rotateY(0deg)'
                         let opacity = 0
@@ -92,21 +85,36 @@ export default function Cityline38AtAGlance() {
                             zIndex = 10
                             cursor = 'default'
                         } else if (position === -1) { // Left
-                            transform = 'translateX(-550px) scale(0.8) rotateY(-25deg)'
-                            opacity = 0.8
-                            zIndex = 5
-                            cursor = 'pointer'
+                            transform = `translateX(-${xOffset}px) scale(${scaleSide}) rotateY(${isMobile ? 0 : -25}deg)`
+                            opacity = isMobile ? 0 : 0.8 // Hide side images on mobile to avoid clutter or overlap if space is tight, or adjust
+                            // Actually, for mobile, a simple stack or just showing the center one might be better.
+                            // Let's try showing them but with much smaller offset and opacity, or just hiding them.
+                            // If we hide them, it's just a fader.
+                            // Let's try a small offset for "peek" effect if desired, but 40px is small.
+                            // Let's keep them visible but behind.
+                            if (isMobile) {
+                                transform = `translateX(0) scale(0.9) rotateY(0deg)` // Just behind
+                                zIndex = 5
+                                opacity = 0 // Hide them for now to keep it clean on mobile, or maybe just slide effect?
+                                // Let's go with: Mobile = simple fade/slide.
+                                // But the code logic is position based.
+                                // Let's make side images hidden on mobile for simplicity and clean look.
+                                opacity = 0
+                            } else {
+                                opacity = 0.8
+                            }
                         } else if (position === 1) { // Right
-                            transform = 'translateX(550px) scale(0.8) rotateY(25deg)'
-                            opacity = 0.8
-                            zIndex = 5
+                            transform = `translateX(${xOffset}px) scale(${scaleSide}) rotateY(${isMobile ? 0 : 25}deg)`
+                            if (isMobile) {
+                                transform = `translateX(0) scale(0.9) rotateY(0deg)`
+                                zIndex = 5
+                                opacity = 0
+                            } else {
+                                opacity = 0.8
+                            }
                             cursor = 'pointer'
-                        } else if (position === -2 || (images.length === 5 && position === 3)) { // Far Left (hidden)
-                            transform = 'translateX(-750px) scale(0.6) rotateY(45deg)'
-                            opacity = 0
-                            zIndex = 1
-                        } else if (position === 2 || (images.length === 5 && position === -3)) { // Far Right (hidden)
-                            transform = 'translateX(750px) scale(0.6) rotateY(-45deg)'
+                        } else { // Far Left/Right (hidden)
+                            transform = `translateX(${position < 0 ? -xOffset * 1.5 : xOffset * 1.5}px) scale(${scaleHidden}) rotateY(${position < 0 ? 45 : -45}deg)`
                             opacity = 0
                             zIndex = 1
                         }
@@ -115,13 +123,15 @@ export default function Cityline38AtAGlance() {
                             <Box
                                 key={index}
                                 onClick={() => {
-                                    if (position === -1) handleImageClick(-1)
-                                    if (position === 1) handleImageClick(1)
+                                    if (!isMobile) {
+                                        if (position === -1) handleImageClick(-1)
+                                        if (position === 1) handleImageClick(1)
+                                    }
                                 }}
                                 sx={{
                                     position: 'absolute',
-                                    width: 600,
-                                    height: 400,
+                                    width: { xs: '100%', md: 600 },
+                                    height: { xs: '100%', md: 400 },
                                     backgroundImage: `url(${src})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
@@ -133,11 +143,14 @@ export default function Cityline38AtAGlance() {
                                     zIndex,
                                     cursor,
                                     pointerEvents: opacity === 0 ? 'none' : 'auto',
-                                    '&:hover': {
-                                        transform: (position === -1 || position === 1) ?
-                                            transform.replace('scale(0.8)', 'scale(0.85)') :
-                                            transform
-                                    }
+                                    left: { xs: 0, md: 'calc(50% - 300px)' }, // Center it manually on desktop if using absolute
+                                    // On mobile width is 100%, so left 0 is fine.
+                                    // On desktop width is 600. The parent is flex center, but position absolute removes it from flow.
+                                    // The original code relied on flex center alignment but position absolute might mess it up if not careful.
+                                    // Actually, if parent is flex center and child is absolute, it defaults to top left unless specified?
+                                    // No, flexbox centering works on absolute children in some browsers but usually you need left/top/transform.
+                                    // The original code didn't specify left/top, so it might have been relying on default placement.
+                                    // Let's be explicit.
                                 }}
                             />
                         )
@@ -145,13 +158,20 @@ export default function Cityline38AtAGlance() {
                 </Box>
 
                 {/* Location Advantage Section */}
-                <Box sx={{ mt: 10, pl: 4, ml: 20, borderLeft: '2px solid #fff' }}>
+                <Box sx={{
+                    mt: { xs: 6, md: 10 },
+                    pl: { xs: 0, md: 4 },
+                    ml: { xs: 0, md: 20 },
+                    borderLeft: { xs: 'none', md: '2px solid #fff' },
+                    textAlign: { xs: 'center', md: 'left' }
+                }}>
                     <Typography
                         variant="h4"
                         sx={{
                             fontFamily: 'serif',
                             mb: 2,
                             color: '#fff',
+                            fontSize: { xs: '1.75rem', md: '2.125rem' }
                         }}
                     >
                         Location Advantage
@@ -164,6 +184,8 @@ export default function Cityline38AtAGlance() {
                             color: '#fff',
                             lineHeight: 1.6,
                             opacity: 0.9,
+                            fontSize: { xs: '1rem', md: '1.25rem' },
+                            mx: { xs: 'auto', md: 0 }
                         }}
                     >
                         Located on 38 Anzac Highway, Everard Park <br />

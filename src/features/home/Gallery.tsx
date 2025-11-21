@@ -13,11 +13,11 @@ const galleryItems = [
 
 export default function Gallery() {
     return (
-        <Box id="gallery" sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10 }}>
+        <Box id="gallery" sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 } }}>
             <Container maxWidth="lg">
                 <Typography
                     variant="h3"
-                    sx={{ fontFamily: 'serif', textAlign: 'center', mb: 6, color: '#FCE6C8' }}
+                    sx={{ fontFamily: 'serif', textAlign: 'center', mb: { xs: 4, md: 6 }, color: '#FCE6C8', fontSize: { xs: '2rem', md: '3rem' } }}
                 >
                     Two Series. Designed for Two Lifestyles.
                 </Typography>
@@ -27,9 +27,10 @@ export default function Gallery() {
                     sx={{
                         textAlign: 'center',
                         mx: 'auto',
-                        mb: 6,
+                        mb: { xs: 4, md: 6 },
                         opacity: 0.8,
-                        color: '#FCE6C8'
+                        color: '#FCE6C8',
+                        fontSize: { xs: '1.25rem', md: '1.5rem' }
                     }}
                 >
                     From light and efficient to spacious and serene — choose the layout that matches your lifestyle.
@@ -41,7 +42,7 @@ export default function Gallery() {
                             <Box
                                 sx={{
                                     position: 'relative',
-                                    height: index === 0 ? 320 : 220,
+                                    height: index === 0 ? { xs: 240, md: 320 } : 220,
                                     backgroundImage: `url(${item.src})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
@@ -77,7 +78,7 @@ export default function Gallery() {
                     ))}
                 </Grid>
 
-                <Box sx={{ mt: 8, textAlign: 'center' }}>
+                <Box sx={{ mt: { xs: 6, md: 8 }, textAlign: 'center' }}>
                     <Typography
                         variant="h6"
                         sx={{
@@ -86,9 +87,10 @@ export default function Gallery() {
                             mx: 'auto',
                             mb: 4,
                             opacity: 0.9,
-                            borderLeft: '2px solid #fff',
-                            textAlign: 'left',
-                            pl: 4
+                            borderLeft: { xs: 'none', md: '2px solid #fff' },
+                            textAlign: { xs: 'center', md: 'left' },
+                            pl: { xs: 0, md: 4 },
+                            fontSize: { xs: '1rem', md: '1.25rem' }
                         }}
                     >
                         A light and efficient three-bedroom layout featuring generous balconies and multi-aspect natural light — ideal for first homebuyers and investors.

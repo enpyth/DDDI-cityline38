@@ -40,13 +40,14 @@ export default function Hero({
                 },
             }}
         >
-            <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff' }}>
+            <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff', px: { xs: 2, md: 4 } }}>
                 <Typography
                     variant="h1"
                     sx={{
                         fontFamily: 'serif',
-                        fontSize: { xs: '3rem', md: '5rem' },
-                        mb: 2,
+                        fontSize: { xs: '2.5rem', sm: '3rem', md: '5rem' },
+                        mb: { xs: 1, md: 2 },
+                        lineHeight: 1.2
                     }}
                 >
                     {title}
@@ -59,7 +60,9 @@ export default function Hero({
                             letterSpacing: '0.1em',
                             maxWidth: '800px',
                             mx: 'auto',
-                            lineHeight: 1.5
+                            lineHeight: 1.5,
+                            fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+                            mb: { xs: 1, md: 0 }
                         }}
                     >
                         {subtitle}
@@ -73,7 +76,9 @@ export default function Hero({
                             letterSpacing: '0.1em',
                             maxWidth: '1000px',
                             mx: 'auto',
-                            lineHeight: 1.5
+                            lineHeight: 1.5,
+                            fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+                            mt: { xs: 1, md: 2 }
                         }}
                     >
                         {subtitle2}

@@ -22,15 +22,16 @@ export default function Location() {
         : `https://www.google.com/maps?q=${encodedAddress}&output=embed`
 
     return (
-        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10 }}>
+        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 } }}>
             <Container maxWidth="lg">
                 <Typography
                     variant="h3"
                     sx={{
                         fontFamily: 'serif',
                         textAlign: 'center',
-                        mb: 6,
+                        mb: { xs: 4, md: 6 },
                         color: '#FCE6C8',
+                        fontSize: { xs: '2rem', md: '3rem' }
                     }}
                 >
                     Lifestyle, Connected and Effortless
@@ -41,9 +42,10 @@ export default function Location() {
                         textAlign: 'center',
                         maxWidth: 800,
                         mx: 'auto',
-                        mb: 6,
+                        mb: { xs: 4, md: 6 },
                         color: '#FCE6C8',
                         opacity: 0.8,
+                        fontSize: { xs: '1rem', md: '1.25rem' }
                     }}
                 >
                     Enjoy the benefits of a well-established neighbourhood with walkable access to the tram, shops, cafés and schools — convenience built into everyday living.
@@ -52,28 +54,28 @@ export default function Location() {
                     <Grid size={{ xs: 12, md: 6 }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>Education</Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8' }}>Education</Typography>
                                 <Typography variant="body1">Adelaide High</Typography>
                                 <Typography variant="body1">Plympton International College</Typography>
                                 <Typography variant="body1">Sturt Street Community School</Typography>
                             </Box>
 
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>Transport</Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8' }}>Transport</Typography>
                                 <Typography variant="body1">Tram: Forestville (Stop 4) / Black Forest (Stop 5)</Typography>
                                 <Typography variant="body1">Bus: Anzac Hwy (Stop 4)</Typography>
                                 <Typography variant="body1">Anzac Highway</Typography>
                             </Box>
 
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>Retail & Leisure</Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8' }}>Retail & Leisure</Typography>
                                 <Typography variant="body1">Kurralta Central</Typography>
                                 <Typography variant="body1">Wayville Showground (Adelaide Showground)</Typography>
                                 <Typography variant="body1">Goodwood Road (Shopping Precint)</Typography>
                             </Box>
 
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>Medical</Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8' }}>Medical</Typography>
                                 <Typography variant="body1">Ashford Hospital</Typography>
                             </Box>
                         </Box>
@@ -81,7 +83,7 @@ export default function Location() {
                     <Grid size={{ xs: 12, md: 6 }}>
                         <Box
                             sx={{
-                                height: 500,
+                                height: { xs: 300, md: 500 },
                                 borderRadius: 1,
                                 overflow: 'hidden',
                                 position: 'relative',
