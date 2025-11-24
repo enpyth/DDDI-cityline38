@@ -13,11 +13,11 @@ const galleryItems = [
 
 export default function Gallery() {
     return (
-        <Box id="gallery" sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 } }}>
+        <Box id="gallery" sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 }, fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
                 <Typography
                     variant="h3"
-                    sx={{ fontFamily: 'serif', textAlign: 'center', mb: { xs: 4, md: 6 }, color: '#FCE6C8', fontSize: { xs: '2rem', md: '3rem' } }}
+                    sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: { xs: 4, md: 6 }, color: '#FCE6C8', fontSize: { xs: '2rem', md: '3rem' } }}
                 >
                     Two Series. Designed for Two Lifestyles.
                 </Typography>
@@ -30,7 +30,8 @@ export default function Gallery() {
                         mb: { xs: 4, md: 6 },
                         opacity: 0.8,
                         color: '#FCE6C8',
-                        fontSize: { xs: '1.25rem', md: '1.5rem' }
+                        fontSize: { xs: '1.25rem', md: '1.5rem' },
+                        fontFamily: 'var(--font-Gotu)',
                     }}
                 >
                     From light and efficient to spacious and serene — choose the layout that matches your lifestyle.
@@ -90,7 +91,8 @@ export default function Gallery() {
                             borderLeft: { xs: 'none', md: '2px solid #fff' },
                             textAlign: { xs: 'center', md: 'left' },
                             pl: { xs: 0, md: 4 },
-                            fontSize: { xs: '1rem', md: '1.25rem' }
+                            fontSize: { xs: '1rem', md: '1.25rem' },
+                            fontFamily: 'var(--font-Gotu)',
                         }}
                     >
                         A light and efficient three-bedroom layout featuring generous balconies and multi-aspect natural light — ideal for first homebuyers and investors.
@@ -107,6 +109,7 @@ export default function Gallery() {
                             py: 1.5,
                             textTransform: 'none',
                             fontSize: '1rem',
+                            fontFamily: 'var(--font-baskervville)',
                             '&:hover': {
                                 borderColor: '#fff',
                                 bgcolor: 'rgba(255,255,255,0.1)',

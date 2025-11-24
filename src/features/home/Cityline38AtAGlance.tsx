@@ -35,12 +35,12 @@ export default function Cityline38AtAGlance() {
     }
 
     return (
-        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 }, overflow: 'hidden' }}>
+        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 }, overflow: 'hidden', fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
                 <Typography
                     variant="h3"
                     sx={{
-                        fontFamily: 'serif',
+                        fontFamily: 'var(--font-baskervville)',
                         textAlign: 'center',
                         mb: { xs: 4, md: 8 },
                         color: '#FCE6C8',
@@ -168,7 +168,7 @@ export default function Cityline38AtAGlance() {
                     <Typography
                         variant="h4"
                         sx={{
-                            fontFamily: 'serif',
+                            fontFamily: 'var(--font-baskervville)',
                             mb: 2,
                             color: '#fff',
                             fontSize: { xs: '1.75rem', md: '2.125rem' }
@@ -185,7 +185,8 @@ export default function Cityline38AtAGlance() {
                             lineHeight: 1.6,
                             opacity: 0.9,
                             fontSize: { xs: '1rem', md: '1.25rem' },
-                            mx: { xs: 'auto', md: 0 }
+                            mx: { xs: 'auto', md: 0 },
+                            fontFamily: 'var(--font-baskervville)',
                         }}
                     >
                         Located on 38 Anzac Highway, Everard Park <br />

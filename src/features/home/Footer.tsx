@@ -14,6 +14,7 @@ export default function Footer() {
         pb: 6,
         mt: 'auto',
         borderTop: '1px solid rgba(255,255,255,0.1)',
+        fontFamily: 'var(--font-gotu)'
       }}
     >
       <Container maxWidth="lg">
@@ -31,7 +32,7 @@ export default function Footer() {
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
               <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5, fontFamily: 'var(--font-baskervville)' }}>
                   Development and Project Management
                 </Typography>
                 <Typography variant="body2" color="grey.400">
@@ -40,7 +41,7 @@ export default function Footer() {
               </Box>
 
               <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5, fontFamily: 'var(--font-baskervville)' }}>
                   Sales and Marketing Management
                 </Typography>
                 <Typography variant="body2" color="grey.400">

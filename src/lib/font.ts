@@ -4,7 +4,9 @@ import {
   Instrument_Sans,
   Inter,
   Mulish,
-  Noto_Sans_Mono
+  Noto_Sans_Mono,
+  Baskervville,
+  Gotu
 } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
@@ -39,11 +41,26 @@ const fontInter = Inter({
   variable: '--font-inter'
 });
 
+const fontBaskervville = Baskervville({
+  weight: '400',
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-baskervville'
+});
+
+const fontGotu = Gotu({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-gotu'
+});
+
 export const fontVariables = cn(
   fontSans.variable,
   fontMono.variable,
   fontInstrument.variable,
   fontNotoMono.variable,
   fontMullish.variable,
-  fontInter.variable
+  fontInter.variable,
+  fontBaskervville.variable,
+  fontGotu.variable
 );

@@ -44,7 +44,7 @@ export default function Hero({
                 <Typography
                     variant="h1"
                     sx={{
-                        fontFamily: 'serif',
+                        fontFamily: 'var(--font-baskervville)',
                         fontSize: { xs: '2.5rem', sm: '3rem', md: '5rem' },
                         mb: { xs: 1, md: 2 },
                         lineHeight: 1.2
@@ -56,6 +56,7 @@ export default function Hero({
                     <Typography
                         variant="h5"
                         sx={{
+                            fontFamily: 'var(--font-baskervville)',
                             fontWeight: 300,
                             letterSpacing: '0.1em',
                             maxWidth: '800px',
@@ -72,6 +73,7 @@ export default function Hero({
                     <Typography
                         variant="h5"
                         sx={{
+                            fontFamily: 'var(--font-baskervville)',
                             fontWeight: 300,
                             letterSpacing: '0.1em',
                             maxWidth: '1000px',

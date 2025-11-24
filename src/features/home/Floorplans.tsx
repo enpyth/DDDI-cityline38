@@ -4,10 +4,10 @@ import { Box, Container, Typography, Grid, Button } from '@mui/material'
 
 export default function Floorplans() {
     return (
-        <Box id="plans" sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10 }}>
+        <Box id="plans" sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10, fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
                 <Box sx={{ textAlign: 'center', mb: 8 }}>
-                    <Typography variant="h3" sx={{ fontFamily: 'serif', mb: 2 }}>
+                    <Typography variant="h3" sx={{ fontFamily: 'var(--font-baskervville)', mb: 2 }}>
                         Floorplan Overview
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 300 }}>
@@ -31,7 +31,7 @@ export default function Floorplans() {
                                 backgroundPosition: 'center',
                             }}
                         />
-                        <Typography variant="h5" sx={{ mt: 2, fontFamily: 'serif' }}>
+                        <Typography variant="h5" sx={{ mt: 2, fontFamily: 'var(--font-baskervville)' }}>
                             Light Living Series
                         </Typography>
                         <Typography variant="body2" sx={{ opacity: 0.8 }}>
@@ -53,7 +53,7 @@ export default function Floorplans() {
                                 backgroundPosition: 'center',
                             }}
                         />
-                        <Typography variant="h5" sx={{ mt: 2, fontFamily: 'serif' }}>
+                        <Typography variant="h5" sx={{ mt: 2, fontFamily: 'var(--font-baskervville)' }}>
                             Balcony Living Series
                         </Typography>
                         <Typography variant="body2" sx={{ opacity: 0.8 }}>

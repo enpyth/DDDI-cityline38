@@ -99,7 +99,7 @@ export default function ContactForm({
     }
 
     return (
-        <Box id="register" sx={{ bgcolor: '#0B1C33', pb: 10, pt: { xs: 5, md: 10 }, position: 'relative' }}>
+        <Box id="register" sx={{ bgcolor: '#0B1C33', pb: 10, pt: { xs: 5, md: 10 }, position: 'relative', fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="md">
                 <Paper
                     elevation={3}
@@ -112,10 +112,10 @@ export default function ContactForm({
                         zIndex: 2
                     }}
                 >
-                    <Typography variant="h4" sx={{ fontFamily: 'serif', textAlign: 'center', mb: 1, fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
+                    <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: 1, fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
                         {title}
                     </Typography>
-                    <Typography variant="h6" sx={{ fontFamily: 'serif', textAlign: 'center', mb: 6, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
+                    <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: 6, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
                         {subtitle}
                     </Typography>
 
@@ -216,7 +216,7 @@ export default function ContactForm({
                                 sx={{
                                     color: '#000',
                                     fontSize: '1.5rem',
-                                    fontFamily: 'serif',
+                                    fontFamily: 'var(--font-baskervville)',
                                     textTransform: 'none',
                                     borderBottom: '1px solid #000',
                                     borderRadius: 0,

@@ -13,8 +13,11 @@ export default function Header() {
 
   const navItems = [
     { label: 'Home', href: '/' },
+    { label: ' |', href: '/' },
     { label: 'Floorplans', href: '/floorplans' },
+    { label: '| ', href: '/' },
     { label: 'Gallery', href: '/gallery' },
+    { label: '|  ', href: '/' },
     { label: 'Register', href: '/register' },
   ]
 
@@ -38,7 +41,7 @@ export default function Header() {
                 primaryTypographyProps={{
                   sx: {
                     color: '#FCE6C8',
-                    fontFamily: 'serif',
+                    fontFamily: 'var(--font-Gotu)',
                     fontSize: '1.2rem'
                   }
                 }}
@@ -59,50 +62,53 @@ export default function Header() {
         borderBottom: '1px solid rgba(255,255,255,0.1)',
       }}
     >
-      <Container maxWidth="lg">
-        <Toolbar sx={{ justifyContent: 'space-between', minHeight: { xs: 70, md: 100 }, px: 0 }}>
+      <Container maxWidth={false} sx={{ px: { xs: 2, md: 6 } }}>
+        <Toolbar sx={{ justifyContent: 'space-between', minHeight: { xs: 90, md: 120 }, px: 0 }}>
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/imgs/logo1.svg" alt="Cityline 38" style={{ height: '40px', maxHeight: '60px' }} className="h-[40px] md:h-[60px]" />
+            <img src="/imgs/logo1.svg" alt="Cityline 38" style={{ height: '80px', maxHeight: '100px' }} className="h-[60px] md:h-[80px]" />
           </Link>
 
           {/* Desktop Navigation */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 4 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'space-around', width: '80%', mx: 4 }}>
             {navItems.map((item, index) => (
-              <Box key={item.label} sx={{ display: 'flex', alignItems: 'center' }}>
-                <Button
-                  component={Link}
-                  href={isHome ? item.href : `${item.href}`}
-                  sx={{
-                    color: '#FCE6C8',
-                    textTransform: 'none',
-                    fontSize: '1rem',
-                    letterSpacing: '0.05em',
-                    fontWeight: 300,
-                    opacity: 0.9,
-                    minWidth: 'auto',
-                    px: 2,
-                    '&:hover': {
-                      backgroundColor: 'transparent',
-                      opacity: 1,
-                    },
-                  }}
-                >
-                  {item.label}
-                </Button>
-                {index < navItems.length - 1 && (
+              <Box key={`${item.label}-${index}`} sx={{ display: 'flex', alignItems: 'center' }}>
+                {item.label === '|' ? (
                   <Box
                     component="span"
                     sx={{
                       color: '#FCE6C8',
-                      mx: 2,
-                      opacity: 0.5,
-                      fontSize: '1.2rem',
-                      fontWeight: 300
+                      fontFamily: 'var(--font-gotu)',
+                      lineHeight: 1,
+                      cursor: 'default'
                     }}
                   >
                     |
                   </Box>
+                ) : (
+                  <Button
+                    component={Link}
+                    href={isHome ? item.href : `${item.href}`}
+                    disableRipple
+                    sx={{
+                      color: '#FCE6C8',
+                      textTransform: 'none',
+                      fontSize: '1.3rem',
+                      fontFamily: 'var(--font-gotu)',
+                      letterSpacing: '0.05em',
+                      minWidth: 'auto',
+                      px: 1,
+                      borderRadius: 0,
+                      borderBottom: '1px solid transparent',
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        opacity: 1,
+                        borderBottom: '1px solid #FCE6C8',
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </Button>
                 )}
               </Box>
             ))}
