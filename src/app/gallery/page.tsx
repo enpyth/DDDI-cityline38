@@ -6,7 +6,9 @@ export default function GalleryPage() {
         <main>
             <Hero
                 title="Gallery"
-                height="50vh"
+                height="58vh"
+                bgSize="120%"
+                bgPosition="center 53%"
             />
             <GalleryGrid />
         </main>

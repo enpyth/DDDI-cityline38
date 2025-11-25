@@ -7,7 +7,9 @@ export default function FloorplansPage() {
             <Hero
                 title="Floorplan Overview"
                 subtitle="Cityline 38 offers two thoughtfully designed series of floorplans, each suited to a different style of living."
-                height="50vh"
+                height="58vh"
+                bgSize="120%"
+                bgPosition="center 53%"
             />
             <FloorplanList />
         </main>

@@ -4,11 +4,26 @@ import { useState, useEffect } from 'react'
 import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
 
 const images = [
-    '/imgs/01.jpg',
-    '/imgs/02.jpg',
-    '/imgs/03.jpg',
-    '/imgs/04.jpg',
-    '/imgs/05.jpg',
+    {
+        src: '/imgs/07.jpg',
+        title: 'Location Advantage',
+        description: 'Located on 38 Anzac Highway, Everard Park <br />— with tram access and approx. 10 minutes to the CBD. <br />Schools, cafés, retail and parks are all within walking distance.'
+    },
+    {
+        src: '/imgs/06.jpg',
+        title: 'Home Configuration',
+        description: '13 three-storey townhouses with 3–4 bedroom configurations and private double garages, offering well-organised spaces ideal for long-term family living.'
+    },
+    {
+        src: '/imgs/02.jpg',
+        title: 'Quality Build',
+        description: 'Featuring double-glazed windows, multiple light aspects and flexible lounge spaces for comfort, energy efficiency and daily practicality.'
+    },
+    {
+        src: '/imgs/08.jpg',
+        title: 'Lifestyle Convenience',
+        description: 'Medical services, shopping, dining and community amenities are close by, offering everyday convenience right at your doorstep.'
+    },
 ]
 
 const AUTO_PLAY_INTERVAL = 5000
@@ -61,7 +76,7 @@ export default function Cityline38AtAGlance() {
                         perspective: '1000px',
                     }}
                 >
-                    {images.map((src, index) => {
+                    {images.map((image, index) => {
                         // Calculate position relative to current index
                         let position = (index - currentIndex + images.length) % images.length
                         if (position > images.length / 2) position -= images.length
@@ -132,7 +147,7 @@ export default function Cityline38AtAGlance() {
                                     position: 'absolute',
                                     width: { xs: '100%', md: 600 },
                                     height: { xs: '100%', md: 400 },
-                                    backgroundImage: `url(${src})`,
+                                    backgroundImage: `url(${image.src})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                     transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -157,7 +172,7 @@ export default function Cityline38AtAGlance() {
                     })}
                 </Box>
 
-                {/* Location Advantage Section */}
+                {/* Dynamic Text Section */}
                 <Box sx={{
                     mt: { xs: 6, md: 10 },
                     pl: { xs: 0, md: 4 },
@@ -174,7 +189,7 @@ export default function Cityline38AtAGlance() {
                             fontSize: { xs: '1.75rem', md: '2.125rem' }
                         }}
                     >
-                        Location Advantage
+                        {images[currentIndex].title}
                     </Typography>
                     <Typography
                         variant="h6"
@@ -188,11 +203,8 @@ export default function Cityline38AtAGlance() {
                             mx: { xs: 'auto', md: 0 },
                             fontFamily: 'var(--font-baskervville)',
                         }}
-                    >
-                        Located on 38 Anzac Highway, Everard Park <br />
-                        — with tram access and approx. 10 minutes to the CBD. <br />
-                        Schools, cafés, retail and parks are all within walking distance.
-                    </Typography>
+                        dangerouslySetInnerHTML={{ __html: images[currentIndex].description }}
+                    />
                 </Box>
             </Container>
         </Box>

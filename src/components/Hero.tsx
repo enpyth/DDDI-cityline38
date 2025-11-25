@@ -8,6 +8,8 @@ interface HeroProps {
     subtitle2?: string
     backgroundImage?: string
     height?: string | number
+    bgSize?: string
+    bgPosition?: string
 }
 
 export default function Hero({
@@ -15,7 +17,9 @@ export default function Hero({
     subtitle,
     subtitle2,
     backgroundImage = '/imgs/05.jpg',
-    height = '60vh'
+    height = '60vh',
+    bgSize = 'cover',
+    bgPosition = 'center'
 }: HeroProps) {
     return (
         <Box
@@ -23,8 +27,8 @@ export default function Hero({
                 height: height,
                 width: '100%',
                 backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: bgSize,
+                backgroundPosition: bgPosition,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

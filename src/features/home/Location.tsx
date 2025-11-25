@@ -2,6 +2,10 @@
 
 import { Box, Container, Typography, List, ListItem, ListItemIcon, ListItemText, Grid } from '@mui/material'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
+import SchoolIcon from '@mui/icons-material/School'
+import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit'
+import LocalMallIcon from '@mui/icons-material/LocalMall'
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
 
 export default function Location() {
     const address = '38 Anzac Hwy, Everard Park SA 5035'
@@ -55,28 +59,40 @@ export default function Location() {
                     <Grid size={{ xs: 12, md: 6 }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, fontFamily: 'var(--font-gotu)' }}>
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8', fontFamily: 'var(--font-baskervville)' }}>Education</Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, color: '#FCE6C8' }}>
+                                    <SchoolIcon />
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontFamily: 'var(--font-baskervville)' }}>Education</Typography>
+                                </Box>
                                 <Typography variant="body1">Adelaide High</Typography>
                                 <Typography variant="body1">Plympton International College</Typography>
                                 <Typography variant="body1">Sturt Street Community School</Typography>
                             </Box>
 
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8', fontFamily: 'var(--font-baskervville)' }}>Transport</Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, color: '#FCE6C8' }}>
+                                    <DirectionsTransitIcon />
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontFamily: 'var(--font-baskervville)' }}>Transport</Typography>
+                                </Box>
                                 <Typography variant="body1">Tram: Forestville (Stop 4) / Black Forest (Stop 5)</Typography>
                                 <Typography variant="body1">Bus: Anzac Hwy (Stop 4)</Typography>
                                 <Typography variant="body1">Anzac Highway</Typography>
                             </Box>
 
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8', fontFamily: 'var(--font-baskervville)' }}>Retail & Leisure</Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, color: '#FCE6C8' }}>
+                                    <LocalMallIcon />
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontFamily: 'var(--font-baskervville)' }}>Retail & Leisure</Typography>
+                                </Box>
                                 <Typography variant="body1">Kurralta Central</Typography>
                                 <Typography variant="body1">Wayville Showground (Adelaide Showground)</Typography>
                                 <Typography variant="body1">Goodwood Road (Shopping Precint)</Typography>
                             </Box>
 
                             <Box>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: '#FCE6C8', fontFamily: 'var(--font-baskervville)' }}>Medical</Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, color: '#FCE6C8' }}>
+                                    <LocalHospitalIcon />
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontFamily: 'var(--font-baskervville)' }}>Medical</Typography>
+                                </Box>
                                 <Typography variant="body1">Ashford Hospital</Typography>
                             </Box>
                         </Box>

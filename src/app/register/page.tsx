@@ -7,11 +7,13 @@ export default function RegisterPage() {
             <Hero
                 title="Register"
                 subtitle="Register your interest for Cityline 38"
-                height="50vh"
+                height="58vh"
+                bgSize="120%"
+                bgPosition="center 53%"
             />
             <ContactForm
-                title=""
-                subtitle="Complete this form and one of our team members will be in touch."
+                title="Complete this form"
+                title2="and one of our team members will be in touch."
             />
         </main>
     )

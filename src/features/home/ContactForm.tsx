@@ -1,17 +1,22 @@
 'use client'
 
 import { useState } from 'react'
-import { Box, Container, Typography, TextField, Button, Grid, Paper } from '@mui/material'
+import { Box, Container, Typography, TextField, Grid, Paper } from '@mui/material'
+import UnderlineButton from '@/components/utils/UnderlineButton'
 import { toast } from 'sonner'
 
 interface ContactFormProps {
     title?: string
+    title2?: string
     subtitle?: string
+    subtitle2?: string
 }
 
 export default function ContactForm({
     title = "Register your Interest",
-    subtitle = "Be the first to know about new releases and updates."
+    title2 = "",
+    subtitle = "",
+    subtitle2 = ""
 }: ContactFormProps) {
     const [isLoading, setIsLoading] = useState(false)
     const [formData, setFormData] = useState({
@@ -107,128 +112,130 @@ export default function ContactForm({
                         bgcolor: '#fff',
                         color: '#000',
                         p: { xs: 4, md: 8 },
-                        borderRadius: 2,
+                        borderRadius: 6,
                         position: 'relative',
                         zIndex: 2
                     }}
                 >
-                    <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: 1, fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
+                    <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
                         {title}
                     </Typography>
-                    <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: 6, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
+                    <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
+                        {title2}
+                    </Typography>
+                    <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mt: 4, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
                         {subtitle}
                     </Typography>
+                    <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: 6, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
+                        {subtitle2}
+                    </Typography>
 
-                    <Grid container spacing={4}>
-                        <Grid size={{ xs: 12, md: 6 }}>
-                            <TextField
-                                fullWidth
-                                label="First Name"
-                                name="firstName"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                variant="standard"
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
+                    <Box sx={{ bgcolor: 'rgba(252, 230, 200, 0.16)', p: { xs: 3, md: 6 }, borderRadius: 2 }}>
+                        <Grid container spacing={4}>
+                            <Grid size={{ xs: 12, md: 6 }}>
+                                <TextField
+                                    fullWidth
+                                    label="First Name"
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12, md: 6 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Last Name"
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Email Address"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    type="email"
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Mobile Number"
+                                    name="mobile"
+                                    value={formData.mobile}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12, md: 6 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Suburb"
+                                    name="suburb"
+                                    value={formData.suburb}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12, md: 6 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Postcode"
+                                    name="postcode"
+                                    value={formData.postcode}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Any message for us?"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    variant="standard"
+                                    multiline
+                                    rows={4}
+                                    required
+                                    InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12 }} sx={{ textAlign: 'center', mt: 4 }}>
+                                <UnderlineButton
+                                    fontSize="2rem"
+                                    onClick={handleSubmit}
+                                    disabled={isLoading}
+                                    sx={{
+                                        color: '#000',
+                                        px: 4,
+                                        '&:hover': { bgcolor: 'transparent', opacity: 0.7 },
+                                        '&:disabled': { opacity: 0.5 }
+                                    }}
+                                >
+                                    {isLoading ? 'Sending...' : 'Learn More'}
+                                </UnderlineButton>
+                            </Grid>
                         </Grid>
-                        <Grid size={{ xs: 12, md: 6 }}>
-                            <TextField
-                                fullWidth
-                                label="Last Name"
-                                name="lastName"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                variant="standard"
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12 }}>
-                            <TextField
-                                fullWidth
-                                label="Email Address"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                variant="standard"
-                                type="email"
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12 }}>
-                            <TextField
-                                fullWidth
-                                label="Mobile Number"
-                                name="mobile"
-                                value={formData.mobile}
-                                onChange={handleChange}
-                                variant="standard"
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, md: 6 }}>
-                            <TextField
-                                fullWidth
-                                label="Suburb"
-                                name="suburb"
-                                value={formData.suburb}
-                                onChange={handleChange}
-                                variant="standard"
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, md: 6 }}>
-                            <TextField
-                                fullWidth
-                                label="Postcode"
-                                name="postcode"
-                                value={formData.postcode}
-                                onChange={handleChange}
-                                variant="standard"
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12 }}>
-                            <TextField
-                                fullWidth
-                                label="Any message for us?"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                variant="standard"
-                                multiline
-                                rows={4}
-                                required
-                                InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12 }} sx={{ textAlign: 'center', mt: 4 }}>
-                            <Button
-                                variant="text"
-                                size="large"
-                                onClick={handleSubmit}
-                                disabled={isLoading}
-                                sx={{
-                                    color: '#000',
-                                    fontSize: '1.5rem',
-                                    fontFamily: 'var(--font-baskervville)',
-                                    textTransform: 'none',
-                                    borderBottom: '1px solid #000',
-                                    borderRadius: 0,
-                                    px: 4,
-                                    '&:hover': { bgcolor: 'transparent', opacity: 0.7 },
-                                    '&:disabled': { opacity: 0.5 }
-                                }}
-                            >
-                                {isLoading ? 'Sending...' : 'Register'}
-                            </Button>
-                        </Grid>
-                    </Grid>
+                    </Box>
                 </Paper>
             </Container>
         </Box>
