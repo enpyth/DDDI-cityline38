@@ -1,7 +1,6 @@
 'use client'
 
-import { Box, Container, Typography, Grid } from '@mui/material'
-import SectionSeparator from '@/components/SectionSeparator'
+import { Box, Container, Typography, Grid, Divider } from '@mui/material'
 import UnderlineButton from '@/components/utils/UnderlineButton'
 
 const FLOORPLAN_SERIES = [
@@ -26,8 +25,8 @@ const FLOORPLAN_SERIES = [
 export default function FloorplanList() {
     return (
         <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 10 }}>
-            <Container >
-                <Box sx={{ textAlign: 'center', mb: 6 }}>
+            <Container maxWidth="xl">
+                <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 10 } }}>
                     <Typography variant="h4" sx={{ mb: 1, color: '#FCE6C8', fontFamily: 'var(--font-baskervville)' }}>
                         Select a series below to explore detailed layouts,
                     </Typography>
@@ -74,7 +73,7 @@ export default function FloorplanList() {
 
                             {index !== FLOORPLAN_SERIES.length - 1 && (
                                 <Box sx={{ mb: 10 }}>
-                                    <SectionSeparator />
+                                    <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
                                 </Box>
                             )}
                         </Box>

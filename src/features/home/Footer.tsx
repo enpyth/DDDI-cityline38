@@ -1,92 +1,131 @@
 'use client'
 
 import Link from 'next/link'
-import { Box, Container, Typography, Grid } from '@mui/material'
+import { Box, Container, Typography, Grid, Divider } from '@mui/material'
 
 export default function Footer() {
   return (
-    <Box
-      component="footer"
-      sx={{
-        bgcolor: '#0B1C33',
-        color: '#fff',
-        pt: 8,
-        pb: 6,
-        mt: 'auto',
-        borderTop: '1px solid rgba(255,255,255,0.1)',
-        fontFamily: 'var(--font-gotu)'
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          {/* Column 1: Logos */}
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
-              <img src="/imgs/logo1.svg" alt="Cityline 38" style={{ height: 40 }} />
-              <img src="/imgs/logo2.svg" alt="DDDI Group" style={{ height: 40 }} />
-              <img src="/imgs/logo3.svg" alt="Cyberate Project Management" style={{ height: 40 }} />
-            </Box>
-          </Grid>
-
-          {/* Column 2: Contact Info */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5, fontFamily: 'var(--font-baskervville)' }}>
-                  Development and Project Management
-                </Typography>
-                <Typography variant="body2" color="grey.400">
-                  Cyberate Project Management
-                </Typography>
+    <Box component="footer" sx={{ mt: 'auto' }}>
+      {/* Top Section - Grey Background */}
+      <Box sx={{ bgcolor: '#54565A', color: '#fff', py: { xs: 2, md: 4 } }}>
+        <Container maxWidth="xl">
+          <Grid container spacing={4}>
+            {/* Column 1: Logo */}
+            <Grid size={{ xs: 12, md: 3 }} sx={{ position: 'relative', mb: { xs: 4, md: 0 } }}>
+              <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'center', md: 'flex-start' }, height: '100%', pr: { md: 4 } }}>
+                <Box component="img" src="/imgs/logo1_white.svg" alt="Cityline 38" sx={{ height: { xs: 120, md: 200 }, maxWidth: '100%' }} />
               </Box>
+              {/* Vertical Divider for Desktop */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  right: 0,
+                  top: '0%',
+                  bottom: '20%',
+                  width: '2px',
+                  bgcolor: 'rgba(255,255,255,0.3)',
+                  display: { xs: 'none', md: 'block' }
+                }}
+              />
+            </Grid>
 
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5, fontFamily: 'var(--font-baskervville)' }}>
-                  Sales and Marketing Management
-                </Typography>
-                <Typography variant="body2" color="grey.400">
-                  DDDI Group
-                </Typography>
+            {/* Column 2: Quick Links */}
+            <Grid size={{ xs: 6, md: 2 }} sx={{ pl: { md: 4 } }}>
+              <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, fontSize: '1.5rem' }}>
+                Quick Links
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                {['Home', 'Floorplans', 'Gallery', 'Register'].map((text) => (
+                  <Link
+                    key={text}
+                    href={`/${text.toLowerCase() === 'home' ? '' : text.toLowerCase()}`}
+                    style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)', fontSize: '1rem' }}
+                  >
+                    {text}
+                  </Link>
+                ))}
               </Box>
+            </Grid>
 
-              <Box>
-                <Typography variant="body2" sx={{ mb: 0.5 }}>
-                  Address: L2/135 Fullarton Rd, Rose Park, SA 5067
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 0.5 }}>
-                  Phone: (08) 7110 0111
-                </Typography>
-                <Typography variant="body2">
-                  Email: <Link href="mailto:info@dddi.com.au" style={{ color: 'inherit', textDecoration: 'underline' }}>info@dddi.com.au</Link>
-                </Typography>
+            {/* Column 3: Terms */}
+            <Grid size={{ xs: 6, md: 2 }}>
+              <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, fontSize: '1.5rem' }}>
+                Terms
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                <Link href="/terms" style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)', fontSize: '1rem' }}>
+                  Terms & Conditions
+                </Link>
+                <Link href="/privacy" style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)', fontSize: '1rem' }}>
+                  Privacy Policy
+                </Link>
               </Box>
-            </Box>
+            </Grid>
+
+            {/* Column 4: Contact Info */}
+            <Grid size={{ xs: 12, md: 5 }} sx={{ mt: { xs: 4, md: 0 } }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <Box>
+                  <Typography variant="body1" sx={{ fontFamily: 'var(--font-gotu)', mb: 0.5, fontSize: '1.1rem' }}>
+                    Development and Project Management:
+                  </Typography>
+                  <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', textDecoration: 'underline', textUnderlineOffset: '8px', fontSize: '1.25rem' }}>
+                    <a href="https://pm.dddi.com.au/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                      Cyberate Project Management
+                    </a>
+                  </Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="body1" sx={{ fontFamily: 'var(--font-gotu)', mb: 0.5, fontSize: '1.1rem' }}>
+                    Sales and Marketing Management
+                  </Typography>
+                  <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', textDecoration: 'underline', textUnderlineOffset: '8px', fontSize: '1.25rem' }}>
+                    <a href="https://www.dddi.com.au/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                      DDDI Group
+                    </a>
+                  </Typography>
+                </Box>
+
+                <Box sx={{ fontFamily: 'var(--font-gotu)', mt: 1, color: 'rgba(255,255,255,0.9)' }}>
+                  <Typography variant="body1" sx={{ mb: 0.5, whiteSpace: 'nowrap' }}>
+                    Address: L2/135 Fullarton Rd, Rose Park, SA 5067
+                  </Typography>
+                  <Typography variant="body1" sx={{ mb: 0.5 }}>
+                    Phone: (08) 7110 0111
+                  </Typography>
+                  <Typography variant="body1">
+                    Email: <a href="mailto:info@dddi.com.au" style={{ color: 'inherit' }}>info@dddi.com.au</a>
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
           </Grid>
+        </Container>
+      </Box>
 
-          {/* Column 3: Legal & Acknowledgement */}
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: { xs: 'flex-start', md: 'flex-end' }, textAlign: { xs: 'left', md: 'right' } }}>
-              <Link href="/terms" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.875rem' }}>
-                Terms & Conditions
-              </Link>
-              <Link href="/privacy" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.875rem' }}>
-                Privacy Policy
-              </Link>
+      {/* Bottom Section - Dark Blue Background */}
+      <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 2 }}>
+        <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
+          <Typography variant="body1" sx={{ mb: 1, fontFamily: 'var(--font-gotu)' }}>
+            Acknowledgement of Country
+          </Typography>
+          <Typography variant="body2" sx={{ display: 'block', color: 'grey.400', mx: 'auto', fontFamily: 'var(--font-gotu)' }}>
+            We acknowledge the Kaurna people as the Traditional Custodians of this land, and pay our respects to Elders past, present, and emerging.
+          </Typography>
 
+          <Divider sx={{ bgcolor: 'rgba(255,255,255,0.2)', my: 1, width: '60%', mx: 'auto' }} />
 
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12 }} sx={{ textAlign: 'center', mt: 4 }}>
-            <Typography variant="caption" color="grey.400" sx={{ display: 'block', mb: 1 }}>
-              Acknowledgement of Country
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4, flexWrap: 'wrap', color: '#FCE6C8' }}>
+            <Typography variant="caption" sx={{ fontFamily: 'var(--font-gotu)', fontSize: '0.8rem' }}>
+              All renders are artist impressions and indicative only
             </Typography>
-            <Typography variant="caption" color="grey.400" sx={{ display: 'block', mx: 'auto' }}>
-              We acknowledge the Kaurna people as the Traditional Custodians of this land, and pay our respects to Elders past, present, and emerging.
+            <Typography variant="caption" sx={{ fontFamily: 'var(--font-gotu)', fontSize: '0.8rem' }}>
+              Copyright 2025
             </Typography>
-          </Grid>
-        </Grid>
-      </Container>
+          </Box>
+        </Container>
+      </Box>
     </Box>
   )
 }
