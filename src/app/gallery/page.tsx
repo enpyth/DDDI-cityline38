@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero'
-import GalleryGrid from '@/features/gallery/GalleryGrid'
+import GalleryGrid from '@/features/home/GalleryGrid'
 
 export default function GalleryPage() {
     return (

@@ -13,3 +13,11 @@ Fix #1-3: 2.5
 Fix #4-6 #8 #10 #12-14: 2
 
 Fix #9, report #11: 1.5
+
+Fix CI: 0.5
+
+Fix #15: 0.7
+
+Code Structure Optimization: 1
+
+New page for SeriesDetail: 0.5

@@ -84,7 +84,6 @@ export default function Hero({
                             mx: 'auto',
                             lineHeight: 1.5,
                             fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
-                            mt: { xs: 1, md: 2 }
                         }}
                     >
                         {subtitle2}

@@ -1,10 +1,10 @@
-import { Box, Divider } from '@mui/material'
 import Hero from '@/components/Hero'
 import ThoughtfullyDesigned from '@/features/home/ThoughtfullyDesigned'
 import Cityline38AtAGlance from '@/features/home/Cityline38AtAGlance'
 import TwoSeries from '@/features/home/TwoSeries'
 import Location from '@/features/home/Location'
 import ContactForm from '@/features/home/ContactForm'
+import SectionSeparator from '@/components/utils/SectionSeparator'
 
 export default function Home() {
   return (
@@ -17,21 +17,13 @@ export default function Home() {
         bgSize="127%"
       />
       <ThoughtfullyDesigned />
-      <Box sx={{ bgcolor: '#0B1C33' }}>
-        <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-      </Box>
+      <SectionSeparator />
       <Cityline38AtAGlance />
-      <Box sx={{ bgcolor: '#0B1C33' }}>
-        <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-      </Box>
+      <SectionSeparator />
       <TwoSeries />
-      <Box sx={{ bgcolor: '#0B1C33' }}>
-        <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-      </Box>
+      <SectionSeparator />
       <Location />
-      <Box sx={{ bgcolor: '#0B1C33' }}>
-        <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-      </Box>
+      <SectionSeparator />
       <ContactForm
         title="Register to Receive the Latest Release Updates"
         subtitle="We will release homes in stages according to construction progress."

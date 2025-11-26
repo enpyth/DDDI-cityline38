@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
 import UnderlineButton from '@/components/utils/UnderlineButton'
 
@@ -11,7 +12,8 @@ const seriesData = [
         shortTitle: 'Series A',
         description: 'A light and efficient three-bedroom layout featuring generous balconies and multi-aspect natural light — ideal for first homebuyers and investors.',
         image: '/imgs/06.jpg', // Placeholder
-        linkText: 'View Balcony Light Living Series'
+        linkText: 'View Balcony Light Living Series',
+        url: '/series-a'
     },
     {
         id: 'series-b',
@@ -19,7 +21,8 @@ const seriesData = [
         shortTitle: 'Series B',
         description: 'A spacious four-bedroom layout with a private master suite and well-defined circulation, offering long-term comfort for growing families.',
         image: '/imgs/07.jpg', // Placeholder
-        linkText: 'View Serene Master Living Series'
+        linkText: 'View Serene Master Living Series',
+        url: '/series-b'
     }
 ]
 
@@ -31,7 +34,7 @@ export default function TwoSeries() {
     const activeSeries = seriesData.find(s => s.id === activeId) || seriesData[0]
 
     return (
-        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 8, md: 12 }, fontFamily: 'var(--font-gotu)' }}>
+        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 2, md: 6 }, fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
                 {/* Header */}
                 <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 10 } }}>
@@ -171,7 +174,7 @@ export default function TwoSeries() {
                         </Typography>
 
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <UnderlineButton>
+                            <UnderlineButton component={Link} href={activeSeries.url}>
                                 {activeSeries.linkText}
                             </UnderlineButton>
                         </Box>

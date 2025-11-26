@@ -43,6 +43,8 @@ export async function middleware(request: NextRequest) {
     '/gallery',
     '/terms',
     '/privacy',
+    '/series-a',
+    '/series-b'
   ]
 
   // Check if the current path is a valid route or a sub-route of valid routes

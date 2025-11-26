@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { AppBar, Toolbar, Button, Box, Container, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
@@ -27,13 +28,16 @@ export default function Header() {
     setMobileOpen(!mobileOpen)
   }
 
+  // 过滤掉包含'|'的导航项用于移动端显示
+  const mobileNavItems = navItems.filter(item => !item.label.includes('|'))
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: '#0B1C33', height: '100%', color: '#fff', pt: 4 }}>
       <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
-        <img src="/imgs/logo1.svg" alt="Cityline 38" style={{ height: '50px' }} />
+        <Image src="/imgs/logo1.svg" alt="Cityline 38" width={150} height={50} style={{ height: 'auto', width: 'auto', maxHeight: '50px' }} priority />
       </Box>
       <List>
-        {navItems.map((item) => (
+        {mobileNavItems.map((item) => (
           <ListItem key={item.label} disablePadding>
             <ListItemButton component={Link} href={item.href} sx={{ textAlign: 'center', py: 2 }}>
               <ListItemText
@@ -66,7 +70,15 @@ export default function Header() {
         <Toolbar sx={{ justifyContent: 'space-between', minHeight: { xs: 90, md: 120 }, px: 0 }}>
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/imgs/logo1.svg" alt="Cityline 38" style={{ height: '80px', maxHeight: '100px' }} className="h-[60px] md:h-[80px]" />
+            <Image
+              src="/imgs/logo1.svg"
+              alt="Cityline 38"
+              width={240}
+              height={80}
+              priority
+              style={{ height: 'auto', width: 'auto', maxHeight: '80px' }}
+              className="h-[60px] md:h-[80px]"
+            />
           </Link>
 
           {/* Desktop Navigation */}
