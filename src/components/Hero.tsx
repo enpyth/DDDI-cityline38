@@ -24,7 +24,7 @@ export default function Hero({
     return (
         <Box
             sx={{
-                height: height,
+                height: { xs: '40vh', md: height },
                 width: '100%',
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: bgSize,
