@@ -16,8 +16,10 @@ Fix #9, report #11: 1.5
 
 Fix CI: 0.5
 
-Fix #15: 0.7
+Fix #15: 0.5
 
 Code Structure Optimization: 1
 
 New page for SeriesDetail: 0.5
+
+Debug blur logo and fix footer display at mobile: 0.5

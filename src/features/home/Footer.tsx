@@ -11,53 +11,53 @@ export default function Footer() {
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             {/* Column 1: Logo */}
-            <Grid size={{ xs: 12, md: 3 }} sx={{ position: 'relative', mb: { xs: 4, md: 0 } }}>
-              <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'center', md: 'flex-start' }, height: '100%', pr: { md: 4 } }}>
-                <Box component="img" src="/imgs/logo1_white.svg" alt="Cityline 38" sx={{ height: { xs: 120, md: 200 }, maxWidth: '100%' }} />
+            <Grid size={{ xs: 4, md: 3 }} sx={{ position: 'relative', mb: { xs: 0, md: 0 } }}>
+              <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'flex-start', md: 'flex-start' }, height: '100%', pr: { xs: 2, md: 4 } }}>
+                <Box component="img" src="/imgs/logo1_white.svg" alt="Cityline 38" sx={{ height: { xs: 100, md: 200 }, maxWidth: '100%' }} />
               </Box>
-              {/* Vertical Divider for Desktop */}
+              {/* Vertical Divider for Desktop and Mobile */}
               <Box
                 sx={{
                   position: 'absolute',
                   right: 0,
                   top: '0%',
-                  bottom: '20%',
+                  bottom: { xs: '0%', md: '20%' },
                   width: '2px',
                   bgcolor: 'rgba(255,255,255,0.3)',
-                  display: { xs: 'none', md: 'block' }
+                  display: 'block'
                 }}
               />
             </Grid>
 
             {/* Column 2: Quick Links */}
-            <Grid size={{ xs: 6, md: 2 }} sx={{ pl: { md: 4 } }}>
-              <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, fontSize: '1.5rem' }}>
+            <Grid size={{ xs: 4, md: 2 }} sx={{ pl: { xs: 0, md: 4 } }}>
+              <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, fontSize: { xs: '1rem', md: '1.5rem' } }}>
                 Quick Links
               </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1, md: 1.5 } }}>
                 {['Home', 'Floorplans', 'Gallery', 'Register'].map((text) => (
                   <Link
                     key={text}
                     href={`/${text.toLowerCase() === 'home' ? '' : text.toLowerCase()}`}
-                    style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)', fontSize: '1rem' }}
+                    style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)' }}
                   >
-                    {text}
+                    <Typography sx={{ fontSize: { xs: '0.85rem', md: '1rem' } }}>{text}</Typography>
                   </Link>
                 ))}
               </Box>
             </Grid>
 
             {/* Column 3: Terms */}
-            <Grid size={{ xs: 6, md: 2 }}>
-              <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, fontSize: '1.5rem' }}>
+            <Grid size={{ xs: 4, md: 2 }} sx={{ pl: { xs: 1, md: 0 } }}>
+              <Typography variant="h6" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, fontSize: { xs: '1rem', md: '1.5rem' } }}>
                 Terms
               </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-                <Link href="/terms" style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)', fontSize: '1rem' }}>
-                  Terms & Conditions
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1, md: 1.5 } }}>
+                <Link href="/terms" style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)' }}>
+                  <Typography sx={{ fontSize: { xs: '0.85rem', md: '1rem' } }}>Terms & Conditions</Typography>
                 </Link>
-                <Link href="/privacy" style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)', fontSize: '1rem' }}>
-                  Privacy Policy
+                <Link href="/privacy" style={{ color: '#fff', textDecoration: 'none', fontFamily: 'var(--font-gotu)' }}>
+                  <Typography sx={{ fontSize: { xs: '0.85rem', md: '1rem' } }}>Privacy Policy</Typography>
                 </Link>
               </Box>
             </Grid>

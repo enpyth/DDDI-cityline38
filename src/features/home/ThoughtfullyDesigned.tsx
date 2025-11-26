@@ -16,7 +16,7 @@ export default function ThoughtfullyDesigned() {
             <Container maxWidth="lg">
                 <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 8 } }}>
                     <Typography variant="h3" sx={{ fontFamily: 'var(--font-baskervville)', mb: 2, color: '#FCE6C8', fontSize: { xs: '2rem', md: '3rem' } }}>
-                        A Thoughtfully Designed Living Layout
+                        A Thoughtfully Balanced Living Layout
                     </Typography>
                     <Typography
                         variant="h4"
