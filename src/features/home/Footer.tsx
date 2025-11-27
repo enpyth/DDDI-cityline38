@@ -13,7 +13,7 @@ export default function Footer() {
             {/* Column 1: Logo */}
             <Grid size={{ xs: 4, md: 3 }} sx={{ position: 'relative', mb: { xs: 0, md: 0 } }}>
               <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'flex-start', md: 'flex-start' }, height: '100%', pr: { xs: 2, md: 4 } }}>
-                <Box component="img" src="/imgs/logo1_white.svg" alt="Cityline 38" sx={{ height: { xs: 100, md: 200 }, maxWidth: '100%' }} />
+                <Box component="img" src="/imgs/logo1.svg" alt="Cityline 38" sx={{ height: { xs: 100, md: 200 }, maxWidth: '100%' }} />
               </Box>
               {/* Vertical Divider for Desktop and Mobile */}
               <Box
