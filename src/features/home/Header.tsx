@@ -15,10 +15,12 @@ export default function Header() {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: ' |', href: '/' },
+    { label: 'Lifestyle', href: '/lifestyle' },
+    { label: '| ', href: '/' },
     { label: 'Floorplans', href: '/floorplans' },
     { label: '| ', href: '/' },
     { label: 'Gallery', href: '/gallery' },
-    { label: '|  ', href: '/' },
+    { label: '| ', href: '/' },
     { label: 'Register', href: '/register' },
   ]
 

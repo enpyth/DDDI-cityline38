@@ -23,3 +23,7 @@ Code Structure Optimization: 1
 New page for SeriesDetail: 0.5
 
 Debug blur logo and fix footer display at mobile: 0.5
+
+Fix #11 and device homepage series layout: 0.5
+
+new page Lifestyle: 1.5 + ?
