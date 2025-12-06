@@ -5,22 +5,22 @@ import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/materi
 
 const images = [
     {
-        src: '/imgs/07.jpg',
+        src: '/imgs/Home/LocalAdv.png',
         title: 'Location Advantage',
         description: 'Located on 38 Anzac Highway, Everard Park <br />— with tram access and approx. 10 minutes to the CBD. <br />Schools, cafés, retail and parks are all within walking distance.'
     },
     {
-        src: '/imgs/06.jpg',
+        src: '/imgs/Home/HomeCon.png',
         title: 'Home Configuration',
         description: '13 three-storey townhouses with 3–4 bedroom configurations and private double garages, offering well-organised spaces ideal for long-term family living.'
     },
     {
-        src: '/imgs/02.jpg',
+        src: '/imgs/Home/QualityBuild.png',
         title: 'Quality Build',
         description: 'Featuring double-glazed windows, multiple light aspects and flexible lounge spaces for comfort, energy efficiency and daily practicality.'
     },
     {
-        src: '/imgs/08.jpg',
+        src: '/imgs/Home/LifestyleCon.png',
         title: 'Lifestyle Convenience',
         description: 'Medical services, shopping, dining and community amenities are close by, offering everyday convenience right at your doorstep.'
     },

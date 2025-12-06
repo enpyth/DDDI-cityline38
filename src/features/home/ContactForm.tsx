@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Box, Container, Typography, TextField, Grid, Paper } from '@mui/material'
+import { Box, Container, Typography, TextField, Grid, Paper, Link } from '@mui/material'
 import UnderlineButton from '@/components/utils/UnderlineButton'
 import { toast } from 'sonner'
 
@@ -117,19 +117,22 @@ export default function ContactForm({
                         zIndex: 2
                     }}
                 >
-                    <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
-                        {title}
-                    </Typography>
-                    <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
-                        {title2}
-                    </Typography>
-                    <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mt: 4, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
-                        {subtitle}
-                    </Typography>
-                    <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', textAlign: 'center', mb: 6, fontWeight: 400, fontSize: { xs: '1rem', md: '1.25rem' } }}>
-                        {subtitle2}
-                    </Typography>
-
+                    <Box sx={{ textAlign: 'center' }}>
+                        <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)' }}>
+                            {title}
+                        </Typography>
+                        <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)' }}>
+                            {title2}
+                        </Typography>
+                    </Box>
+                    <Box textAlign='left' sx={{ pl: { xs: 4, md: 10 }, pr: { xs: 4, md: 18 } }}>
+                        <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', mt: 4 }}>
+                            {subtitle}
+                        </Typography>
+                        <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', mb: 6 }}>
+                            {subtitle2}
+                        </Typography>
+                    </Box>
                     <Box sx={{ bgcolor: 'rgba(252, 230, 200, 0.16)', p: { xs: 3, md: 6 }, borderRadius: 2 }}>
                         <Grid container spacing={4}>
                             <Grid size={{ xs: 12, md: 6 }}>
@@ -219,6 +222,12 @@ export default function ContactForm({
                                     InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
                                 />
                             </Grid>
+                            <Grid size={{ xs: 12 }} sx={{ mt: 2, mb: 4, mr:2 }}>
+                                <Typography variant="body2" sx={{ fontSize: '0.875rem', lineHeight: 1.6, color: '#333' }}>
+                                    By providing your information, you consent to receiving email and SMS updates from our associated partners regarding upcoming releases and project updates. You may opt out of these communications at any time.<br />
+                                    We may also customise your on-site experience based on your interactions with our website. For further details on how your personal information is handled, please review our <Link href="/terms" sx={{ color: '#000', textDecoration: 'underline' }}>Terms&Conditions</Link> and <Link href="/privacy" sx={{ color: '#000', textDecoration: 'underline' }}>Privacy Policy</Link>.
+                                </Typography>
+                            </Grid>
                             <Grid size={{ xs: 12 }} sx={{ textAlign: 'center', mt: 4 }}>
                                 <UnderlineButton
                                     fontSize="2rem"
@@ -231,7 +240,7 @@ export default function ContactForm({
                                         '&:disabled': { opacity: 0.5 }
                                     }}
                                 >
-                                    {isLoading ? 'Sending...' : 'Learn More'}
+                                    {isLoading ? 'Sending...' : 'Register'}
                                 </UnderlineButton>
                             </Grid>
                         </Grid>

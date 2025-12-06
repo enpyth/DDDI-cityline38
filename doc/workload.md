@@ -29,3 +29,5 @@ Fix #11 and device homepage series layout: 0.5
 new page Lifestyle: 1.5 + 7
 
 rebuild Homepage of Master Plan: 2h
+
+update Homepage Glance, FloorPlans, CTA: 2h

@@ -11,18 +11,18 @@ const seriesData = [
         title: 'Balcony Light Living Series',
         shortTitle: 'Series A',
         description: 'A light and efficient three-bedroom layout featuring generous balconies and multi-aspect natural light — ideal for first homebuyers and investors.',
-        image: '/imgs/06.jpg',
+        image: '/imgs/Home/SeriesA.png',
         linkText: 'Learn More',
-        url: '/series-a'
+        url: '/floorplans'
     },
     {
         id: 'series-b',
         title: 'Serene Master Living',
         shortTitle: 'Series B',
         description: 'A spacious four-bedroom layout with a private master suite and well-defined circulation, offering long-term comfort for growing families.',
-        image: '/imgs/07.jpg',
+        image: '/imgs/Home/SeriesB.png',
         linkText: 'Learn More',
-        url: '/series-b'
+        url: '/floorplans'
     }
 ]
 
@@ -250,7 +250,7 @@ export default function TwoSeries() {
 
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                                     <UnderlineButton component={Link} href={activeSeries.url}>
-                                        View {activeSeries.shortTitle}
+                                        View {activeSeries.title}
                                     </UnderlineButton>
                                 </Box>
                             </Box>
