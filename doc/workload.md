@@ -26,4 +26,6 @@ Debug blur logo and fix footer display at mobile: 0.5
 
 Fix #11 and device homepage series layout: 0.5
 
-new page Lifestyle: 1.5 + ?
+new page Lifestyle: 1.5 + 7
+
+rebuild Homepage of Master Plan: 2h
