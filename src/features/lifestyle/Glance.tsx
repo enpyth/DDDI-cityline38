@@ -26,7 +26,7 @@ export default function Glance() {
                 }}
             >
                 <Image
-                    src="/imgs/lifestyle_glance.png"
+                    src="/imgs/LocalAmenities.jpg"
                     alt="Local Amenities at a Glance"
                     style={{ objectFit: 'cover' }}
                     width={1000}

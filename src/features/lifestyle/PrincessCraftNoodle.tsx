@@ -20,52 +20,38 @@ const getCubicBezierPoint = (t: number, p0: number[], p1: number[], p2: number[]
 
 // Define the main curve segments explicitly
 // This allows us to calculate exact points along the curve
+// All coordinates are within viewBox: 0 0 1200 3300 (x from 0 to 1200, y from 0 to 3300)
 const PATH_SEGMENTS = [
-    // --- 第 1 段：超长、超宽的右弯（主线起始）---
-    // 高度：80 → 1200 (高度约1120，是标准段的2倍多)
-    // 宽度：从X=200向右拉到X=700，水平跨度500
+    // --- Segment 1: Large right curve (main line start) ---  
     {
-        start: [200, 80],      // 起始点：中心轴偏下开始
-        c1: [700, 300],        // 控制点1：向右大幅拉动，在Y=300处
-        c2: [700, 800],       // 控制点2：保持在右侧，Y=1050（距终点垂直距离150）
-        end: [200, 1000]       // 结束点：回到中心轴，为下一段做准备
+        start: [800, 80],      // Start: center axis, lower position
+        c1: [1100, 300],       // Control1: pull right significantly at Y=300
+        c2: [1100, 800],       // Control2: keep right, at Y=800
+        end: [800, 1000]       // End: back to center axis
     },
 
-    // --- 第 2 段：长幅左弯（对称于第1段）---
-    // 高度：1200 → 2000 (高度800)
-    // 宽度：从X=200向左拉到X=-800，水平跨度1000
-    // 计算逻辑：保持与第1段对称平滑
-    // 第1段控制点c2在[700, 1050]，距终点X差500，Y差150
-    // 因此本段c1取对称：[200-500, 1200+150] = [-300, 1350]
+    // --- Segment 2: Large left curve (symmetric to segment 1) ---  
     {
-        start: [200, 1000],    // 起始点：承接上一段终点
-        c1: [-800, 1400],      // 控制点1：向左对称，距离起点X差500，Y差150
-        c2: [-800, 1850],      // 控制点2：保持左侧，Y=1850（距终点垂直距离150）
-        end: [200, 2000]       // 结束点：回到中心轴
+        start: [800, 1000],    // Start: connect to segment 1 end
+        c1: [200, 1400],       // Control1: pull left significantly at Y=1400
+        c2: [200, 1850],       // Control2: keep left, at Y=1850
+        end: [800, 2200]       // End: back to center axis
     },
 
-    // --- 第 3 段：中幅右弯（平滑过渡）---
-    // 高度：2000 → 2600 (高度600，比前两段更紧凑)
-    // 宽度：从X=200向右拉到X=500，水平跨度300（幅度减小）
-    // 平滑要点：控制点c1需与上一段c2保持切线连续
+    // --- Segment 3: Medium right curve (smooth transition) ---  
     {
-        start: [200, 2000],    // 起始点：承接第2段终点
-        c1: [700, 2150],       // 控制点1：向右拉动，幅度300（保持与上一段c2的切线连续性）
-        c2: [700, 2250],       // 控制点2：保持在右侧，Y=2450（距终点垂直距离150）
-        end: [200, 2400]       // 结束点：回到中心轴
+        start: [800, 2200],    // Start: connect to segment 2 end
+        c1: [1350, 2450],      // Control1: pull right moderately at Y=2150
+        c2: [1350, 2550],      // Control2: keep right, at Y=2250
+        end: [800, 2800]       // End: back to center axis
     },
 
-    // --- 第 4 段：中幅左弯（对称于第3段）---
-    // 高度：2600 → 3200 (高度600，与第3段对称)
-    // 宽度：从X=200向左拉到X=-100，水平跨度300
-    // 平滑要点：控制点c1需与第3段c2保持对称
-    // 第3段c2在[500, 2450]，距终点X差300，Y差150
-    // 对称计算：本段c1取[200-300, 2600+150] = [-100, 2750]
+    // --- Segment 4: Medium left curve (symmetric to segment 3) ---  
     {
-        start: [200, 2400],    // 起始点：承接第3段终点
-        c1: [-400, 2550],      // 控制点1：向左对称，距离起点X差300，Y差150
-        c2: [-600, 2750],      // 控制点2：保持左侧，Y=3050（距终点垂直距离150）
-        end: [600, 3100]       // 结束点：回到中心轴，完成波浪
+        start: [800, 2800],    // Start: connect to segment 3 end
+        c1: [100, 3050],       // Control1: pull left moderately at Y=3150
+        c2: [100, 3250],       // Control2: keep left, at Y=2350
+        end: [1100, 3350]       // End: back to center axis, complete the wave
     },
 ]
 
@@ -73,13 +59,13 @@ const PATH_SEGMENTS = [
 // This ensures they stick to the curve even if we change the curve coordinates
 const CONNECTORS = [
     // Transport (Right)
-    { segmentIndex: 0, t: 0.8, length: 400, direction: -1 },
+    { segmentIndex: 1, t: 0.025, length: 400, direction: -1 },
     // Education (Left)
-    { segmentIndex: 1, t: 0, length: 250, direction: 1 },
+    { segmentIndex: 1, t: 0.175, length: 350, direction: 1 },
     // Medical (Right)
-    { segmentIndex: 1, t: 0.03, length: 370, direction: -1 },
+    { segmentIndex: 1, t: 0.205, length: 370, direction: -1 },
     // Retail (Right)
-    { segmentIndex: 1, t: 0.15, length: 500, direction: 1 },
+    { segmentIndex: 1, t: 0.35, length: 500, direction: 1 },
 ]
 
 /**
@@ -100,8 +86,10 @@ export default function PrincessCraftNoodle({ className }: PrincessCraftNoodlePr
     return (
         <svg
             className={className}
-            viewBox="0 0 400 3300"  // 增加高度以完整显示最后一段曲线
-            // preserveAspectRatio="none"
+            viewBox="0 0 1200 3500"  // 简化为更直观的范围
+            preserveAspectRatio="xMidYMin meet"
+            width="100%"
+            height="100%"
             aria-hidden="true"
         >
             <defs>

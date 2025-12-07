@@ -3,28 +3,33 @@
 import React from 'react'
 import { Box, Typography, Grid, Divider } from '@mui/material'
 import Image from 'next/image'
+import { Icons } from '@/components/icons'
 
 const AMENITIES = [
     {
         title: "Transport",
+        icon: "bus",
         content: "Tram: Forestville (Stop 4)/ Black Forest(Stop 5)\nBus: Anzac Hwy (Stop 4)\nAnzac Highway",
         align: "left",
         offset: { md: '10%' }
     },
     {
         title: "Medical",
+        icon: "hospital",
         content: "Ashford Hospital",
         align: "left",
         offset: { md: '5%' }
     },
     {
         title: "Education",
+        icon: "school",
         content: "Adelaide High\nPlympton International College\nSturt Street Community School",
         align: "right",
         offset: { md: '15%' }
     },
     {
         title: "Retail & Leisure",
+        icon: "shop",
         content: "Kurralta Central\nWayville Showground (Adelaide Showground)\nGoodwood Road (Shopping Precinct)",
         align: "right",
         offset: { md: '15%' }
@@ -62,22 +67,22 @@ export default function ImgsDescription() {
             <Box sx={{ display: { xs: 'none', md: 'block' }, mb: 4 }}>
                 <Box sx={{ mb: 4, position: 'relative' }}>
                     {/* Transport */}
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 8, pr: '29%' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 8, pr: '50%' }}>
                         <DesktopAmenityItem item={AMENITIES[0]} />
                     </Box>
 
                     {/* Education (Left) & Medical (Right) */}
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 8 }}>
-                        <Box sx={{ width: '42%', pl: '15%', mt: '2.5%' }}>
+                        <Box sx={{ width: '38%', pl: '15%', display: 'flex', justifyContent: 'flex-end', mt: 5 }}>
                             <DesktopAmenityItem item={AMENITIES[2]} />
                         </Box>
-                        <Box sx={{ width: '45%', pr: '25%', display: 'flex', justifyContent: 'flex-end' }}>
+                        <Box sx={{ width: '50%', pr: '38%', display: 'flex', justifyContent: 'flex-end' }}>
                             <DesktopAmenityItem item={AMENITIES[1]} />
                         </Box>
                     </Box>
 
                     {/* Retail */}
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', pr: '25%' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', pr: '35%' }}>
                         <DesktopAmenityItem item={AMENITIES[3]} />
                     </Box>
                 </Box>
@@ -147,14 +152,30 @@ function DesktopAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
         "Retail & Leisure": "left"
     }
     const isRight = originalAligns[item.title] === 'right'
+    const IconComponent = Icons[item.icon as keyof typeof Icons]
     return (
         <Box sx={{ 
             textAlign: isRight ? 'right' : 'left', 
             maxWidth: '400px'
         }}>
-            <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)', mb: 1 }}>
-                {item.title}
-            </Typography>
+            <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: isRight ? 'flex-end' : 'flex-start',
+                gap: 1, 
+                mb: 1 
+            }}>
+                {IconComponent && (
+                    <IconComponent 
+                        size={24} 
+                        stroke={1.5} 
+                        // sx={{ color: '#FCE6C8' }}
+                    />
+                )}
+                <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)' }}>
+                    {item.title}
+                </Typography>
+            </Box>
             <Typography
                 variant="h6"
                 sx={{
@@ -174,6 +195,7 @@ function DesktopAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
 // 移动端 AmenityItem 组件
 function MobileAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
     const isRight = item.align === 'right'
+    const IconComponent = Icons[item.icon as keyof typeof Icons]
     return (
         <Box sx={{ 
             textAlign: 'left', 
@@ -195,9 +217,24 @@ function MobileAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
                 backgroundColor: '#FCE6C8'
             }} />
             
-            <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)', mb: 1 }}>
-                {item.title}
-            </Typography>
+            <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'flex-start',
+                gap: 1, 
+                mb: 1 
+            }}>
+                {IconComponent && (
+                    <IconComponent 
+                        size={20} 
+                        stroke={1.5} 
+                        // sx={{ color: '#FCE6C8' }}
+                    />
+                )}
+                <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)' }}>
+                    {item.title}
+                </Typography>
+            </Box>
             <Typography
                 variant="h6"
                 sx={{
@@ -243,7 +280,7 @@ function DesktopSeriesItem({ item }: { item: typeof SERIES[0] }) {
 
             {/* Text Side */}
             <Grid size={{ md: 6 }} sx={{ order: isRight ? 1 : 2 }}>
-                <Box sx={{ textAlign: isRight ? 'right' : 'left', px: 4 }}>
+                <Box sx={{ textAlign: 'left', px: 4 }}>
                     <Typography variant="h4" sx={{ fontFamily: 'var(--font-baskervville)', mb: 3 }}>
                         {item.title}
                     </Typography>

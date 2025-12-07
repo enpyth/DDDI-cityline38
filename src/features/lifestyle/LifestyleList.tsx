@@ -25,7 +25,16 @@ export default function LifestyleList() {
 
                 <Box sx={{ position: 'relative' }}>
                     {/* PrincessCraftNoodle作为背景元素 */}
-                    <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 0, height: '3500px' }}>
+                    <Box sx={{ 
+                        position: 'absolute', 
+                        top: 0, 
+                        left: '50%', 
+                        transform: 'translateX(-50%)', 
+                        zIndex: 0, 
+                        height: '3600px',
+                        width: '1200px', // Fixed width matching SVG viewBox
+                        display: { xs: 'none', md: 'none', lg: 'block' } // 在移动端隐藏
+                    }}>
                         <PrincessCraftNoodle
                             className="lifestyle-vector2"
                         />

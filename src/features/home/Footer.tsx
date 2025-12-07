@@ -36,7 +36,7 @@ export default function Footer() {
                 Quick Links
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1, md: 1.5 } }}>
-                {['Home', 'Floorplans', 'Gallery', 'Register'].map((text) => (
+                {['Home', 'Lifestyle', 'Floorplans', 'Gallery', 'Register'].map((text) => (
                   <Link
                     key={text}
                     href={`/${text.toLowerCase() === 'home' ? '' : text.toLowerCase()}`}
