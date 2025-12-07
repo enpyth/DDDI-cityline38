@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function ThoughtfullyDesigned() {
     const theme = useTheme();
-    const isXs = useMediaQuery(theme.breakpoints.down('sm'));
+    const isXs = useMediaQuery(theme.breakpoints.down('md'));
 
     if (isXs) {
         return (

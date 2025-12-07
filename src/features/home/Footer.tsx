@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Box, Container, Typography, Grid, Divider } from '@mui/material'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -12,9 +13,9 @@ export default function Footer() {
           <Grid container spacing={4}>
             {/* Column 1: Logo */}
             <Grid size={{ xs: 4, md: 3 }} sx={{ position: 'relative', mb: { xs: 0, md: 0 } }}>
-              <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'flex-start', md: 'flex-start' }, height: '100%', pr: { xs: 2, md: 4 } }}>
-                <Box component="img" src="/imgs/logo1.svg" alt="Cityline 38" sx={{ height: { xs: 100, md: 200 }, maxWidth: '100%' }} />
-              </Box>
+              {/* <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'flex-start', md: 'flex-start' }, height: '100%', pr: { xs: 2, md: 4 } }}> */}
+                <Image src="/imgs/white.png" alt="Cityline 38" width={150} height={50} style={{ height: 'auto', width: 'auto', maxHeight: '300px' }} priority />
+              {/* </Box> */}
               {/* Vertical Divider for Desktop and Mobile */}
               <Box
                 sx={{

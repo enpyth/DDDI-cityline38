@@ -33,3 +33,5 @@ rebuild Homepage of Master Plan: 2h
 update Homepage Glance, FloorPlans, CTA: 2h
 
 add Turnstile for ContactForm: 1h
+
+rebuild Terms and Privacy Policy: 3h
