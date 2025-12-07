@@ -31,3 +31,5 @@ new page Lifestyle: 1.5 + 7
 rebuild Homepage of Master Plan: 2h
 
 update Homepage Glance, FloorPlans, CTA: 2h
+
+add Turnstile for ContactForm: 1h

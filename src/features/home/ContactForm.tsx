@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Box, Container, Typography, TextField, Grid, Paper, Link } from '@mui/material'
 import UnderlineButton from '@/components/utils/UnderlineButton'
 import { toast } from 'sonner'
@@ -28,11 +28,46 @@ export default function ContactForm({
         postcode: '',
         message: ''
     })
+    const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+    const turnstileRef = useRef<HTMLDivElement>(null)
+    const widgetIdRef = useRef<string | null>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
         setFormData(prev => ({ ...prev, [name]: value }))
     }
+
+    // Explicitly render Turnstile widget when component mounts
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.turnstile && turnstileRef.current && !widgetIdRef.current) {
+            const widgetId = window.turnstile.render(turnstileRef.current, {
+                sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '',
+                theme: 'light',
+                size: 'normal',
+                callback: (token: string) => {
+                    setTurnstileToken(token)
+                },
+                errorCallback: () => {
+                    toast.error('Please complete the security check')
+                },
+                expiredCallback: () => {
+                    // Re-render the widget when the token expires
+                    if (widgetIdRef.current && window.turnstile) {
+                        window.turnstile.reset(widgetIdRef.current)
+                        setTurnstileToken(null)
+                    }
+                }
+            })
+            widgetIdRef.current = widgetId
+        }
+
+        // Cleanup function
+        return () => {
+            if (widgetIdRef.current && typeof window !== 'undefined' && window.turnstile) {
+                window.turnstile.remove(widgetIdRef.current)
+            }
+        }
+    }, [])
 
     const handleSubmit = async () => {
         // Validate all required fields
@@ -64,13 +99,24 @@ export default function ContactForm({
             toast.error('Please enter a message')
             return
         }
+        if (!turnstileToken) {
+            toast.error('Please complete the security check')
+            // Reset and re-render the widget
+            if (widgetIdRef.current && typeof window !== 'undefined' && window.turnstile) {
+                window.turnstile.reset(widgetIdRef.current)
+            }
+            return
+        }
 
         setIsLoading(true)
         try {
             const response = await fetch('/api/resend', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    turnstileToken
+                }),
             })
 
             // Check if response is JSON
@@ -222,13 +268,16 @@ export default function ContactForm({
                                     InputLabelProps={{ shrink: true, sx: { fontWeight: 'bold', color: '#000' } }}
                                 />
                             </Grid>
-                            <Grid size={{ xs: 12 }} sx={{ mt: 2, mb: 4, mr:2 }}>
+                            <Grid size={{ xs: 12 }} sx={{ mt: 2, mr:2 }}>
                                 <Typography variant="body2" sx={{ fontSize: '0.875rem', lineHeight: 1.6, color: '#333' }}>
                                     By providing your information, you consent to receiving email and SMS updates from our associated partners regarding upcoming releases and project updates. You may opt out of these communications at any time.<br />
                                     We may also customise your on-site experience based on your interactions with our website. For further details on how your personal information is handled, please review our <Link href="/terms" sx={{ color: '#000', textDecoration: 'underline' }}>Terms&Conditions</Link> and <Link href="/privacy" sx={{ color: '#000', textDecoration: 'underline' }}>Privacy Policy</Link>.
                                 </Typography>
                             </Grid>
-                            <Grid size={{ xs: 12 }} sx={{ textAlign: 'center', mt: 4 }}>
+                            <Grid size={{ xs: 12, md: 6 }} sx={{ textAlign: 'center', mt: 1}}>
+                                <div ref={turnstileRef} className="flex justify-center" />
+                            </Grid>
+                            <Grid size={{ xs: 12, md: 6 }} sx={{ textAlign: 'center', mt: 1}}>
                                 <UnderlineButton
                                     fontSize="2rem"
                                     onClick={handleSubmit}
