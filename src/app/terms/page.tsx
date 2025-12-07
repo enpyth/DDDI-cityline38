@@ -1,5 +1,3 @@
-'use client'
-
 import Hero from '@/components/Hero'
 import TermsContent from '@/features/terms/TermsContent'
 

@@ -36,4 +36,4 @@ add Turnstile for ContactForm: 1h
 
 rebuild Terms and Privacy Policy: 3h
 
-fix responsive Lifestyle page: 2h
+fix responsive Lifestyle page: 2.5h

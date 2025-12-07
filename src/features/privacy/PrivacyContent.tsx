@@ -1,3 +1,5 @@
+'use client'
+
 import { Container, Typography, Box, Paper, Divider } from '@mui/material'
 
 export default function PrivacyContent() {

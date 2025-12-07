@@ -3,33 +3,36 @@
 import React from 'react'
 import { Box, Typography, Grid, Divider } from '@mui/material'
 import Image from 'next/image'
-import { Icons } from '@/components/icons'
+import SchoolIcon from '@mui/icons-material/School'
+import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit'
+import LocalMallIcon from '@mui/icons-material/LocalMall'
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
 
 const AMENITIES = [
     {
         title: "Transport",
-        icon: "bus",
+        icon: DirectionsTransitIcon,
         content: "Tram: Forestville (Stop 4)/ Black Forest(Stop 5)\nBus: Anzac Hwy (Stop 4)\nAnzac Highway",
         align: "left",
         offset: { md: '10%' }
     },
     {
         title: "Medical",
-        icon: "hospital",
+        icon: LocalHospitalIcon,
         content: "Ashford Hospital",
         align: "left",
         offset: { md: '5%' }
     },
     {
         title: "Education",
-        icon: "school",
+        icon: SchoolIcon,
         content: "Adelaide High\nPlympton International College\nSturt Street Community School",
         align: "right",
         offset: { md: '15%' }
     },
     {
         title: "Retail & Leisure",
-        icon: "shop",
+        icon: LocalMallIcon,
         content: "Kurralta Central\nWayville Showground (Adelaide Showground)\nGoodwood Road (Shopping Precinct)",
         align: "right",
         offset: { md: '15%' }
@@ -152,7 +155,7 @@ function DesktopAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
         "Retail & Leisure": "left"
     }
     const isRight = originalAligns[item.title] === 'right'
-    const IconComponent = Icons[item.icon as keyof typeof Icons]
+    const IconComponent = item.icon
     return (
         <Box sx={{ 
             textAlign: isRight ? 'right' : 'left', 
@@ -167,9 +170,10 @@ function DesktopAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
             }}>
                 {IconComponent && (
                     <IconComponent 
-                        size={24} 
-                        stroke={1.5} 
-                        // sx={{ color: '#FCE6C8' }}
+                        sx={{ 
+                            color: '#FCE6C8',
+                            fontSize: 24
+                        }}
                     />
                 )}
                 <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)' }}>
@@ -195,7 +199,7 @@ function DesktopAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
 // 移动端 AmenityItem 组件
 function MobileAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
     const isRight = item.align === 'right'
-    const IconComponent = Icons[item.icon as keyof typeof Icons]
+    const IconComponent = item.icon
     return (
         <Box sx={{ 
             textAlign: 'left', 
@@ -226,9 +230,10 @@ function MobileAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
             }}>
                 {IconComponent && (
                     <IconComponent 
-                        size={20} 
-                        stroke={1.5} 
-                        // sx={{ color: '#FCE6C8' }}
+                        sx={{ 
+                            color: '#FCE6C8',
+                            fontSize: 20
+                        }}
                     />
                 )}
                 <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)' }}>
