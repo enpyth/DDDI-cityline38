@@ -2,6 +2,7 @@
 
 import { Box, Container, Typography, Grid, useMediaQuery, useTheme } from '@mui/material'
 import Image from 'next/image'
+import SectionHeader from '@/components/utils/SectionHeader'
 
 export default function ThoughtfullyDesigned() {
     const theme = useTheme();
@@ -19,14 +20,10 @@ export default function ThoughtfullyDesigned() {
                 }}
             >
                 <Container maxWidth="lg">
-                    <Box sx={{ textAlign: 'center', mb: 8 }}>
-                        <Typography variant="h3" sx={{ fontFamily: 'var(--font-baskervville)', mb: 2, color: '#FCE6C8' }}>
-                            A Thoughtfully Balanced Living Layout
-                        </Typography>
-                        <Typography variant="h4" sx={{ mx: 'auto', opacity: 0.9, color: '#FCE6C8', fontFamily: 'var(--font-baskervville)' }}>
-                            Where urban convenience meets a calm and orderly neighbourhood.
-                        </Typography>
-                    </Box>
+                    <SectionHeader
+                        title="A Thoughtfully Balanced Living Layout"
+                        subtitle="Where urban convenience meets a calm and orderly neighbourhood."
+                    />
                     {/* XS layout - only 3 paragraphs without image */}
                     <Box sx={{ textAlign: 'center', mx: 'auto', maxWidth: '60%' }}>
                         <Typography variant="h6" sx={{ lineHeight: 1.5, opacity: 0.9, fontFamily: 'var(--font-gotu)', mb: 4 }}>
@@ -57,14 +54,10 @@ export default function ThoughtfullyDesigned() {
         >
             <Container maxWidth="lg">
                 {/* First paragraph */}
-                <Box sx={{ textAlign: 'center', mb: 8 }}>
-                    <Typography variant="h3" sx={{ fontFamily: 'var(--font-baskervville)', mb: 2, color: '#FCE6C8', fontSize: '3rem' }}>
-                        A Thoughtfully Balanced Living Layout
-                    </Typography>
-                    <Typography variant="h4" sx={{ mx: 'auto', opacity: 0.9, color: '#FCE6C8', fontSize: '2.125rem', fontFamily: 'var(--font-baskervville)' }}>
-                        Where urban convenience meets a calm and orderly neighbourhood.
-                    </Typography>
-                </Box>
+                <SectionHeader
+                    title="A Thoughtfully Balanced Living Layout"
+                    subtitle="Where urban convenience meets a calm and orderly neighbourhood."
+                />
 
                 {/* Second paragraph */}
                 <Box sx={{ textAlign: 'left', mb: 8, mx: 'auto', maxWidth: '80%' }}>

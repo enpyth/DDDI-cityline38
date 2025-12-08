@@ -41,3 +41,16 @@ fix responsive Lifestyle page: 2.5h
 Gallery Page: 0.5
 
 Register page add tick, update necessary value, rebuild email format: 0.5
+
+Fix Homepage Section Header with same style: 0.5
+
+Rebuild Homepage Lifestyle Section: 0.5
+
+
+- * Home Page lifestyle section等素材
+- * Floorplans Figma设计多一张，是否需要？缺少图片素材。交互设计确认。
+简介段落用Figma设计。3段文字。✅段落放到灰色部分（待定）。图片素材用placeholder（待定）。
+
+- 响应式
+
+

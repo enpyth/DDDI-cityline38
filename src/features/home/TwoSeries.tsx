@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
 import UnderlineButton from '@/components/utils/UnderlineButton'
+import SectionHeader from '@/components/utils/SectionHeader'
 
 const seriesData = [
     {
@@ -37,37 +38,10 @@ export default function TwoSeries() {
         <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 6 }, fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
                 {/* Header */}
-                <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 10 } }}>
-                    <Typography
-                        variant="h3"
-                        sx={{
-                            fontFamily: 'var(--font-baskervville)',
-                            mb: 3,
-                            color: '#FCE6C8',
-                            fontSize: { xs: '1.75rem', md: '3rem' },
-                            lineHeight: 1.3
-                        }}
-                    >
-                        Two Series.
-                        <br />
-                        Designed for Two Lifestyles.
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            fontWeight: 300,
-                            color: '#fff',
-                            opacity: 0.9,
-                            fontSize: { xs: '0.95rem', md: '1.25rem' },
-                            mx: 'auto',
-                            fontFamily: 'var(--font-baskervville)',
-                            lineHeight: 1.6,
-                            px: { xs: 2, md: 0 }
-                        }}
-                    >
-                        From light and efficient to spacious and serene — choose the layout that matches your lifestyle.
-                    </Typography>
-                </Box>
+                <SectionHeader
+                    title="Two Series. Designed for Two Lifestyles."
+                    subtitle="From light and efficient to spacious and serene — choose the layout that matches your lifestyle."
+                />
 
                 {/* Mobile Layout - Vertical Stacked Cards */}
                 {isMobile ? (

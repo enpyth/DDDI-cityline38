@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
+import SectionHeader from '@/components/utils/SectionHeader'
 
 const images = [
     {
@@ -52,18 +53,9 @@ export default function Cityline38AtAGlance() {
     return (
         <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 10 }, overflow: 'hidden', fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
-                <Typography
-                    variant="h3"
-                    sx={{
-                        fontFamily: 'var(--font-baskervville)',
-                        textAlign: 'center',
-                        mb: { xs: 4, md: 8 },
-                        color: '#FCE6C8',
-                        fontSize: { xs: '2rem', md: '3rem' }
-                    }}
-                >
-                    Cityline 38 at a Glance
-                </Typography>
+                <SectionHeader
+                    title="Cityline 38 at a Glance"
+                />
 
                 <Box
                     sx={{

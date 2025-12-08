@@ -3,6 +3,7 @@ import ThoughtfullyDesigned from '@/features/home/ThoughtfullyDesigned'
 import Cityline38AtAGlance from '@/features/home/Cityline38AtAGlance'
 import TwoSeries from '@/features/home/TwoSeries'
 import Location from '@/features/home/Location'
+import LifeStyle from '@/features/home/LifeStyle'
 import ContactForm from '@/features/home/ContactForm'
 import SectionSeparator from '@/components/utils/SectionSeparator'
 
@@ -22,7 +23,8 @@ export default function Home() {
       <SectionSeparator />
       <TwoSeries />
       <SectionSeparator />
-      <Location />
+      {/* <Location /> */}
+      <LifeStyle />
       <SectionSeparator />
       <ContactForm
         title="Register to Receive the Latest Release Updates"
