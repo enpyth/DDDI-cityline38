@@ -12,8 +12,8 @@ export default function RegisterPage() {
                 bgPosition="center 53%"
             />
             <ContactForm
-                title="Complete this form"
-                title2="and one of our team members will be in touch."
+                title="Register your interest for Cityline 38"
+                subtitle="Complete this form and one of our team members will be in touch."
             />
         </main>
     )

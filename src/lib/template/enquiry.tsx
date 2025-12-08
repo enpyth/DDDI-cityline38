@@ -39,80 +39,26 @@ export function EnquiryEmail({
           boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
         }}
       >
-        <h2
-          style={{
-            margin: '0 0 20px',
-            color: '#0B1C33',
-            borderBottom: '2px solid #FCE6C8',
-            paddingBottom: '10px',
-          }}
-        >
-          New Enquiry From https://cityline38.com.au/
-        </h2>
-        <p style={{ margin: '0 0 24px', fontSize: '16px' }}>
-          You have received a new enquiry from the <strong>Cityline 38</strong> website.
+        <p style={{ margin: '0 0 16px', fontSize: '16px' }}>Hello Admin,</p>
+        <p style={{ margin: '0 0 16px', fontSize: '16px' }}>
+          You got a new message from {firstName} {lastName}
         </p>
-        <table
-          cellPadding={0}
-          cellSpacing={0}
-          style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '24px' }}
-        >
-          <tbody>
-            <tr>
-              <td style={labelStyle}>Name</td>
-              <td style={valueStyle}>
-                {firstName} {lastName}
-              </td>
-            </tr>
-            <tr>
-              <td style={labelStyle}>Email</td>
-              <td style={valueStyle}>
-                <a href={`mailto:${email}`} style={{ color: '#0B1C33' }}>
-                  {email}
-                </a>
-              </td>
-            </tr>
-            {mobile && (
-              <tr>
-                <td style={labelStyle}>Mobile</td>
-                <td style={valueStyle}>{mobile}</td>
-              </tr>
-            )}
-            {suburb && (
-              <tr>
-                <td style={labelStyle}>Suburb</td>
-                <td style={valueStyle}>{suburb}</td>
-              </tr>
-            )}
-            {postcode && (
-              <tr>
-                <td style={labelStyle}>Postcode</td>
-                <td style={valueStyle}>{postcode}</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-
         {message && (
-          <div style={{ marginTop: '20px' }}>
-            <h3 style={{ fontSize: '16px', margin: '0 0 10px', color: '#555' }}>Message:</h3>
-            <div
-              style={{
-                backgroundColor: '#f5f5f5',
-                padding: '15px',
-                borderRadius: '4px',
-                whiteSpace: 'pre-wrap',
-                fontSize: '14px',
-                color: '#333',
-              }}
-            >
-              {message}
-            </div>
+          <div style={{ margin: '0 0 24px', fontSize: '16px', whiteSpace: 'pre-wrap' }}>
+            {message}
           </div>
         )}
-      </div>
-      <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '12px', color: '#888' }}>
-        <p>© {new Date().getFullYear()} Cityline 38. All rights reserved.</p>
+        <div style={{ margin: '0 0 24px' }}>
+          <p style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 'bold' }}>Contact Details:</p>
+          <p style={{ margin: '0 0 8px', fontSize: '16px' }}>Email: {email}</p>
+          <p style={{ margin: '0 0 8px', fontSize: '16px' }}>Phone: {mobile || 'Not provided'}</p>
+          <p style={{ margin: '0 0 8px', fontSize: '16px' }}>Suburb: {suburb || 'Not provided'}</p>
+          <p style={{ margin: '0 0 16px', fontSize: '16px' }}>Postcode: {postcode || 'Not provided'}</p>
+        </div>
+        <p style={{ margin: '0 0 16px', fontSize: '16px' }}>Preference: cityline38</p>
+        <p style={{ margin: '0 0 24px', fontSize: '16px' }}>From page: `https://cityline38.com.au/`</p>
+        <p style={{ margin: '0 0 0', fontSize: '16px' }}>Best wishes,</p>
+        <p style={{ margin: '0 0 0', fontSize: '16px', fontWeight: 'bold' }}>Cyberate Notification</p>
       </div>
     </div>
   )

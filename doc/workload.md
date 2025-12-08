@@ -37,3 +37,7 @@ add Turnstile for ContactForm: 1h
 rebuild Terms and Privacy Policy: 3h
 
 fix responsive Lifestyle page: 2.5h
+
+Gallery Page: 0.5
+
+Register page add tick, update necessary value, rebuild email format: 0.5
