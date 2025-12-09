@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
 import UnderlineButton from '@/components/utils/UnderlineButton'
 import SectionHeader from '@/components/utils/SectionHeader'
+import InteractiveCard from '@/components/utils/InteractiveCard'
 
 const seriesData = [
     {
@@ -13,7 +14,7 @@ const seriesData = [
         shortTitle: 'Series A',
         description: 'A light and efficient three-bedroom layout featuring generous balconies and multi-aspect natural light — ideal for first homebuyers and investors.',
         image: '/imgs/Home/SeriesA.png',
-        linkText: 'Learn More',
+        linkText: 'View More',
         url: '/floorplans'
     },
     {
@@ -22,7 +23,7 @@ const seriesData = [
         shortTitle: 'Series B',
         description: 'A spacious four-bedroom layout with a private master suite and well-defined circulation, offering long-term comfort for growing families.',
         image: '/imgs/Home/SeriesB.png',
-        linkText: 'Learn More',
+        linkText: 'View More',
         url: '/floorplans'
     }
 ]
@@ -35,7 +36,7 @@ export default function TwoSeries() {
     const activeSeries = seriesData.find(s => s.id === activeId) || seriesData[0]
 
     return (
-        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: { xs: 6, md: 6 }, fontFamily: 'var(--font-gotu)' }}>
+        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 8, fontFamily: 'var(--font-gotu)' }}>
             <Container maxWidth="lg">
                 {/* Header */}
                 <SectionHeader
@@ -45,70 +46,16 @@ export default function TwoSeries() {
 
                 {/* Mobile Layout - Vertical Stacked Cards */}
                 {isMobile ? (
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <Box px={6} pb={4} sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                         {seriesData.map((series) => (
-                            <Box
+                            <InteractiveCard
                                 key={series.id}
-                                sx={{
-                                    borderRadius: 2,
-                                    overflow: 'hidden',
-                                    bgcolor: '#fff',
-                                    color: '#0B1C33'
-                                }}
-                            >
-                                {/* Image */}
-                                <Box
-                                    sx={{
-                                        height: 240,
-                                        backgroundImage: `url(${series.image})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center'
-                                    }}
-                                />
-
-                                {/* Content */}
-                                <Box sx={{ p: 3 }}>
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            fontFamily: 'var(--font-baskervville)',
-                                            fontSize: '1.5rem',
-                                            mb: 2,
-                                            color: '#0B1C33'
-                                        }}
-                                    >
-                                        {series.title}
-                                    </Typography>
-
-                                    <Typography
-                                        variant="body1"
-                                        sx={{
-                                            fontFamily: 'var(--font-baskervville)',
-                                            fontSize: '0.95rem',
-                                            lineHeight: 1.7,
-                                            mb: 3,
-                                            color: '#0B1C33'
-                                        }}
-                                    >
-                                        {series.description}
-                                    </Typography>
-
-                                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                                        <UnderlineButton
-                                            component={Link}
-                                            href={series.url}
-                                            sx={{
-                                                color: '#0B1C33',
-                                                '&::after': {
-                                                    bgcolor: '#0B1C33'
-                                                }
-                                            }}
-                                        >
-                                            {series.linkText}
-                                        </UnderlineButton>
-                                    </Box>
-                                </Box>
-                            </Box>
+                                imageSrc={series.image}
+                                title={series.title}
+                                description={series.description}
+                                linkText={series.linkText}
+                                href={series.url}
+                            />
                         ))}
                     </Box>
                 ) : (

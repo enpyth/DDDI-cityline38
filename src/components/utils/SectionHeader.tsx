@@ -1,4 +1,6 @@
-import { Box, Typography, TypographyProps } from '@mui/material'
+'use client'
+
+import { Box, Typography, TypographyProps, useTheme, useMediaQuery } from '@mui/material'
 
 interface SectionHeaderProps {
   title: string
@@ -13,16 +15,22 @@ interface SectionHeaderProps {
 export default function SectionHeader({
   title,
   subtitle,
-  titleVariant = 'h4',
-  subtitleVariant = 'h5',
+  titleVariant,
+  subtitleVariant = 'h6',
   sx,
   titleSx,
   subtitleSx
 }: SectionHeaderProps) {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  
+  // Set default title variant to h5 on mobile, h4 on desktop
+  // Respect explicitly passed titleVariant prop if provided
+  const effectiveTitleVariant = titleVariant ?? (isMobile ? 'h5' : 'h4')
   return (
-    <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 }, ...sx }}>
+    <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 8 }, ...sx }}>
       <Typography
-        variant={titleVariant}
+        variant={effectiveTitleVariant}
         sx={{
           fontFamily: 'var(--font-baskervville)',
           mb: subtitle ? 3 : 0,
@@ -41,7 +49,7 @@ export default function SectionHeader({
             mx: 'auto',
             fontFamily: 'var(--font-gotu)',
             lineHeight: 1.6,
-            px: { xs: 2, md: 0 },
+            px: { xs: 8, md: 4 },
             ...subtitleSx
           }}
         >

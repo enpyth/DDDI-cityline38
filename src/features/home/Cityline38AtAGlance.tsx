@@ -1,7 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Box, Container, Typography, useTheme, useMediaQuery } from '@mui/material'
+import { Box, Container, Typography, useTheme, useMediaQuery, IconButton } from '@mui/material'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 import SectionHeader from '@/components/utils/SectionHeader'
 
 const images = [
@@ -68,6 +71,39 @@ export default function Cityline38AtAGlance() {
                         perspective: '1000px',
                     }}
                 >
+                    {/* Mobile Navigation Arrows */}
+                    {isMobile && (
+                        <>
+                            <IconButton
+                                onClick={() => handleImageClick(-1)}
+                                sx={{
+                                    position: 'absolute',
+                                    left: 10,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    bgcolor: 'rgba(0, 0, 0, 0.4)',
+                                    color: '#fff',
+                                    zIndex: 11,
+                                }}
+                            >
+                                <ArrowBackIosIcon />
+                            </IconButton>
+                            <IconButton
+                                onClick={() => handleImageClick(1)}
+                                sx={{
+                                    position: 'absolute',
+                                    right: 10,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    bgcolor: 'rgba(0, 0, 0, 0.4)',
+                                    color: '#fff',
+                                    zIndex: 11,
+                                }}
+                            >
+                                <ArrowForwardIosIcon />
+                            </IconButton>
+                        </>
+                    )}
                     {images.map((image, index) => {
                         // Calculate position relative to current index
                         let position = (index - currentIndex + images.length) % images.length
@@ -166,11 +202,11 @@ export default function Cityline38AtAGlance() {
 
                 {/* Dynamic Text Section */}
                 <Box sx={{
-                    mt: { xs: 6, md: 10 },
-                    pl: { xs: 0, md: 4 },
-                    ml: { xs: 0, md: 20 },
-                    borderLeft: { xs: 'none', md: '2px solid #fff' },
-                    textAlign: { xs: 'center', md: 'left' }
+                    mt: 10,
+                    pl: 4,
+                    mx: { xs: 10, md: 20 },
+                    borderLeft: '2px solid #fff',
+                    textAlign: 'left'
                 }}>
                     <Typography
                         variant="h4"

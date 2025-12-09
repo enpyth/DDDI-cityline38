@@ -1,8 +1,8 @@
 'use client'
 
 import { Box, Container, Divider } from '@mui/material'
-import FloorplanHeader from './FloorplanHeader'
 import FloorplanSeries2 from './FloorplanSeries2'
+import SectionHeader from '@/components/utils/SectionHeader'
 
 const FLOORPLAN_SERIES = [
   {
@@ -58,22 +58,26 @@ const FLOORPLAN_SERIES = [
 
 
 export default function FloorplanList() {
-    return (
-        <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 6 }}>
-            <Container maxWidth="xl">
-                <Box sx={{ mb: 10 }}>
-                    <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-                </Box>
-                <FloorplanHeader />
-                <Box sx={{ mb: 6 }}>
-                    <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-                </Box>
-                <FloorplanSeries2 {...FLOORPLAN_SERIES[0]} />
-                <Box sx={{ mb: 10 }}>
-                    <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
-                </Box>
-                <FloorplanSeries2 {...FLOORPLAN_SERIES[1]} />
-            </Container>
+  return (
+    <Box sx={{ bgcolor: '#0B1C33', color: '#fff', py: 6 }}>
+      <Container maxWidth="xl">
+        <Box sx={{ mb: { xs: 4, md: 10 } }}>
+          <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
         </Box>
-    )
+        {/* Floorplan Header Description */}
+        <Box textAlign={'center'} sx={{ mx: 10 }}>
+          <SectionHeader title="Select a series below to explore detailed layouts, room configurations and dimensions for each home." />
+        </Box>
+        <Box sx={{ mb: 6 }}>
+          <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
+        </Box>
+        {/* Floorplan Series */}
+        <FloorplanSeries2 {...FLOORPLAN_SERIES[0]} />
+        <Box sx={{ mb: 10 }}>
+          <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
+        </Box>
+        <FloorplanSeries2 {...FLOORPLAN_SERIES[1]} />
+      </Container>
+    </Box>
+  )
 }

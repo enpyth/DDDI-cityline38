@@ -5,6 +5,7 @@ import LifestyleContent from './LifestyleContent'
 import Glance from './Glance'
 import PrincessCraftNoodle from './PrincessCraftNoodle'
 import ImgsDescription from './ImgsDescription'
+import SectionHeader from '@/components/utils/SectionHeader'
 
 export default function LifestyleList() {
     return (
@@ -18,7 +19,11 @@ export default function LifestyleList() {
             }}
         >
             <Container maxWidth={false} >
-                <LifestyleContent />
+                <Box textAlign={'center'} sx={{ mx: 10 }}>
+                    <SectionHeader title="Everard Park offers a calm, well-established neighbourhood feel, enriched by effortless access to the tram, shops, cafés, schools and green spaces."/>
+                    <SectionHeader title="This sssis everyday living made simple — a lifestyle that balances urban connectivity with a quiet, welcoming community rhythm." />
+                </Box>
+
                 <Box sx={{ mb: 10 }}>
                     <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
                 </Box>

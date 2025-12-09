@@ -50,21 +50,22 @@ Task management: 0.5
 
 Rebuild Floorplan Page: 2.5
 
-sum: 42
+Create mobile page for Homepage, Floorplans, Lifestyle: 5
+
+sum: 47
 
 ---
 
-
 # 网站开发进度
-Floorplans 页面重构 60%
-
-# 待开发任务
-Homepage Lifestyle 等视频素材，完善Lifestyle页面
 Floorplans 页面重构
 Homepage 中 Glance, Series, Lifestyle 移动端页面开发
 Lifestyle 移动端页面开发
-Floorplans 移动端页面开发
 
-待沟通项：
+# 待开发任务
+Homepage Header 移动端页面开发
+Homepage Lifestyle 等视频素材
+
+# 待沟通项
+Floorplans 交互设计部分，点击图片时改为图片细节而不是展开，是否更合理？Show less 改为 collapse是否更合理？
 Register Form 是否要做订阅消息推送和取消订阅功能，是否考虑分阶段完成
-Floorplans 移动端设计缺失
+Floorplans 移动端设计缺失，目前使用和桌面端相同代码。

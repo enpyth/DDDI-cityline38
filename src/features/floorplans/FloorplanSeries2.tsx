@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Box, Typography, Container, Paper, Grid, Modal } from '@mui/material'
+import { Check } from '@mui/icons-material'
 import UnderlineButton from '../../components/utils/UnderlineButton'
 
 interface FloorplanSeries2Props {
@@ -17,7 +18,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
     const [fullScreenImage, setFullScreenImage] = useState<string | null>(null)
 
     return (
-        <Box sx={{ mb: 12 }}>
+        <Box sx={{ pb: { xs: 10, md: 2 } }}>
             <Container maxWidth="md" sx={{ mb: 8 }}>
                 <Typography variant="h4" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, textAlign: 'center' }}>
                     {title} {lot && <span><br />{lot}</span>}
@@ -36,7 +37,8 @@ export default function FloorplanSeries2({ title, lot, description, features, im
             {/* Features Card and Images Section */}
             <Container maxWidth="xl" sx={{ position: 'relative', minHeight: { xs: '500px', md: '800px' }, mb: 8 }}>
                 {/* Overlapping Layout Container */}
-                <Box sx={{ 
+                <Box 
+                    sx={{ 
                     position: 'relative', 
                     width: '100%', 
                     height: '100%',
@@ -50,7 +52,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             top: expanded ? '0' : { xs: '30px', md: '50px' },
                             left: expanded ? '0' : { xs: '10px', md: '50px' },
                             zIndex: 3,
-                            bgcolor: 'rgba(11, 28, 51, 0.9)',
+                            bgcolor: '#5D5D5D',
                             border: '1px solid rgba(252, 230, 200, 0.3)',
                             p: { xs: 2, md: 4 },
                             borderRadius: 2,
@@ -64,19 +66,13 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         </Typography>
                         {features.map((feature, index) => (
                             <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', gap: { xs: 1, md: 2 }, mb: { xs: 1, md: 2 } }}>
-                                <Box sx={{
+                                <Check sx={{
                                     width: { xs: 16, md: 20 },
                                     height: { xs: 16, md: 20 },
-                                    borderRadius: '50%',
-                                    bgcolor: '#FCE6C8',
+                                    color: '#FCE6C8',
                                     mt: 0.5,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
                                     flexShrink: 0
-                                }}>
-                                    <Box sx={{ width: { xs: 6, md: 8 }, height: { xs: 6, md: 8 }, borderRadius: '50%', bgcolor: '#0B1C33' }} />
-                                </Box>
+                                }} />
                                 <Typography sx={{ fontFamily: 'var(--font-gotu)', color: '#fff', lineHeight: 1.6, fontSize: { xs: '0.875rem', md: '1rem' } }}>
                                     {feature}
                                 </Typography>
@@ -87,9 +83,9 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         <Box sx={{ mt: { xs: 2, md: 4 }, textAlign: 'center' }}>
                             <UnderlineButton 
                                 onClick={() => setExpanded(!expanded)}
-                                sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}
+                                sx={{ fontSize: { xs: '1rem', md: '1.5rem' } }}
                             >
-                                {expanded ? 'Collapse' : 'Expand'}
+                                {expanded ? 'Collapse' : 'Expand the Floorplans'}
                             </UnderlineButton>
                         </Box>
                     </Paper>

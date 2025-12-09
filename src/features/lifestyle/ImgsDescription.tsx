@@ -7,6 +7,7 @@ import SchoolIcon from '@mui/icons-material/School'
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit'
 import LocalMallIcon from '@mui/icons-material/LocalMall'
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
+import InteractiveCard from '@/components/utils/InteractiveCard'
 
 const AMENITIES = [
     {
@@ -43,21 +44,21 @@ const SERIES = [
     {
         title: "Connected Living, Simplified",
         description: "With the tram just minutes away and the CBD around 10 minutes from your door, daily travel becomes effortless. Cityline 38 offers rare urban connectivity while retaining the calm and order of a residential neighbourhood.",
-        image: "/imgs/01.jpg",
+        image: "/imgs/Lifestyle/Section1.jpg",
         alt: "Connected Living, Simplified",
         align: "left"
     },
     {
         title: "Cafés, Walkability and a Calmer Rhythm",
         description: "Tree-lined paths, local cafés and nearby green spaces bring a gentle rhythm to everyday life. Whether it’s a morning walk, a weekend coffee, or exploring the dining spots of Goodwood Road, the neighbourhood feels warm, welcoming and effortlessly enjoyable.",
-        image: "/imgs/02.jpg",
+        image: "/imgs/Lifestyle/Section2.jpg",
         alt: "Cafés, Walkability and a Calmer Rhythm",
         align: "right"
     },
     {
         title: "Daily Convenience Within Walking Distance",
         description: "Shops, schools, sports facilities and local markets sit comfortably within reach. Everyday essentials become simple, with most conveniences easily accessed.",
-        image: "/imgs/02.jpg",
+        image: "/imgs/Lifestyle/Section3.jpg",
         alt: "Daily Convenience Within Walking Distance",
         align: "left"
     }
@@ -65,7 +66,7 @@ const SERIES = [
 
 export default function ImgsDescription() {
     return (
-        <Box sx={{ position: 'relative', pb: 2 }}>
+        <Box sx={{ position: 'relative', pb: { xs: 0, md: 10 } }}>
             {/* Amenities Section - Desktop */}
             <Box sx={{ display: { xs: 'none', md: 'block' }, mb: 4 }}>
                 <Box sx={{ mb: 4, position: 'relative' }}>
@@ -92,22 +93,28 @@ export default function ImgsDescription() {
             </Box>
 
             {/* Amenities Section - Mobile */}
-            <Box sx={{ display: { xs: 'block', md: 'none' }, mb: 4 }}>
+            <Box sx={{ display: { xs: 'block', md: 'none' }, mb: 10 }}>
                 <Box sx={{ mb: 4, position: 'relative' }}>
                     {/* Transport - 左对齐，显示左border */}
                     <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 8, pl: 2, pr: 2 }}>
                         <MobileAmenityItem item={AMENITIES[0]} />
                     </Box>
 
+                    <Divider sx={{ width: '55%', ml: 'auto', borderColor: '#FCE6C8', opacity: 0.5, mb: 4 }} />
+
                     {/* Education - 右对齐，显示右border */}
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 8, pl: 2, pr: 2 }}>
                         <MobileAmenityItem item={AMENITIES[2]} />
                     </Box>
 
+                    <Divider sx={{ width: '55%', mr: 'auto', borderColor: '#FCE6C8', opacity: 0.5, mb: 4 }} />
+
                     {/* Medical - 左对齐，显示左border */}
                     <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 8, pl: 2, pr: 2 }}>
                         <MobileAmenityItem item={AMENITIES[1]} />
                     </Box>
+
+                    <Divider sx={{ width: '55%', ml: 'auto', borderColor: '#FCE6C8', opacity: 0.5, mb: 4 }} />
 
                     {/* Retail - 右对齐，显示右border */}
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end', pl: 2, pr: 2 }}>
@@ -130,15 +137,17 @@ export default function ImgsDescription() {
             </Box>
 
             {/* Series Section - Mobile */}
-            <Box sx={{ display: { xs: 'flex', md: 'none' }, flexDirection: 'column', gap: 8 }}>
+            <Box px={6} sx={{ display: { xs: 'flex', md: 'none' }, flexDirection: 'column', gap: 4 }}>
                 <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
                 {SERIES.map((series, index) => (
-                    <React.Fragment key={index}>
-                        <MobileSeriesItem item={series} />
-                        {index < SERIES.length - 1 && (
-                            <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.3 }} />
-                        )}
-                    </React.Fragment>
+                    <InteractiveCard
+                        key={index}
+                        imageSrc={series.image}
+                        title={series.title}
+                        description={series.description}
+                        linkText="Learn More"
+                        href="#"
+                    />
                 ))}
             </Box>
         </Box>
@@ -157,20 +166,20 @@ function DesktopAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
     const isRight = originalAligns[item.title] === 'right'
     const IconComponent = item.icon
     return (
-        <Box sx={{ 
-            textAlign: isRight ? 'right' : 'left', 
+        <Box sx={{
+            textAlign: isRight ? 'right' : 'left',
             maxWidth: '400px'
         }}>
-            <Box sx={{ 
-                display: 'flex', 
-                alignItems: 'center', 
+            <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
                 justifyContent: isRight ? 'flex-end' : 'flex-start',
-                gap: 1, 
-                mb: 1 
+                gap: 1,
+                mb: 1
             }}>
                 {IconComponent && (
-                    <IconComponent 
-                        sx={{ 
+                    <IconComponent
+                        sx={{
                             color: '#FCE6C8',
                             fontSize: 24
                         }}
@@ -201,8 +210,8 @@ function MobileAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
     const isRight = item.align === 'right'
     const IconComponent = item.icon
     return (
-        <Box sx={{ 
-            textAlign: 'left', 
+        <Box sx={{
+            textAlign: 'left',
             maxWidth: '400px',
             position: 'relative',
             paddingLeft: isRight ? 0 : '20px',
@@ -211,26 +220,26 @@ function MobileAmenityItem({ item }: { item: typeof AMENITIES[0] }) {
             marginRight: isRight ? '20px' : 0
         }}>
             {/* 移动端添加装饰条（左右交替） */}
-            <Box sx={{ 
+            <Box sx={{
                 position: 'absolute',
                 left: isRight ? 'auto' : '-20px',
                 right: isRight ? '-20px' : 'auto',
                 top: 0,
                 height: '100%',
-                width: '2px',
+                width: '3px',
                 backgroundColor: '#FCE6C8'
             }} />
-            
-            <Box sx={{ 
-                display: 'flex', 
-                alignItems: 'center', 
+
+            <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
                 justifyContent: 'flex-start',
-                gap: 1, 
-                mb: 1 
+                gap: 1,
+                mb: 1
             }}>
                 {IconComponent && (
-                    <IconComponent 
-                        sx={{ 
+                    <IconComponent
+                        sx={{
                             color: '#FCE6C8',
                             fontSize: 20
                         }}
@@ -305,52 +314,3 @@ function DesktopSeriesItem({ item }: { item: typeof SERIES[0] }) {
         </Grid>
     )
 }
-
-// 移动端 SeriesItem 组件
-function MobileSeriesItem({ item }: { item: typeof SERIES[0] }) {
-    return (
-        <Box>
-            <Box
-                sx={{
-                    position: 'relative',
-                    width: '100%',
-                    borderRadius: 2,
-                    overflow: 'hidden',
-                    border: '2px solid #FCE6C8',
-                    mb: 4
-                }}
-            >
-                <Image
-                    src={item.image}
-                    alt={item.alt}
-                    width={1000}
-                    height={600}
-                    style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
-                />
-            </Box>
-            <Box sx={{ 
-                border: '2px solid #FCE6C8', 
-                borderRadius: 2, 
-                padding: 4,
-                backgroundColor: 'rgba(0, 0, 0, 0.3)'
-            }}>
-                <Typography variant="h5" sx={{ fontFamily: 'var(--font-baskervville)', mb: 2, color: '#FCE6C8' }}>
-                    {item.title}
-                </Typography>
-                <Typography
-                    variant="body1"
-                    sx={{
-                        fontFamily: 'var(--font-gotu)',
-                        lineHeight: 1.8,
-                        color: '#ccc',
-                        fontSize: '0.95rem'
-                    }}
-                >
-                    {item.description}
-                </Typography>
-            </Box>
-        </Box>
-    )
-}
-
-
