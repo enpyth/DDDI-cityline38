@@ -46,11 +46,25 @@ Fix Homepage Section Header with same style: 0.5
 
 Rebuild Homepage Lifestyle Section: 0.5
 
+Task management: 0.5
 
-- * Home Page lifestyle section等素材
-- * Floorplans Figma设计多一张，是否需要？缺少图片素材。交互设计确认。
-简介段落用Figma设计。3段文字。✅段落放到灰色部分（待定）。图片素材用placeholder（待定）。
+Rebuild Floorplan Page: 2.5
 
-- 响应式
+sum: 42
+
+---
 
 
+# 网站开发进度
+Floorplans 页面重构 60%
+
+# 待开发任务
+Homepage Lifestyle 等视频素材，完善Lifestyle页面
+Floorplans 页面重构
+Homepage 中 Glance, Series, Lifestyle 移动端页面开发
+Lifestyle 移动端页面开发
+Floorplans 移动端页面开发
+
+待沟通项：
+Register Form 是否要做订阅消息推送和取消订阅功能，是否考虑分阶段完成
+Floorplans 移动端设计缺失
