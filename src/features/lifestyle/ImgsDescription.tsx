@@ -137,7 +137,7 @@ export default function ImgsDescription() {
             </Box>
 
             {/* Series Section - Mobile */}
-            <Box px={6} sx={{ display: { xs: 'flex', md: 'none' }, flexDirection: 'column', gap: 4 }}>
+            <Box sx={{ display: { xs: 'flex', md: 'none' }, flexDirection: 'column', gap: 4 }}>
                 <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
                 {SERIES.map((series, index) => (
                     <InteractiveCard

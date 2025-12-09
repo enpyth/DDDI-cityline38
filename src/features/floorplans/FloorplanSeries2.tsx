@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Box, Typography, Container, Paper, Grid, Modal } from '@mui/material'
+import { Box, Typography, Container, Paper, Modal } from '@mui/material'
 import { Check } from '@mui/icons-material'
 import UnderlineButton from '../../components/utils/UnderlineButton'
 
@@ -149,7 +149,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             sx={{
                                 position: expanded ? 'relative' : 'absolute',
                                 top: expanded ? '20px' : { xs: '80px', md: '120px' },
-                                right: expanded ? '0' : { xs: '20px', md: '350px' },
+                                right: expanded ? '0' : { xs: '20px', md: '250px' },
                                 zIndex: 0,
                                 width: expanded ? '70%' : { xs: '80%', md: '500px' },
                                 marginX: expanded ? 'auto' : 0,

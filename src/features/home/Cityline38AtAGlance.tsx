@@ -204,7 +204,7 @@ export default function Cityline38AtAGlance() {
                 <Box sx={{
                     mt: 10,
                     pl: 4,
-                    mx: { xs: 10, md: 20 },
+                    mx: { xs: 4, md: 20 },
                     borderLeft: '2px solid #fff',
                     textAlign: 'left'
                 }}>

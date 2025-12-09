@@ -52,7 +52,9 @@ Rebuild Floorplan Page: 2.5
 
 Create mobile page for Homepage, Floorplans, Lifestyle: 5
 
-sum: 47
+Header mobile page, adjust Homepage mobile layout, Floorplan deploy latest images: 2
+
+sum: 49
 
 ---
 
@@ -60,9 +62,9 @@ sum: 47
 Floorplans 页面重构
 Homepage 中 Glance, Series, Lifestyle 移动端页面开发
 Lifestyle 移动端页面开发
+Header 移动端页面开发
 
 # 待开发任务
-Homepage Header 移动端页面开发
 Homepage Lifestyle 等视频素材
 
 # 待沟通项

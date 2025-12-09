@@ -25,7 +25,7 @@ export default function ThoughtfullyDesigned() {
                         subtitle="Where urban convenience meets a calm and orderly neighbourhood."
                     />
                     {/* XS layout - only 3 paragraphs without image */}
-                    <Box sx={{ textAlign: 'center', mx: 'auto', maxWidth: '60%' }}>
+                    <Box sx={{ textAlign: 'center', mx: 'auto', maxWidth: '80%' }}>
                         <Typography variant="h6" sx={{ lineHeight: 1.5, opacity: 0.9, fontFamily: 'var(--font-gotu)', mb: 4 }}>
                             Cityline 38 introduces a collection of 13 modern three-storey townhouses designed for comfort, convenience and everyday balance.
                         </Typography>

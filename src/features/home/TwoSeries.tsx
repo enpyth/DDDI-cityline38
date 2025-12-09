@@ -46,7 +46,7 @@ export default function TwoSeries() {
 
                 {/* Mobile Layout - Vertical Stacked Cards */}
                 {isMobile ? (
-                    <Box px={6} pb={4} sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    <Box pb={4} sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                         {seriesData.map((series) => (
                             <InteractiveCard
                                 key={series.id}

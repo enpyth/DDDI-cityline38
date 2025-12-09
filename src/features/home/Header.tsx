@@ -3,14 +3,15 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { AppBar, Toolbar, Button, Box, Container, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
-import CloseIcon from '@mui/icons-material/Close'
+import { AppBar, Toolbar, Button, Box, Container, IconButton, Fade, Menu, MenuItem, Backdrop } from '@mui/material'
+import SegmentIcon from '@mui/icons-material/Segment';
+import KeyboardCapslockIcon from '@mui/icons-material/KeyboardCapslock';
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -26,38 +27,49 @@ export default function Header() {
 
   const isHome = pathname === '/'
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
+  const handleDrawerToggle = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+    setMobileOpen(true);
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setMobileOpen(false);
   }
 
   // 过滤掉包含'|'的导航项用于移动端显示
-  const mobileNavItems = navItems.filter(item => !item.label.includes('|'))
+  const filteredMobileNavItems = navItems.filter(item => !item.label.includes('|'))
+  // 添加一个空位（无跳转）
+  const mobileNavItems = [...filteredMobileNavItems, { label: '', href: '#' }]
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: '#0B1C33', height: '100%', color: '#fff', pt: 4 }}>
-      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
-        <Image src="/imgs/logo1.svg" alt="Cityline 38" width={150} height={50} style={{ height: 'auto', width: 'auto', maxHeight: '50px' }} priority />
-      </Box>
-      <List>
-        {mobileNavItems.map((item) => (
-          <ListItem key={item.label} disablePadding>
-            <ListItemButton component={Link} href={item.href} sx={{ textAlign: 'center', py: 2 }}>
-              <ListItemText
-                primary={item.label}
-                primaryTypographyProps={{
-                  sx: {
-                    color: '#FCE6C8',
-                    fontFamily: 'var(--font-Gotu)',
-                    fontSize: '1.2rem'
-                  }
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  )
+  const menuSx = {
+    '& .MuiPaper-root': {
+      width: 200,
+      background: 'linear-gradient(180deg, rgba(11, 28, 51, 0.85) 0%, rgba(173, 181, 195, 0.6) 100%)',
+      backdropFilter: 'blur(1px)',
+      marginTop: '0px !important',
+      borderRadius: 0,
+      position: 'fixed',
+      top: '90px !important',
+      right: '0 !important',
+      left: 'auto !important',
+      transform: 'none !important',
+      '& .MuiList-root': {
+        padding: 0,
+      },
+      '& .MuiMenuItem-root': {
+        justifyContent: 'flex-end',
+        textAlign: 'right',
+        color: '#FCE6C8',
+        fontFamily: 'var(--font-Gotu)',
+        fontSize: '1.2rem',
+        padding: '15px 24px',
+        '&:hover': {
+          backgroundColor: 'rgba(252, 230, 200, 0.1)',
+        },
+      },
+    },
+  }
 
   return (
     <AppBar
@@ -131,32 +143,96 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <IconButton
             color="inherit"
-            aria-label="open drawer"
-            edge="start"
+            aria-label={mobileOpen ? "close drawer" : "open drawer"}
+            edge="end"
             onClick={handleDrawerToggle}
-            sx={{ display: { md: 'none' }, color: '#FCE6C8' }}
+            sx={{
+              display: { md: 'none' },
+              color: '#FCE6C8',
+              mr: 0, // 移除右边距
+            }}
           >
-            <MenuIcon />
+            <Box sx={{ position: 'relative', width: '24px', height: '24px' }}>
+              {/* SegmentIcon with Fade transition */}
+              <Fade
+                in={!mobileOpen}
+                timeout={300}
+                unmountOnExit
+              >
+                <Box sx={{ position: 'absolute', top: 0, left: 0 }}>
+                  <SegmentIcon />
+                </Box>
+              </Fade>
+
+              {/* KeyboardCapslockIcon with Fade transition */}
+              <Fade
+                in={mobileOpen}
+                timeout={300}
+                unmountOnExit
+              >
+                <Box sx={{ position: 'absolute', top: 0, left: 0 }}>
+                  <KeyboardCapslockIcon />
+                </Box>
+              </Fade>
+            </Box>
           </IconButton>
         </Toolbar>
       </Container>
 
-      {/* Mobile Drawer */}
-      <Drawer
-        anchor="right"
-        variant="temporary"
+      {/* Mobile Dropdown Menu */}
+      <Menu
+        anchorEl={anchorEl}
         open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
         }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        sx={menuSx}
+        // 禁用默认的位置计算，使用我们自定义的固定定位
+        disableScrollLock
+      >
+        {/* Navigation Items */}
+        {mobileNavItems.map((item) => (
+          <MenuItem
+            key={item.label}
+            component={Link}
+            href={item.href}
+            onClick={handleClose}
+            disableRipple
+          >
+            {item.label}
+          </MenuItem>
+        ))}
+      </Menu>
+
+      {/* Backdrop for menu */}
+      <Backdrop
+        open={mobileOpen}
+        onClick={handleClose}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240, bgcolor: '#0B1C33' },
+          zIndex: (theme) => theme.zIndex.drawer - 1,
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
         }}
-      >
-        {drawer}
-      </Drawer>
+      />
+
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </AppBar>
   )
 }
