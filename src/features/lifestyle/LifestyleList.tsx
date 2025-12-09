@@ -19,7 +19,7 @@ export default function LifestyleList() {
             }}
         >
             <Container maxWidth={false} >
-                <Box textAlign={'center'} sx={{ mx: 10 }}>
+                <Box textAlign={'center'} sx={{ mx: { xs: 2, md: 10 } }}>
                     <SectionHeader title="Everard Park offers a calm, well-established neighbourhood feel, enriched by effortless access to the tram, shops, cafés, schools and green spaces."/>
                     <SectionHeader title="This sssis everyday living made simple — a lifestyle that balances urban connectivity with a quiet, welcoming community rhythm." />
                 </Box>

@@ -98,16 +98,16 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt="Floorplan 1"
                             sx={{
                                 position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? '20px' : { xs: '220px', md: '300px' },
+                                top: expanded ? '20px' : { xs: '220px', md: '250px' },
                                 left: expanded ? '0' : { xs: '5%', md: '15%' },
                                 zIndex: 2,
-                                width: expanded ? '70%' : { xs: '90%', md: '70%' },
+                                width: expanded ? '70%' : { xs: '90%', md: '60%' },
                                 marginX: expanded ? 'auto' : 0,
                                 height: 'auto',
                                 cursor: 'pointer',
                                 border: '2px solid #FCE6C8',
                                 borderRadius: 1,
-                                opacity: expanded ? 1 : 0.7,
+                                opacity: expanded ? 1 : 0.8,
                                 mb: expanded ? 4 : 0,
                                 transition: 'all 0.5s ease-in-out'
                             }}

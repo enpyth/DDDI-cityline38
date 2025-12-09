@@ -82,9 +82,6 @@ export default function InteractiveCard({
                     transition: 'all 0.3s ease',
                     position: 'relative',
                     zIndex: 1,
-                    '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    },
                 }}
             >
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
