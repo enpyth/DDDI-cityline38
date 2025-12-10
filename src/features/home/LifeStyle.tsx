@@ -45,7 +45,7 @@ export default function LifeStyle() {
                 >
                     <video
                         ref={videoRef}
-                        src="/videos/lifestyle.mp4"
+                        src="https://pub-ba5a12e58fd64a07a28cb113b025a51f.r2.dev/dddi_cityline38/lifestyle.MP4"
                         autoPlay
                         loop
                         muted
