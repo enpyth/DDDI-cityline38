@@ -73,7 +73,7 @@ export default function FloorplanList() {
         </Box>
         {/* Floorplan Series */}
         <FloorplanSeries2 {...FLOORPLAN_SERIES[0]} />
-        <Box sx={{ mb: 10 }}>
+        <Box sx={{ my: 10 }}>
           <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
         </Box>
         <FloorplanSeries2 {...FLOORPLAN_SERIES[1]} />

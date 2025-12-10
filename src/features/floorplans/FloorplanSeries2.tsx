@@ -49,15 +49,15 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                     <Paper 
                         sx={{
                             position: expanded ? 'relative' : 'absolute',
-                            top: expanded ? '0' : { xs: '30px', md: '50px' },
-                            left: expanded ? '0' : { xs: '10px', md: '50px' },
+                            top: expanded ? { xs: '20px', md: '100px'} : { xs: '30px', md: '20px' },
+                            left: expanded ? { xs: '10px', md: '70px' } : { xs: '20px', md: '20px' },
                             zIndex: 3,
                             bgcolor: '#5D5D5D',
                             border: '1px solid rgba(252, 230, 200, 0.3)',
                             p: { xs: 2, md: 4 },
                             borderRadius: 2,
                             backdropFilter: 'blur(10px)',
-                            width: expanded ? '100%' : { xs: '90%', md: '600px' },
+                            width: expanded ? { xs: '90%', md: '750px' } : { xs: '90%', md: '750px' },
                             transition: 'all 0.5s ease-in-out'
                         }}
                     >
@@ -98,10 +98,10 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt="Floorplan 1"
                             sx={{
                                 position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? '20px' : { xs: '220px', md: '250px' },
+                                top: expanded ? '120px' : { xs: '220px', md: '250px' },
                                 left: expanded ? '0' : { xs: '5%', md: '15%' },
                                 zIndex: 2,
-                                width: expanded ? '70%' : { xs: '90%', md: '60%' },
+                                width: expanded ? '50%' : { xs: '90%', md: '60%' },
                                 marginX: expanded ? 'auto' : 0,
                                 height: 'auto',
                                 cursor: 'pointer',
@@ -109,7 +109,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 borderRadius: 1,
                                 opacity: expanded ? 1 : 0.8,
                                 mb: expanded ? 4 : 0,
-                                transition: 'all 0.5s ease-in-out'
+                                transition: 'all 0.5s ease-in-out',
                             }}
                             onClick={() => setFullScreenImage(images[0])}
                         />
@@ -123,18 +123,18 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt="Floorplan 2"
                             sx={{
                                 position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? '20px' : { xs: '160px', md: '200px' },
+                                top: expanded ? '120px' : { xs: '160px', md: '200px' },
                                 right: expanded ? '0' : { xs: '10px', md: '80px' },
                                 zIndex: 1,
-                                width: expanded ? '70%' : { xs: '75%', md: '500px' },
+                                width: expanded ? '50%' : { xs: '75%', md: '500px' },
                                 marginX: expanded ? 'auto' : 0,
                                 height: 'auto',
                                 cursor: 'pointer',
                                 border: '2px solid #FCE6C8',
                                 borderRadius: 1,
                                 opacity: expanded ? 1 : 0.8,
-                                mb: expanded ? 4 : 0,
-                                transition: 'all 0.5s ease-in-out'
+                                my: expanded ? 4 : 0,
+                                transition: 'all 0.5s ease-in-out',
                             }}
                             onClick={() => setFullScreenImage(images[1])}
                         />
@@ -148,10 +148,10 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt="Floorplan 3"
                             sx={{
                                 position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? '20px' : { xs: '80px', md: '120px' },
+                                top: expanded ? '120px' : { xs: '80px', md: '120px' },
                                 right: expanded ? '0' : { xs: '20px', md: '250px' },
                                 zIndex: 0,
-                                width: expanded ? '70%' : { xs: '80%', md: '500px' },
+                                width: expanded ? '50%' : { xs: '80%', md: '500px' },
                                 marginX: expanded ? 'auto' : 0,
                                 height: 'auto',
                                 cursor: 'pointer',
@@ -159,7 +159,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 borderRadius: 1,
                                 opacity: expanded ? 1 : 0.9,
                                 mb: expanded ? 4 : 0,
-                                transition: 'all 0.5s ease-in-out'
+                                transition: 'all 0.5s ease-in-out',
                             }}
                             onClick={() => setFullScreenImage(images[2])}
                         />
