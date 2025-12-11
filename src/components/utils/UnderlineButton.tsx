@@ -21,7 +21,8 @@ export default function UnderlineButton({ fontSize = '1rem', sx, children, ...pr
                 pb: 0.5,
                 '&:hover': {
                     bgcolor: 'transparent',
-                    opacity: 0.8
+                    color: '#FCE6C8',
+                    opacity: 1
                 },
                 ...sx
             }}

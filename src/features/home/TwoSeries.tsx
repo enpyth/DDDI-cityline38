@@ -160,7 +160,7 @@ export default function TwoSeries() {
                                         fontSize: '1.125rem',
                                         lineHeight: 1.8,
                                         mb: 3,
-                                        fontFamily: 'var(--font-baskervville)',
+                                        fontFamily: 'var(--font-gotu)',
                                         fontWeight: 300,
                                         borderLeft: '2px solid #fff',
                                         pl: 4,
@@ -170,7 +170,7 @@ export default function TwoSeries() {
                                 </Typography>
 
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                    <UnderlineButton component={Link} href={activeSeries.url}>
+                                    <UnderlineButton fontSize="1.2rem" component={Link} href={activeSeries.url}>
                                         View {activeSeries.title}
                                     </UnderlineButton>
                                 </Box>

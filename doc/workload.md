@@ -58,4 +58,6 @@ Change Lifestyle url to cloudflare public access: 1
 
 Lifestyle update image, layout, animation: 5
 
-sum: 54
+Detail check and adjust: 1h
+
+sum: 55

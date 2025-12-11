@@ -25,7 +25,7 @@ const PATH_SEGMENTS = [
     // --- Segment 1: Large right curve (main line start) ---  
     {
         start: [800, 80],      // Start: center axis, lower position
-        c1: [1100, 300],       // Control1: pull right significantly at Y=300
+        c1: [950, 300],       // Control1: pull right significantly at Y=300
         c2: [1100, 800],       // Control2: keep right, at Y=800
         end: [800, 1000]       // End: back to center axis
     },
@@ -41,7 +41,7 @@ const PATH_SEGMENTS = [
     // --- Segment 3: Medium right curve (smooth transition) ---  
     {
         start: [800, 2200],    // Start: connect to segment 2 end
-        c1: [1350, 2450],      // Control1: pull right moderately at Y=2150
+        c1: [1250, 2450],      // Control1: pull right moderately at Y=2150
         c2: [1350, 2550],      // Control2: keep right, at Y=2250
         end: [800, 2800]       // End: back to center axis
     },
@@ -49,9 +49,9 @@ const PATH_SEGMENTS = [
     // --- Segment 4: Medium left curve (symmetric to segment 3) ---  
     {
         start: [800, 2800],    // Start: connect to segment 3 end
-        c1: [100, 3050],       // Control1: pull left moderately at Y=3150
+        c1: [200, 3050],       // Control1: pull left moderately at Y=3150
         c2: [100, 3250],       // Control2: keep left, at Y=2350
-        end: [1100, 3350]       // End: back to center axis, complete the wave
+        end: [1100, 3500]       // End: back to center axis, complete the wave
     },
 ]
 

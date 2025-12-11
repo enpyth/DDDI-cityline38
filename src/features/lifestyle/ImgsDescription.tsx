@@ -278,7 +278,7 @@ function DesktopSeriesItem({ item }: { item: typeof SERIES[0] }) {
                         position: 'relative',
                         width: '100%',
                         aspectRatio: '16/9',
-                        borderRadius: 2,
+                        borderRadius: 0,
                         overflow: 'hidden',
                         border: '2px solid #FCE6C8'
                     }}
