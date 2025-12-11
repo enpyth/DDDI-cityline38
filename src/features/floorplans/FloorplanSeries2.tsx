@@ -19,7 +19,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
 
     return (
         <Box sx={{ 
-            pb: expanded ? { xs: '450px', md: '1200px' } : { xs: '0px', md: '2px' }, 
+            pb: expanded ? { xs: '500px', md: '1200px' } : { xs: '0px', md: '2px' }, 
             position: 'relative', 
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
             height: 'auto',
