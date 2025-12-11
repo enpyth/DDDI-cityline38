@@ -24,9 +24,9 @@ const FLOORPLAN_SERIES = [
       'Walking distance to the tram, Anzac Highway transport corridor and everyday conveniences'
     ],
     images: [
-      '/imgs/Floorplans/1-701.jpg',
-      '/imgs/Floorplans/1-702.jpg',
-      '/imgs/Floorplans/1-703.jpg'
+      '/imgs/Floorplans/Frame 118.png',
+      '/imgs/Floorplans/Frame 117.png',
+      '/imgs/Floorplans/Frame 119.png',
     ]
   },
   {
@@ -48,9 +48,9 @@ const FLOORPLAN_SERIES = [
       'Walking distance to the tram, Anzac Highway transport corridor and key amenities',
     ],
     images: [
-      '/imgs/Floorplans/8-1301.jpg',
-      '/imgs/Floorplans/8-1302.jpg',
-      '/imgs/Floorplans/8-1303.jpg'
+      '/imgs/Floorplans/Frame 122.png',
+      '/imgs/Floorplans/Frame 120.png',
+      '/imgs/Floorplans/Frame 121.png',
     ]
   }
 ]
@@ -65,7 +65,7 @@ export default function FloorplanList() {
           <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
         </Box>
         {/* Floorplan Header Description */}
-        <Box textAlign={'center'} sx={{ mx: { xs: 2, md: 10 } }}>
+        <Box textAlign={'center'} sx={{ px: { xs: 2, md: 30 } }}>
           <SectionHeader title="Select a series below to explore detailed layouts, room configurations and dimensions for each home." />
         </Box>
         <Box sx={{ mb: 6 }}>

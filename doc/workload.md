@@ -56,20 +56,6 @@ Header mobile page, adjust Homepage mobile layout, Floorplan deploy latest image
 
 Change Lifestyle url to cloudflare public access: 1
 
-sum: 50
+Lifestyle update image, layout, animation: 4
 
----
-
-
-# 待沟通项
-Floorplans 交互设计部分，点击图片时改为图片细节而不是展开，是否更合理？Show less 改为 collapse是否更合理？
-Register Form 是否要做订阅消息推送和取消订阅功能，是否考虑分阶段完成
-Floorplans 移动端设计缺失，目前使用和桌面端相同代码。
-
-
-# 网站开发进度
-
-目前我识别到的设计需求都已完成开发，现阶段我会根据反馈再进行调整。如下两点还需确认：
-
-Register Form 接收邮件账户已改为 info@dddi.com.au，是否需要调整？
-Homepage Lifestyle 等视频素材
+sum: 54

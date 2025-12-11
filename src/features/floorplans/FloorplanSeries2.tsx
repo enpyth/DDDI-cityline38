@@ -18,7 +18,13 @@ export default function FloorplanSeries2({ title, lot, description, features, im
     const [fullScreenImage, setFullScreenImage] = useState<string | null>(null)
 
     return (
-        <Box sx={{ pb: { xs: 10, md: 2 } }}>
+        <Box sx={{ 
+            pb: expanded ? { xs: '900px', md: '1200px' } : { xs: '10px', md: '20px' }, 
+            position: 'relative', 
+            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            height: 'auto',
+            overflow: 'visible'
+        }}>
             <Container maxWidth="md" sx={{ mb: 8 }}>
                 <Typography variant="h4" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, textAlign: 'center' }}>
                     {title} {lot && <span><br />{lot}</span>}
@@ -35,37 +41,42 @@ export default function FloorplanSeries2({ title, lot, description, features, im
             </Container>
 
             {/* Features Card and Images Section */}
-            <Container maxWidth="xl" sx={{ position: 'relative', minHeight: { xs: '500px', md: '800px' }, mb: 8 }}>
+            <Container maxWidth="xl" sx={{ 
+                position: 'relative', 
+                minHeight: { xs: '600px', md: '800px' },
+                mb: 8, 
+                transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+            }}>
                 {/* Overlapping Layout Container */}
                 <Box 
                     sx={{ 
-                    position: 'relative', 
-                    width: '100%', 
-                    height: '100%',
-                    overflow: 'visible',
-                    transition: 'all 0.5s ease-in-out'
-                }}>
-                    {/* Floorplan Card - Top-left (z-index: 3) */}
+                        position: 'relative', 
+                        width: '100%', 
+                        overflow: 'visible',
+                        transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                >
+                    {/* Floorplan Card */}
                     <Paper 
                         sx={{
-                            position: expanded ? 'relative' : 'absolute',
-                            top: expanded ? { xs: '0', md: '100px'} : { xs: '0', md: '20px' },
-                            left: expanded ? { xs: '0', md: '70px' } : { xs: '0', md: '20px' },
+                            position: 'relative',
+                            top: expanded ? { xs: '0', md: '100px' } : { xs: '0', md: '20px' },
+                            left: expanded ? { xs: '0', md: '200px' } : { xs: '0', md: '100px' },
                             zIndex: 3,
                             bgcolor: '#5D5D5D',
-                            border: '1px solid rgba(252, 230, 200, 0.3)',
                             p: { xs: 2, md: 4 },
-                            borderRadius: 2,
+                            borderRadius: 0,
                             backdropFilter: 'blur(10px)',
-                            width: expanded ? { xs: '90%', md: '750px' } : { xs: '90%', md: '750px' },
-                            transition: 'all 0.5s ease-in-out'
+                            width: expanded ? { xs: '95%', md: '750px' } : { xs: '95%', md: '750px' },
+                            transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                            marginBottom: expanded ? { xs: 4, md: 6 } : 0
                         }}
                     >
                         <Typography variant="h6" sx={{ fontFamily: 'var(--font-baskervville)', mb: 3, color: '#fff' }}>
                             Floorplan Features
                         </Typography>
                         {features.map((feature, index) => (
-                            <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', gap: { xs: 1, md: 2 }, mb: { xs: 1, md: 2 } }}>
+                            <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', gap: { xs: 1, md: 2 }, mb: 1 }}>
                                 <Check sx={{
                                     width: { xs: 16, md: 20 },
                                     height: { xs: 16, md: 20 },
@@ -73,7 +84,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                     mt: 0.5,
                                     flexShrink: 0
                                 }} />
-                                <Typography sx={{ fontFamily: 'var(--font-gotu)', color: '#fff', lineHeight: 1.6, fontSize: { xs: '0.875rem', md: '1rem' } }}>
+                                <Typography sx={{ fontFamily: 'var(--font-gotu)', color: '#fff', lineHeight: 1.5, fontSize: { xs: '0.875rem', md: '1rem' } }}>
                                     {feature}
                                 </Typography>
                             </Box>
@@ -90,78 +101,83 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         </Box>
                     </Paper>
 
-                    {/* Image 1 - Bottom layer (z-index: 1) */}
+                    {/* Image 1 - 从初始位置滑动到顶部位置 */}
                     {images[0] && (
                         <Box
                             component="img"
                             src={images[0]}
                             alt="Floorplan 1"
                             sx={{
-                                position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? { xs: '20px', md: '120px' } : { xs: '180px', md: '250px' },
-                                left: expanded ? '0' : { xs: '5%', md: '15%' },
+                                position: 'absolute',
+                                top: expanded ? { xs: '105%', md: '130%' } : { xs: '180px', md: '350px' },
+                                left: expanded ? { xs: '10%', md: '25%' } : { xs: '15%', md: '21%' },
                                 zIndex: 2,
-                                width: expanded ? '50%' : { xs: '90%', md: '60%' },
-                                marginX: expanded ? 'auto' : 0,
+                                width: { xs: '70%', md: '50%' },
                                 height: 'auto',
                                 cursor: 'pointer',
-                                border: '2px solid #FCE6C8',
+                                boxShadow: expanded ? 'none' : '0 4px 20px rgba(255, 255, 255, 0.1)',
                                 borderRadius: 1,
                                 opacity: expanded ? 1 : 0.8,
-                                mb: expanded ? 4 : 0,
-                                transition: 'all 0.5s ease-in-out',
+                                transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                                transform: expanded ? 'translateX(0)' : 'translateX(0)',
+                                marginX: 'auto',
+                                display: 'block'
                             }}
-                            onClick={() => setFullScreenImage(images[0])}
+                            onClick={() => expanded ? setFullScreenImage(images[0]) : setExpanded(true)}
                         />
                     )}
 
-                    {/* Image 2 - Right side (z-index: 1) */}
+                    {/* Image 2 - 从右侧位置滑动到中间位置 */}
                     {images[1] && (
                         <Box
                             component="img"
-                            src={images[1]}
-                            alt="Floorplan 2"
+                            src={expanded ? images[1] : "/imgs/Floorplans/color_bg1.png"}
+                            alt={expanded ? "Floorplan 2" : "Color background 1"}
                             sx={{
-                                position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? { xs: '20px', md: '120px' } : { xs: '160px', md: '200px' },
-                                right: expanded ? '0' : { xs: '10px', md: '80px' },
+                                position: 'absolute',
+                                top: expanded ? { xs: '200%', md: '230%' } : { xs: '160px', md: '230px' },
+                                left: expanded ? { xs: '10%', md: '25%' } : { xs: '10%', md: '28%' },
                                 zIndex: 1,
-                                width: expanded ? '50%' : { xs: '75%', md: '500px' },
-                                marginX: expanded ? 'auto' : 0,
+                                width: { xs: '70%', md: '50%' },
                                 height: 'auto',
                                 cursor: 'pointer',
-                                border: '2px solid #FCE6C8',
-                                borderRadius: 1,
+                                boxShadow: expanded ? 'none' : '0 4px 20px rgba(255, 255, 255, 0.4)',
                                 opacity: expanded ? 1 : 0.8,
-                                my: expanded ? 4 : 0,
-                                transition: 'all 0.5s ease-in-out',
+                                transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                                border: 'none',
+                                outline: 'none',
+                                transitionDelay: expanded ? '0.1s' : '0s',
+                                marginX: 'auto',
+                                display: 'block',
+                                bgcolor: 'transparent'
                             }}
-                            onClick={() => setFullScreenImage(images[1])}
+                            onClick={() => expanded ? setFullScreenImage(images[1]) : setExpanded(true)}
                         />
                     )}
 
-                    {/* Image 3 - Middle layer (z-index: 2) */}
+                    {/* Image 3 - 从中间位置滑动到底部位置 */}
                     {images[2] && (
                         <Box
-                            component="img"
-                            src={images[2]}
-                            alt="Floorplan 3"
+                            component={expanded ? "img" : "img"}
+                            src={expanded ? images[2] : "/imgs/Floorplans/color_bg2.png"}
+                            alt={expanded ? "Floorplan 3" : "Color background 2"}
                             sx={{
-                                position: expanded ? 'relative' : 'absolute',
-                                top: expanded ? { xs: '20px', md: '120px' } : { xs: '80px', md: '120px' },
-                                right: expanded ? '0' : { xs: '20px', md: '250px' },
+                                position: 'absolute',
+                                top: expanded ? { xs: '295%', md: '330%' } : { xs: '80px', md: '100px' },
+                                left: expanded ? { xs: '10%', md: '25%' } : { xs: '5%', md: '16%' },
                                 zIndex: 0,
-                                width: expanded ? '50%' : { xs: '80%', md: '500px' },
-                                marginX: expanded ? 'auto' : 0,
+                                width: { xs: '70%', md: '50%' },
                                 height: 'auto',
                                 cursor: 'pointer',
-                                border: '2px solid #FCE6C8',
-                                borderRadius: 1,
+                                borderRadius: 0,
                                 opacity: expanded ? 1 : 0.9,
-                                mb: expanded ? 4 : 0,
-                                transition: 'all 0.5s ease-in-out',
+                                transition: 'all 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                                transitionDelay: expanded ? '0.2s' : '0s',
+                                marginX: 'auto',
+                                display: 'block',
+                                bgcolor: 'transparent'
                             }}
-                            onClick={() => setFullScreenImage(images[2])}
+                            onClick={() => expanded ? setFullScreenImage(images[2]) : setExpanded(true)}
                         />
                     )}
                 </Box>
