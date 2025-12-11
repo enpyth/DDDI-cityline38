@@ -43,7 +43,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
             {/* Features Card and Images Section */}
             <Container maxWidth="xl" sx={{ 
                 position: 'relative', 
-                minHeight: { xs: '600px', md: '800px' },
+                minHeight: { xs: '480px', md: '800px' },
                 mb: 8, 
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
@@ -135,7 +135,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt={expanded ? "Floorplan 2" : "Color background 1"}
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '155%', md: '230%' } : { xs: '100px', md: '230px' },
+                                top: expanded ? { xs: '145%', md: '230%' } : { xs: '100px', md: '230px' },
                                 left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '28%' },
                                 zIndex: 1,
                                 width: { xs: '70%', md: '50%' },
@@ -163,7 +163,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt={expanded ? "Floorplan 3" : "Color background 2"}
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '205%', md: '330%' } : { xs: '100px', md: '100px' },
+                                top: expanded ? { xs: '185%', md: '330%' } : { xs: '100px', md: '100px' },
                                 left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '16%' },
                                 zIndex: 0,
                                 width: { xs: '70%', md: '50%' },
