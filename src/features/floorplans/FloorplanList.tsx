@@ -3,6 +3,7 @@
 import { Box, Container, Divider } from '@mui/material'
 import FloorplanSeries2 from './FloorplanSeries2'
 import SectionHeader from '@/components/utils/SectionHeader'
+import FloorplanTitleSection from './FloorplanTitleSection'
 
 const FLOORPLAN_SERIES = [
   {
@@ -24,9 +25,10 @@ const FLOORPLAN_SERIES = [
       'Walking distance to the tram, Anzac Highway transport corridor and everyday conveniences'
     ],
     images: [
-      '/imgs/Floorplans/Frame 118.png',
-      '/imgs/Floorplans/Frame 117.png',
-      '/imgs/Floorplans/Frame 119.png',
+      '/imgs/Floorplans/lot1-7.png',
+      '/imgs/Floorplans/lot1-7_GF.png',
+      '/imgs/Floorplans/lot1-7_1F.png',
+      '/imgs/Floorplans/lot1-7_2F.png',
     ]
   },
   {
@@ -48,9 +50,10 @@ const FLOORPLAN_SERIES = [
       'Walking distance to the tram, Anzac Highway transport corridor and key amenities',
     ],
     images: [
-      '/imgs/Floorplans/Frame 122.png',
-      '/imgs/Floorplans/Frame 120.png',
-      '/imgs/Floorplans/Frame 121.png',
+      '/imgs/Floorplans/lot8-13.png',
+      '/imgs/Floorplans/lot8-13_GF.png',
+      '/imgs/Floorplans/lot8-13_1F.png',
+      '/imgs/Floorplans/lot8-13_2F.png',
     ]
   }
 ]
@@ -66,16 +69,18 @@ export default function FloorplanList() {
         </Box>
         {/* Floorplan Header Description */}
         <Box textAlign={'center'} sx={{ px: { xs: 2, md: 30 } }}>
-          <SectionHeader title="Select a series below to explore detailed layouts, room configurations and dimensions for each home." />
+          <SectionHeader title="Discover the two series below, with detailed floorplan, room configurations and more for each home." />
         </Box>
         <Box sx={{ mb: 6 }}>
           <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
         </Box>
         {/* Floorplan Series */}
+        <FloorplanTitleSection title={FLOORPLAN_SERIES[0].title} lot={FLOORPLAN_SERIES[0].lot} description={FLOORPLAN_SERIES[0].description} />
         <FloorplanSeries2 {...FLOORPLAN_SERIES[0]} />
         <Box sx={{ my: { xs: 4, md: 10 } }}>
           <Divider sx={{ width: '70%', mx: 'auto', borderColor: '#FCE6C8', opacity: 0.5 }} />
         </Box>
+        <FloorplanTitleSection title={FLOORPLAN_SERIES[1].title} lot={FLOORPLAN_SERIES[1].lot} description={FLOORPLAN_SERIES[1].description} />
         <FloorplanSeries2 {...FLOORPLAN_SERIES[1]} />
       </Container>
     </Box>

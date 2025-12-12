@@ -34,8 +34,22 @@ export default function ContactForm({
     const widgetIdRef = useRef<string | null>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target
-        setFormData(prev => ({ ...prev, [name]: value }))
+        const target = e.target;
+        const { name } = target;
+        
+        // Handle checkbox separately
+        if (target instanceof HTMLInputElement && target.type === 'checkbox') {
+            setFormData(prev => ({
+                ...prev,
+                [name]: target.checked
+            }));
+        } else {
+            // Handle other input types and textarea
+            setFormData(prev => ({
+                ...prev,
+                [name]: target.value
+            }));
+        }
     }
 
     // Explicitly render Turnstile widget when component mounts
@@ -266,7 +280,7 @@ export default function ContactForm({
                                         style={{ marginTop: '5px', marginRight: '10px', width: '18px', height: '18px' }}
                                     />
                                     <label htmlFor="stayUpdated" style={{ fontSize: '0.875rem', lineHeight: 1.6, color: '#333' }}>
-                                        Stay up to date with latest news in Cityline 38, including new releases and project updates.
+                                        I agree to receive updates about Cityline 38 — including new releases, construction progress and project-related news — which may be sent to me via email or SMS.
                                     </label>
                                 </Box>
                             </Grid>

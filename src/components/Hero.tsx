@@ -26,25 +26,54 @@ export default function Hero({
             sx={{
                 height: { xs: '40vh', md: height },
                 width: '100%',
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: bgSize,
-                backgroundPosition: bgPosition,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
                 position: 'relative',
-                '&::before': {
-                    content: '""',
+                overflow: 'hidden', // 防止图片溢出
+            }}
+        >
+            {/* 使用 img 元素代替 backgroundImage */}
+            <Box
+                component="img"
+                src={backgroundImage}
+                alt=""
+                sx={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover', // 'cover' 或 'contain'
+                    objectPosition: bgPosition,
+                    zIndex: 0,
+                }}
+            />
+            
+            {/* 渐变覆盖层 */}
+            <Box
+                sx={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     right: 0,
                     bottom: 0,
                     background: 'linear-gradient(to bottom, rgba(20, 169, 196, 0.2) 0%, rgba(3, 0, 0, 0.56) 100%)',
-                },
-            }}
-        >
-            <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff', px: { xs: 2, md: 4 } }}>
+                    zIndex: 1,
+                }}
+            />
+            
+            {/* 文字内容 */}
+            <Container 
+                maxWidth="lg" 
+                sx={{ 
+                    position: 'relative', 
+                    zIndex: 2, 
+                    textAlign: 'center', 
+                    color: '#fff', 
+                    px: { xs: 2, md: 4 },
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}
+            >
+                {/* 文字内容保持不变 */}
                 <Typography
                     variant="h1"
                     sx={{

@@ -12,7 +12,7 @@ export default function Footer() {
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             {/* Column 1: Logo */}
-            <Grid size={{ xs: 4, md: 3 }} sx={{ position: 'relative', mb: { xs: 0, md: 0 } }}>
+            <Grid size={{ xs: 4, md: 3 }} sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               {/* <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'flex-start', md: 'flex-start' }, height: '100%', pr: { xs: 2, md: 4 } }}> */}
                 <Image src="/imgs/white.png" alt="Cityline 38" width={150} height={50} style={{ height: 'auto', width: 'auto', maxHeight: '300px' }} priority />
               {/* </Box> */}
@@ -22,9 +22,9 @@ export default function Footer() {
                   position: 'absolute',
                   right: 0,
                   top: '0%',
-                  bottom: { xs: '0%', md: '20%' },
-                  width: '2px',
-                  bgcolor: 'rgba(255,255,255,0.3)',
+                  bottom: 0,
+                  width: '1px',
+                  bgcolor: 'rgba(255,255,255,0.6)',
                   display: 'block'
                 }}
               />

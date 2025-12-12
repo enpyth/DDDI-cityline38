@@ -60,4 +60,6 @@ Lifestyle update image, layout, animation: 5
 
 Detail check and adjust: 1h
 
-sum: 55
+Fix 20251212 feedback 8/10 : 3
+
+sum: 58

@@ -25,20 +25,6 @@ export default function FloorplanSeries2({ title, lot, description, features, im
             height: 'auto',
             overflow: 'visible'
         }}>
-            <Container maxWidth="md" sx={{ mb: 8 }}>
-                <Typography variant="h4" sx={{ fontFamily: 'var(--font-gotu)', mb: 2, textAlign: 'center' }}>
-                    {title} {lot && <span><br />{lot}</span>}
-                </Typography>
-                {description.map((item, index) => (
-                    <Typography 
-                        key={index} 
-                        variant="h5" 
-                        sx={{ lineHeight: 1.8, color: '#ccc', fontFamily: 'var(--font-gotu)', mx: 2, textAlign: 'center' }}
-                    >
-                        {item}
-                    </Typography>
-                ))}
-            </Container>
 
             {/* Features Card and Images Section */}
             <Container maxWidth="xl" sx={{ 
@@ -102,20 +88,19 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                     </Paper>
 
                     {/* Image 1 - 从初始位置滑动到顶部位置 */}
-                    {images[0] && (
+                    {images[3] && (
                         <Box
                             component="img"
-                            src={images[0]}
+                            src={expanded ? images[3] : images[0] }
                             alt="Floorplan 1"
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '105%', md: '130%' } : { xs: '100px', md: '350px' },
+                                top: expanded ? { xs: '105%', md: '330%' } : { xs: '100px', md: '350px' },
                                 left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '21%' },
                                 zIndex: 2,
                                 width: { xs: '70%', md: '50%' },
                                 height: 'auto',
                                 cursor: 'pointer',
-                                boxShadow: expanded ? 'none' : '0 4px 20px rgba(255, 255, 255, 0.1)',
                                 borderRadius: 1,
                                 opacity: expanded ? 1 : 0.8,
                                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -123,15 +108,15 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 marginX: 'auto',
                                 display: 'block'
                             }}
-                            onClick={() => expanded ? setFullScreenImage(images[0]) : setExpanded(true)}
+                            onClick={() => expanded ? setFullScreenImage(images[3]) : setExpanded(true)}
                         />
                     )}
 
                     {/* Image 2 - 从右侧位置滑动到中间位置 */}
-                    {images[1] && (
+                    {images[2] && (
                         <Box
                             component="img"
-                            src={expanded ? images[1] : "/imgs/Floorplans/color_bg1.png"}
+                            src={expanded ? images[2] : "/imgs/Floorplans/color_bg1.png"}
                             alt={expanded ? "Floorplan 2" : "Color background 1"}
                             sx={{
                                 position: 'absolute',
@@ -151,19 +136,19 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 display: 'block',
                                 bgcolor: 'transparent'
                             }}
-                            onClick={() => expanded ? setFullScreenImage(images[1]) : setExpanded(true)}
+                            onClick={() => expanded ? setFullScreenImage(images[2]) : setExpanded(true)}
                         />
                     )}
 
                     {/* Image 3 - 从中间位置滑动到底部位置 */}
-                    {images[2] && (
+                    {images[1] && (
                         <Box
                             component={expanded ? "img" : "img"}
-                            src={expanded ? images[2] : "/imgs/Floorplans/color_bg2.png"}
+                            src={expanded ? images[1] : "/imgs/Floorplans/color_bg2.png"}
                             alt={expanded ? "Floorplan 3" : "Color background 2"}
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '185%', md: '330%' } : { xs: '100px', md: '100px' },
+                                top: expanded ? { xs: '185%', md: '130%' } : { xs: '100px', md: '100px' },
                                 left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '16%' },
                                 zIndex: 0,
                                 width: { xs: '70%', md: '50%' },
@@ -177,7 +162,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 display: 'block',
                                 bgcolor: 'transparent'
                             }}
-                            onClick={() => expanded ? setFullScreenImage(images[2]) : setExpanded(true)}
+                            onClick={() => expanded ? setFullScreenImage(images[1]) : setExpanded(true)}
                         />
                     )}
                 </Box>
