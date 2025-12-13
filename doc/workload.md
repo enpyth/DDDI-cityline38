@@ -28,15 +28,15 @@ Fix #11 and device homepage series layout: 0.5
 
 new page Lifestyle: 1.5 + 7
 
-rebuild Homepage of Master Plan: 2h
+rebuild Homepage of Master Plan: 2
 
-update Homepage Glance, FloorPlans, CTA: 2h
+update Homepage Glance, FloorPlans, CTA: 2
 
-add Turnstile for ContactForm: 1h
+add Turnstile for ContactForm: 1
 
-rebuild Terms and Privacy Policy: 3h
+rebuild Terms and Privacy Policy: 3
 
-fix responsive Lifestyle page: 2.5h
+fix responsive Lifestyle page: 2.5
 
 Gallery Page: 0.5
 
@@ -62,4 +62,6 @@ Detail check and adjust: 1h
 
 Fix 20251212 feedback 8/10 : 3
 
-sum: 58
+Develop new Noodle design in Floorplan: 3
+
+sum: 63.5

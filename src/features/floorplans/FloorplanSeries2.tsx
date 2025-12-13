@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Box, Typography, Container, Paper, Modal } from '@mui/material'
 import { Check } from '@mui/icons-material'
 import UnderlineButton from '../../components/utils/UnderlineButton'
+import GuildLine from './GuildLine'
 
 interface FloorplanSeries2Props {
     title: string
@@ -18,41 +19,40 @@ export default function FloorplanSeries2({ title, lot, description, features, im
     const [fullScreenImage, setFullScreenImage] = useState<string | null>(null)
 
     return (
-        <Box sx={{ 
-            pb: expanded ? { xs: '500px', md: '1200px' } : { xs: '0px', md: '2px' }, 
-            position: 'relative', 
+        <Box sx={{
+            pb: expanded ? { xs: '450px', md: '1000px' } : 0,
+            position: 'relative',
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
             height: 'auto',
             overflow: 'visible'
         }}>
 
             {/* Features Card and Images Section */}
-            <Container maxWidth="xl" sx={{ 
-                position: 'relative', 
+            <Container maxWidth="xl" sx={{
+                position: 'relative',
                 minHeight: { xs: '480px', md: '800px' },
-                mb: 8, 
+                mb: 8,
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
                 {/* Overlapping Layout Container */}
-                <Box 
-                    sx={{ 
-                        position: 'relative', 
-                        width: '100%', 
+                <Box
+                    sx={{
+                        position: 'relative',
+                        width: '100%',
                         overflow: 'visible',
                         transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                 >
                     {/* Floorplan Card */}
-                    <Paper 
+                    <Paper
                         sx={{
                             position: 'relative',
                             top: expanded ? { xs: '0', md: '100px' } : { xs: '0', md: '20px' },
-                            left: expanded ? { xs: '0', md: '200px' } : { xs: '0', md: '100px' },
-                            zIndex: 3,
+                            left: expanded ? { xs: '0', md: '150px' } : { xs: '0', md: '50px' },
+                            zIndex: 4,
                             bgcolor: '#5D5D5D',
-                            p: { xs: 2, md: 4 },
+                            p: { xs: 2, md: 3 },
                             borderRadius: 0,
-                            backdropFilter: 'blur(10px)',
                             width: expanded ? { xs: '100%', md: '750px' } : { xs: '100%', md: '750px' },
                             transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                             marginBottom: expanded ? { xs: 4, md: 6 } : 0
@@ -75,10 +75,10 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 </Typography>
                             </Box>
                         ))}
-                        
+
                         {/* Expand/Collapse Button */}
                         <Box sx={{ mt: { xs: 2, md: 4 }, textAlign: 'center' }}>
-                            <UnderlineButton 
+                            <UnderlineButton
                                 onClick={() => setExpanded(!expanded)}
                                 sx={{ fontSize: { xs: '1rem', md: '1.5rem' } }}
                             >
@@ -87,18 +87,50 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         </Box>
                     </Paper>
 
+                    {expanded && (
+                        <Box sx={{ position: 'absolute', top: '100%', display: { xs: 'none', md: 'none', lg: 'block', zIndex: 3 } }}>
+                            <GuildLine
+                                startPoint={{ x: 340, y: 1 }}
+                                branches={[
+                                    {
+                                        point: { x: 340, y: 570 },
+                                        length: 230,
+                                        text: 'Ground Floor',
+                                        textOffset: { x: 50, y: -40 }
+                                    },
+                                    {
+                                        point: { x: 340, y: 1000 },
+                                        length: 280,
+                                        text: 'First Floor',
+                                        textOffset: { x: 150, y: -40 }
+                                    },
+                                    {
+                                        point: { x: 340, y: 1380 },
+                                        length: 380,
+                                        text: 'Second Floor',
+                                        textOffset: { x: 220, y: -40 }
+                                    }
+                                ]}
+                                color="#FFF"
+                                mainLineWidth={3}
+                                branchLineWidth={1}
+                                containerHeight="1300px"
+                            />
+                        </Box>
+                    )}
+
                     {/* Image 1 - 从初始位置滑动到顶部位置 */}
                     {images[3] && (
                         <Box
                             component="img"
-                            src={expanded ? images[3] : images[0] }
+                            src={expanded ? images[3] : images[0]}
                             alt="Floorplan 1"
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '105%', md: '330%' } : { xs: '100px', md: '350px' },
-                                left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '21%' },
+                                top: expanded ? { xs: '190%', md: '320%' } : { xs: '100px', md: '350px' },
+                                left: expanded ? { xs: '15%', md: '32%' } : { xs: '15%', md: '27%' },
                                 zIndex: 2,
-                                width: { xs: '70%', md: '50%' },
+                                width: { xs: '300px', md: '600px' },
                                 height: 'auto',
                                 cursor: 'pointer',
                                 borderRadius: 1,
@@ -120,10 +152,10 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt={expanded ? "Floorplan 2" : "Color background 1"}
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '145%', md: '230%' } : { xs: '100px', md: '230px' },
-                                left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '28%' },
+                                top: expanded ? { xs: '150%', md: '230%' } : { xs: '100px', md: '230px' },
+                                left: expanded ? { xs: '15%', md: '32%' } : { xs: '15%', md: '35%' },
                                 zIndex: 1,
-                                width: { xs: '70%', md: '50%' },
+                                width: { xs: '300px', md: '600px' },
                                 height: 'auto',
                                 cursor: 'pointer',
                                 boxShadow: expanded ? 'none' : '0 4px 20px rgba(255, 255, 255, 0.4)',
@@ -148,10 +180,10 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             alt={expanded ? "Floorplan 3" : "Color background 2"}
                             sx={{
                                 position: 'absolute',
-                                top: expanded ? { xs: '185%', md: '130%' } : { xs: '100px', md: '100px' },
-                                left: expanded ? { xs: '15%', md: '25%' } : { xs: '15%', md: '16%' },
+                                top: expanded ? { xs: '105%', md: '130%' } : { xs: '100px', md: '100px' },
+                                left: expanded ? { xs: '15%', md: '32%' } : { xs: '15%', md: '22%' },
                                 zIndex: 0,
-                                width: { xs: '70%', md: '50%' },
+                                width: { xs: '300px', md: '600px' },
                                 height: 'auto',
                                 cursor: 'pointer',
                                 borderRadius: 0,
