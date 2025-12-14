@@ -20,7 +20,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
 
     return (
         <Box sx={{
-            pb: expanded ? { xs: '450px', md: '1000px' } : 0,
+            pb: expanded ? { xs: '550px', md: '1000px' } : 0,
             position: 'relative',
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
             height: 'auto',
@@ -119,7 +119,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         </Box>
                     )}
 
-                    {/* Image 1 - 从初始位置滑动到顶部位置 */}
+                    {/* Expand the image to the third */}
                     {images[3] && (
                         <Box
                             component="img"
@@ -128,7 +128,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             sx={{
                                 position: 'absolute',
                                 top: expanded ? { xs: '190%', md: '320%' } : { xs: '100px', md: '350px' },
-                                left: expanded ? { xs: '15%', md: '32%' } : { xs: '15%', md: '27%' },
+                                left: expanded ? { xs: '12%', md: '32%' } : { xs: '12%', md: '27%' },
                                 zIndex: 2,
                                 width: { xs: '300px', md: '600px' },
                                 height: 'auto',
@@ -144,7 +144,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         />
                     )}
 
-                    {/* Image 2 - 从右侧位置滑动到中间位置 */}
+                    {/* Expand the image to the second */}
                     {images[2] && (
                         <Box
                             component="img"
@@ -153,7 +153,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             sx={{
                                 position: 'absolute',
                                 top: expanded ? { xs: '150%', md: '230%' } : { xs: '100px', md: '230px' },
-                                left: expanded ? { xs: '15%', md: '32%' } : { xs: '15%', md: '35%' },
+                                left: expanded ? { xs: '12%', md: '32%' } : { xs: '12%', md: '35%' },
                                 zIndex: 1,
                                 width: { xs: '300px', md: '600px' },
                                 height: 'auto',
@@ -172,7 +172,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                         />
                     )}
 
-                    {/* Image 3 - 从中间位置滑动到底部位置 */}
+                    {/* Expand the image to the first */}
                     {images[1] && (
                         <Box
                             component={expanded ? "img" : "img"}
@@ -181,7 +181,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                             sx={{
                                 position: 'absolute',
                                 top: expanded ? { xs: '105%', md: '130%' } : { xs: '100px', md: '100px' },
-                                left: expanded ? { xs: '15%', md: '32%' } : { xs: '15%', md: '22%' },
+                                left: expanded ? { xs: '12%', md: '32%' } : { xs: '12%', md: '22%' },
                                 zIndex: 0,
                                 width: { xs: '300px', md: '600px' },
                                 height: 'auto',
