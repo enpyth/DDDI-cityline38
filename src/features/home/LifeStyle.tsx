@@ -51,7 +51,7 @@ export default function LifeStyle() {
                         muted
                         playsInline
                         style={{
-                            width: '100%',
+                            width: '62%',
                             height: 'auto',
                             display: 'block'
                         }}
