@@ -11,7 +11,7 @@ const FLOORPLAN_SERIES = [
     lot: '(Lot 1-7)',
     description: [
       'Modern 3-Bedroom, Three-Stories Townhomes Minutes from the City',
-      'Cityline 38 delivers a contemporary collection of 3-bed, 2-bath, double-garage townhomes designed for modern living, effortless convenience and long-term value.',
+      'Cityline 38 delivers a contemporary collection of 3-bedroom, 2-bathroom, double-garage townhomes designed for modern living, effortless convenience and long-term value.',
       'With refined layouts spread over three levels, these homes offer the combination of double garages, spacious balconies, excellent natural light and practical room separation—a feature set seldom available at this price point so close to the CBD.'
     ],
     features: [
@@ -19,7 +19,7 @@ const FLOORPLAN_SERIES = [
       'Double Glazed Windows – exceptional sound insulation & year-round comfort',
       'Bright interiors with excellent cross-ventilation',
       'Large balcony for relaxation and entertainment',
-      'Garden shed for storage and convenience',
+      'Garden area enhancing everyday comfort and convenience',
       'Full bathroom on ground floor for multi-generational convenience',
       'Quality finishes and modern exterior façade',
       'Walking distance to the tram, Anzac Highway transport corridor and everyday conveniences'
@@ -36,17 +36,16 @@ const FLOORPLAN_SERIES = [
     lot: '(Lot 8-13)',
     description: [
       'Modern 4-Bedroom, Three-Storey Townhomes Designed for Family Living',
-      'Cityline 38 presents another elevated collection of 4-bedroom, 3-bathroom, double-garage townhomes, thoughtfully crafted for growing families, multi-generational living and buyers seeking extra space without compromising on location or convenience.',
+      'Cityline 38 presents another elevated collection of 3-bedroom, 3-bathroom, double-garage townhomes, thoughtfully crafted for growing families, multi-generational living and buyers seeking extra space without compromising on location or convenience.',
       'With well-planned layouts across three functional levels, these homes combine generous bedrooms, ground-floor living connected to alfresco spaces, upper-level master suites and naturally bright interiors—a opportunity for those wanting a larger home just minutes from the CBD. All residences in this series are built with full double-glazed windows, ensuring exceptional acoustic performance, energy efficiency and a peaceful living environment throughout.'
     ],
     features: [
-      '4 bedrooms + 3 bathrooms + family-friendly layout',
-      'Double garage',
-      'Double-glazed windows – enhanced quietness & year-round comfort',
-      'Ground-floor lounge flowing to private alfresco',
+      '3 bedrooms + 3 bathrooms + Double garage',
+      'A flexible-use ground-floor room designed to accommodate multiple functions, flowing to a private alfresco',
+      'Double-glazed windows - enhanced quietness & year-round comfort',
       'Light-filled first-floor living with generous windows',
-      'Master suite with walk-in robe (WIR) + ensuite',
-      'Modern kitchen with great storage and cooking visibility',
+      'Master room with walk-in robe (WIR)',
+      'Modern kitchen with great storage and comfortable cooking atmosphere',
       'Walking distance to the tram, Anzac Highway transport corridor and key amenities',
     ],
     images: [
