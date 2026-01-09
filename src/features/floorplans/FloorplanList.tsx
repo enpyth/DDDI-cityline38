@@ -15,11 +15,11 @@ const FLOORPLAN_SERIES = [
       'With refined layouts spread over three levels, these homes offer the combination of double garages, spacious balconies, excellent natural light and practical room separation—a feature set seldom available at this price point so close to the CBD.'
     ],
     features: [
-      '3 bedrooms + 2 bathrooms + 2 living areas',
-      'Double garage',
+      '3 bedrooms + 2 bathrooms + Double garage',
       'Double Glazed Windows – exceptional sound insulation & year-round comfort',
       'Bright interiors with excellent cross-ventilation',
-      'Large entertainer’s balcony',
+      'Large balcony for relaxation and entertainment',
+      'Garden shed for storage and convenience',
       'Full bathroom on ground floor for multi-generational convenience',
       'Quality finishes and modern exterior façade',
       'Walking distance to the tram, Anzac Highway transport corridor and everyday conveniences'
