@@ -10,12 +10,12 @@ const FLOORPLAN_SERIES = [
     title: 'Balcony Light Living Series',
     lot: '(Lot 1-7)',
     description: [
-      'Modern 3-Bedroom, Three-Stories Townhomes Minutes from the City',
+      'Modern 3-Bedroom, Three-Storey Townhomes Minutes from the City',
       'Cityline 38 delivers a contemporary collection of 3-bedroom, 2-bathroom, double-garage townhomes designed for modern living, effortless convenience and long-term value.',
       'With refined layouts spread over three levels, these homes offer the combination of double garages, spacious balconies, excellent natural light and practical room separation—a feature set seldom available at this price point so close to the CBD.'
     ],
     features: [
-      '3 bedrooms + 2 bathrooms + Double garage',
+      '3 bedrooms + 2 bathrooms + 2 garages',
       'Double Glazed Windows – exceptional sound insulation & year-round comfort',
       'Bright interiors with excellent cross-ventilation',
       'Large balcony for relaxation and entertainment',
@@ -35,17 +35,18 @@ const FLOORPLAN_SERIES = [
     title: 'Serene Master Living Series',
     lot: '(Lot 8-13)',
     description: [
-      'Modern 4-Bedroom, Three-Storey Townhomes Designed for Family Living',
+      'Modern 3-Bedroom, Three-Storey Townhomes Designed for Family Living',
       'Cityline 38 presents another elevated collection of 3-bedroom, 3-bathroom, double-garage townhomes, thoughtfully crafted for growing families, multi-generational living and buyers seeking extra space without compromising on location or convenience.',
       'With well-planned layouts across three functional levels, these homes combine generous bedrooms, ground-floor living connected to alfresco spaces, upper-level master suites and naturally bright interiors—a opportunity for those wanting a larger home just minutes from the CBD. All residences in this series are built with full double-glazed windows, ensuring exceptional acoustic performance, energy efficiency and a peaceful living environment throughout.'
     ],
     features: [
-      '3 bedrooms + 3 bathrooms + Double garage',
-      'A flexible-use ground-floor room designed to accommodate multiple functions, flowing to a private alfresco',
+      '3 Bedrooms + 3 Bathrooms + 2 Garages',
+      'A flexible-use ground-floor room with access to a private alfresco',
       'Double-glazed windows - enhanced quietness & year-round comfort',
-      'Light-filled first-floor living with generous windows',
+      'Garden area enhancing everyday comfort and convenience',
+      // 'Light-filled first-floor living with generous windows',
       'Master room with walk-in robe (WIR)',
-      'Modern kitchen with great storage and comfortable cooking atmosphere',
+      'Modern kitchen with spacious storage and comfortable cooking area',
       'Walking distance to the tram, Anzac Highway transport corridor and key amenities',
     ],
     images: [
