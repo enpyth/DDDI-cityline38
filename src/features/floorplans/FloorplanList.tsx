@@ -44,7 +44,7 @@ const FLOORPLAN_SERIES = [
       'A flexible-use ground-floor room with access to a private alfresco',
       'Double-glazed windows - enhanced quietness & year-round comfort',
       'Garden area enhancing everyday comfort and convenience',
-      // 'Light-filled first-floor living with generous windows',
+      'A bright first-floor living room with large windows that flood the space with natural light',
       'Master room with walk-in robe (WIR)',
       'Modern kitchen with spacious storage and comfortable cooking area',
       'Walking distance to the tram, Anzac Highway transport corridor and key amenities',
