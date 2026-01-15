@@ -33,8 +33,11 @@ export default function LifeStyle() {
             {!isMobile ? (
                 <Box
                     sx={{
-                        width: '100%',
+                        width: '60%',
+                        height: '480px',
                         position: 'relative',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
                         overflow: 'hidden',
                         '&:hover .video-overlay': {
                             opacity: 1
@@ -74,10 +77,10 @@ export default function LifeStyle() {
                         }}
                     >
                         <Typography
-                            variant="h1"
+                            variant="h2"
                             sx={{
                                 color: '#fff',
-                                mb: 6,
+                                mb: 4,
                                 fontFamily: 'var(--font-baskervville)',
                             }}
                         >
@@ -86,10 +89,10 @@ export default function LifeStyle() {
                         <UnderlineButton
                             href="/lifestyle"
                             sx={{
-                                fontSize: 'h4.fontSize',
+                                fontSize: 'h5.fontSize',
                                 color: '#fff',
                                 // Replace underline with full border
-                                border: '2px solid #fff',
+                                border: '1.5px solid #fff',
                                 borderBottom: '2px solid #fff',
                                 // Add shadow black background with frosted effect
                                 backgroundColor: 'rgba(0, 0, 0, 0.6)',

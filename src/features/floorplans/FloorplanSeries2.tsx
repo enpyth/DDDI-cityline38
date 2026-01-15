@@ -82,7 +82,7 @@ export default function FloorplanSeries2({ title, lot, description, features, im
                                 onClick={() => setExpanded(!expanded)}
                                 sx={{ fontSize: { xs: '1rem', md: '1.5rem' } }}
                             >
-                                {expanded ? 'Collapse' : 'Expand the Floorplans'}
+                                {expanded ? 'Hide the Floorplans' : 'Expand the Floorplans'}
                             </UnderlineButton>
                         </Box>
                     </Paper>
