@@ -35,17 +35,18 @@ const FLOORPLAN_SERIES = [
     title: 'Serene Master Living Series',
     lot: '(Lot 8-13)',
     description: [
-      'Modern 3-Bedroom, Three-Storey Townhomes Designed for Family Living',
+      'Modern 3-Bedroom, Three-Storey Townhomes with a Ground-Floor Family Lounge, Designed for Family Living',
       'Cityline 38 presents another elevated collection of 3-bedroom, 3-bathroom, double-garage townhomes, thoughtfully crafted for growing families, multi-generational living and buyers seeking extra space without compromising on location or convenience.',
-      'With well-planned layouts across three functional levels, these homes combine generous bedrooms, ground-floor living connected to alfresco spaces, upper-level master suites and naturally bright interiors—a opportunity for those wanting a larger home just minutes from the CBD. All residences in this series are built with full double-glazed windows, ensuring exceptional acoustic performance, energy efficiency and a peaceful living environment throughout.'
+      'With well-planned layouts across three functional levels, these homes combine generous bedrooms, ground-floor living connected to alfresco spaces, upper-level master suites and naturally bright interiors—a opportunity for those wanting a larger home just minutes from the CBD.', 
+      'All residences in this series are built with full double-glazed windows, ensuring exceptional acoustic performance, energy efficiency and a peaceful living environment throughout.'
     ],
     features: [
       '3 Bedrooms + 3 Bathrooms + 2 Garages',
-      'A flexible-use ground-floor room with access to a private alfresco',
-      'Double-glazed windows - enhanced quietness & year-round comfort',
-      'Garden area enhancing everyday comfort and convenience',
+      'Master room with walk-in robe',
       'A bright first-floor living room with large windows that flood the space with natural light',
-      'Master room with walk-in robe (WIR)',
+      'Garden area enhancing everyday comfort and convenience',
+      'A flexible-use ground-floor lounge with access to a private alfresco',
+      'Double-glazed windows - enhanced quietness & year-round comfort',
       'Modern kitchen with spacious storage and comfortable cooking area',
       'Walking distance to the tram, Anzac Highway transport corridor and key amenities',
     ],
