@@ -2,6 +2,15 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
+  // Domain canonicalization: redirect www to non-www
+  const hostname = request.headers.get('host') || ''
+  if (hostname.startsWith('www.')) {
+    const newHost = hostname.replace('www.', '')
+    const url = new URL(request.url)
+    url.host = newHost
+    return NextResponse.redirect(url, 301)
+  }
+
   let supabaseResponse = NextResponse.next({
     request,
   })
@@ -43,8 +52,6 @@ export async function middleware(request: NextRequest) {
     '/gallery',
     '/terms',
     '/privacy',
-    '/series-a',
-    '/series-b',
     '/lifestyle'
   ]
 
