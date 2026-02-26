@@ -20,7 +20,7 @@ const META_THEME_COLORS = {
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-57FG8F9X';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cityline38.com.au'),
+  metadataBase: new URL('https://www.cityline38.com.au'),
   title: {
     default: 'Cityline 38 Adelaide',
     template: '%s | Cityline 38'
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    url: 'https://cityline38.com.au',
+    url: 'https://www.cityline38.com.au',
     title: 'Cityline 38 | Modern Townhouses in Everard Park',
     description:
       'Where urban energy meets everyday calm. Discover modern 3-storey townhouses in Everard Park, just 10 minutes from Adelaide CBD.',

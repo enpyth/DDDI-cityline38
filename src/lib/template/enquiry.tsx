@@ -56,7 +56,7 @@ export function EnquiryEmail({
           <p style={{ margin: '0 0 16px', fontSize: '16px' }}>Postcode: {postcode || 'Not provided'}</p>
         </div>
         <p style={{ margin: '0 0 16px', fontSize: '16px' }}>Preference: cityline38</p>
-        <p style={{ margin: '0 0 24px', fontSize: '16px' }}>From page: `https://cityline38.com.au/`</p>
+        <p style={{ margin: '0 0 24px', fontSize: '16px' }}>From page: `https://www.cityline38.com.au/`</p>
         <p style={{ margin: '0 0 0', fontSize: '16px' }}>Best wishes,</p>
         <p style={{ margin: '0 0 0', fontSize: '16px', fontWeight: 'bold' }}>Cyberate Notification</p>
       </div>

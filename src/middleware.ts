@@ -2,12 +2,11 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  // Domain canonicalization: redirect www to non-www
+  // Domain canonicalization: redirect non-www to www
   const hostname = request.headers.get('host') || ''
-  if (hostname.startsWith('www.')) {
-    const newHost = hostname.replace('www.', '')
+  if (hostname === 'cityline38.com.au') {
     const url = new URL(request.url)
-    url.host = newHost
+    url.host = 'www.cityline38.com.au'
     return NextResponse.redirect(url, 301)
   }
 

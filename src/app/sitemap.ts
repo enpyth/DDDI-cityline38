@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://cityline38.com.au'
+    const baseUrl = 'https://www.cityline38.com.au'
 
     return [
         {

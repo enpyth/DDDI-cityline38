@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://cityline38.com.au/sitemap.xml',
+        sitemap: 'https://www.cityline38.com.au/sitemap.xml',
     }
 }
