@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 
 export const metadata: Metadata = {
-    title: 'Privacy Policy | Cityline 38 Adelaide',
-    description: 'The Cityline 38 Privacy Policy is a comprehensive data protection framework for our website users, dedicated to addressing personal information security needs through transparent data collection and handling practices.',
-    keywords: ['Cityline 38 Privacy Policy', 'Data Protection Real Estate', 'Privacy Terms Adelaide', 'User Data Security'],
+    title: 'Privacy Policy | Cityline 38 Website',
+    description: 'This privacy policy explains how personal information is collected, stored and used when users interact with the Cityline 38 website or submit enquiries regarding the townhouse development in Everard Park.',
+    keywords: ['Cityline 38 privacy policy', 'real estate website privacy', 'data protection Adelaide'],
     alternates: {
         canonical: 'https://www.cityline38.com.au/privacy'
     }
@@ -20,9 +20,9 @@ export default function PrivacyPage() {
                     __html: JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'WebPage',
-                        name: 'Privacy Policy | Cityline 38 Adelaide',
+                        name: 'Privacy Policy | Cityline 38 Website',
                         url: 'https://www.cityline38.com.au/privacy',
-                        description: 'The Cityline 38 Privacy Policy is a comprehensive data protection framework for our website users, dedicated to addressing personal information security needs through transparent data collection and handling practices.'
+                        description: 'This privacy policy explains how personal information is collected, stored and used when users interact with the Cityline 38 website or submit enquiries regarding the townhouse development in Everard Park.'
                     })
                 }}
             />

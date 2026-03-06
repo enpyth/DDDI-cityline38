@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 
 export const metadata: Metadata = {
-    title: 'Lifestyle | Cityline 38 Adelaide',
-    description: 'The Cityline 38 lifestyle guide highlights the vibrant Everard Park community ecosystem, dedicated to addressing residents\' quality of life needs through detailed insights into local amenities, parks, and dining.',
-    keywords: ['Everard Park Lifestyle', 'Cityline 38 Location', 'Amenities near Everard Park', 'Adelaide Suburb Living Guide'],
+    title: 'Everard Park Lifestyle | Living Near Adelaide CBD',
+    description: 'Discover the lifestyle around Cityline 38 in Everard Park. The area offers convenient access to Adelaide CBD, public transport, parks, cafes and local amenities, creating a balanced urban living environment.',
+    keywords: ['Everard Park lifestyle', 'living near Adelaide CBD', 'amenities Everard Park'],
     alternates: {
         canonical: 'https://www.cityline38.com.au/lifestyle'
     }
@@ -20,9 +20,9 @@ export default function LifestylePage() {
                     __html: JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'WebPage',
-                        name: 'Lifestyle | Cityline 38 Adelaide',
+                        name: 'Everard Park Lifestyle | Living Near Adelaide CBD',
                         url: 'https://www.cityline38.com.au/lifestyle',
-                        description: 'The Cityline 38 lifestyle guide highlights the vibrant Everard Park community ecosystem, dedicated to addressing residents\' quality of life needs through detailed insights into local amenities, parks, and dining.'
+                        description: 'Discover the lifestyle around Cityline 38 in Everard Park. The area offers convenient access to Adelaide CBD, public transport, parks, cafes and local amenities, creating a balanced urban living environment.'
                     })
                 }}
             />

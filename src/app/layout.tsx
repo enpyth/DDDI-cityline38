@@ -22,20 +22,17 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-57FG8F9X';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cityline38.com.au'),
   title: {
-    default: 'Cityline 38 Adelaide | Modern Townhouses in Everard Park',
+    default: 'Cityline 38 | Modern Townhouses in Everard Park Adelaide',
     template: '%s | Cityline 38'
   },
   description:
-    'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
+    'Cityline 38 is a contemporary townhouse development located at 38 Anzac Hwy in Everard Park, South Australia. The project features architecturally designed three-storey residences with three bedrooms, two bathrooms and private garages, offering modern urban living only minutes from Adelaide CBD.',
   keywords: [
     'Cityline 38',
-    'Cityline 38 Adelaide',
-    'Everard Park Real Estate',
-    'Modern Townhouses Adelaide',
-    'New Development Everard Park',
-    '3-Storey Townhomes SA',
-    'Off-the-plan townhouses Adelaide',
-    'Property for sale Everard Park'
+    'Everard Park townhouses',
+    'Adelaide townhouse development',
+    '38 Anzac Hwy Everard Park',
+    'modern townhouses Adelaide'
   ],
   authors: [{ name: 'Cityline 38' }],
   creator: 'Cityline 38',
@@ -46,9 +43,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     url: 'https://www.cityline38.com.au',
-    title: 'Cityline 38 Adelaide | Modern Townhouses in Everard Park',
+    title: 'Cityline 38 | Modern Townhouses in Everard Park Adelaide',
     description:
-      'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
+      'Cityline 38 is a contemporary townhouse development located at 38 Anzac Hwy in Everard Park, South Australia. The project features architecturally designed three-storey residences with three bedrooms, two bathrooms and private garages, offering modern urban living only minutes from Adelaide CBD.',
     siteName: 'Cityline 38',
     images: [
       { url: '/imgs/05.jpg', width: 1200, height: 630, alt: 'Cityline 38 Townhouses' }
@@ -56,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cityline 38 Adelaide | Modern Townhouses in Everard Park',
-    description: 'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
+    title: 'Cityline 38 | Modern Townhouses in Everard Park Adelaide',
+    description: 'Cityline 38 is a contemporary townhouse development located at 38 Anzac Hwy in Everard Park, South Australia. The project features architecturally designed three-storey residences with three bedrooms, two bathrooms and private garages, offering modern urban living only minutes from Adelaide CBD.',
     images: ['/imgs/05.jpg']
   },
   robots: {
@@ -96,9 +93,9 @@ export default async function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'RealEstateListing',
-              name: 'Cityline 38 Adelaide',
+              name: 'Cityline 38 | Modern Townhouses in Everard Park Adelaide',
               url: 'https://www.cityline38.com.au',
-              description: 'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
+              description: 'Cityline 38 is a contemporary townhouse development located at 38 Anzac Hwy in Everard Park, South Australia. The project features architecturally designed three-storey residences with three bedrooms, two bathrooms and private garages, offering modern urban living only minutes from Adelaide CBD.',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Everard Park',

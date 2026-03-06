@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 
 export const metadata: Metadata = {
-    title: 'Register Interest | Cityline 38 Adelaide',
-    description: 'The Cityline 38 registration portal is a dedicated inquiry platform for our Everard Park development, dedicated to addressing prospective buyers\' communication needs through a streamlined expression of interest process.',
-    keywords: ['Register Interest Cityline 38', 'Buy Townhouse Everard Park', 'Real Estate Inquiry Adelaide', 'Off-the-plan Registration SA'],
+    title: 'Register Interest | Cityline 38 Everard Park',
+    description: 'Submit an expression of interest for the Cityline 38 townhouse development in Everard Park. Prospective buyers can request project information, pricing details and availability through the registration form.',
+    keywords: ['Cityline 38 register interest', 'Everard Park townhouse enquiry', 'buy townhouse Adelaide'],
     alternates: {
         canonical: 'https://www.cityline38.com.au/register'
     }
@@ -20,9 +20,9 @@ export default function RegisterPage() {
                     __html: JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'ContactPage',
-                        name: 'Register Interest | Cityline 38 Adelaide',
+                        name: 'Register Interest | Cityline 38 Everard Park',
                         url: 'https://www.cityline38.com.au/register',
-                        description: 'The Cityline 38 registration portal is a dedicated inquiry platform for our Everard Park development, dedicated to addressing prospective buyers\' communication needs through a streamlined expression of interest process.'
+                        description: 'Submit an expression of interest for the Cityline 38 townhouse development in Everard Park. Prospective buyers can request project information, pricing details and availability through the registration form.'
                     })
                 }}
             />

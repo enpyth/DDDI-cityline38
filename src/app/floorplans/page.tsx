@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 
 export const metadata: Metadata = {
-    title: 'Floorplans | Cityline 38 Adelaide',
-    description: 'The Cityline 38 floorplans showcase premium 3-storey townhouse layouts in Everard Park, dedicated to addressing modern family living needs through intelligent spatial design and functional elegance.',
-    keywords: ['Cityline 38 Floorplans', '3-Storey Townhouse Layouts', 'Everard Park Real Estate Floor Plans', 'Modern Townhome Designs Adelaide'],
+    title: 'Floorplans | Cityline 38 Townhouse Layouts',
+    description: 'Explore the Cityline 38 floorplans featuring Series 1 and Series 2 three-storey townhouse layouts. Each design focuses on functional spatial planning, open living areas and efficient vertical living suitable for modern families in Adelaide.',
+    keywords: ['Cityline 38 floorplans', 'townhouse layouts Adelaide', 'Everard Park floorplans', 'Series 1 Series 2 townhouse'],
     alternates: {
         canonical: 'https://www.cityline38.com.au/floorplans'
     }
@@ -20,9 +20,9 @@ export default function FloorplansPage() {
                     __html: JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'WebPage',
-                        name: 'Floorplans | Cityline 38 Adelaide',
+                        name: 'Floorplans | Cityline 38 Townhouse Layouts',
                         url: 'https://www.cityline38.com.au/floorplans',
-                        description: 'The Cityline 38 floorplans showcase premium 3-storey townhouse layouts in Everard Park, dedicated to addressing modern family living needs through intelligent spatial design and functional elegance.'
+                        description: 'Explore the Cityline 38 floorplans featuring Series 1 and Series 2 three-storey townhouse layouts. Each design focuses on functional spatial planning, open living areas and efficient vertical living suitable for modern families in Adelaide.'
                     })
                 }}
             />

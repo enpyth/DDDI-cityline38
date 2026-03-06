@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 
 export const metadata: Metadata = {
-    title: 'Terms & Conditions | Cityline 38 Adelaide',
-    description: 'The Cityline 38 Terms and Conditions provide the legal usage framework for our website, dedicated to addressing compliance and regulatory needs through clear guidelines on user responsibilities and project disclaimers.',
-    keywords: ['Cityline 38 Terms of Use', 'Website Terms and Conditions', 'Real Estate Legal Compliance Adelaide', 'Property Disclaimer SA'],
+    title: 'Terms & Conditions | Cityline 38 Website',
+    description: 'The terms and conditions outline the legal framework for using the Cityline 38 website, including user responsibilities, website usage policies and general legal information related to the project.',
+    keywords: ['Cityline 38 terms conditions', 'website terms Adelaide', 'real estate website legal'],
     alternates: {
         canonical: 'https://www.cityline38.com.au/terms'
     }
@@ -20,9 +20,9 @@ export default function TermsPage() {
                     __html: JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'WebPage',
-                        name: 'Terms & Conditions | Cityline 38 Adelaide',
+                        name: 'Terms & Conditions | Cityline 38 Website',
                         url: 'https://www.cityline38.com.au/terms',
-                        description: 'The Cityline 38 Terms and Conditions provide the legal usage framework for our website, dedicated to addressing compliance and regulatory needs through clear guidelines on user responsibilities and project disclaimers.'
+                        description: 'The terms and conditions outline the legal framework for using the Cityline 38 website, including user responsibilities, website usage policies and general legal information related to the project.'
                     })
                 }}
             />
