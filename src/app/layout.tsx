@@ -22,21 +22,33 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-57FG8F9X';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cityline38.com.au'),
   title: {
-    default: 'Cityline 38 Adelaide',
+    default: 'Cityline 38 Adelaide | Modern Townhouses in Everard Park',
     template: '%s | Cityline 38'
   },
   description:
-    'Cityline 38 offers modern 3-storey townhouses in Everard Park, Adelaide. Experience the perfect balance of urban energy and everyday calm. Register your interest today.',
-  keywords: ['Cityline 38', 'Cityline 38 Adelaide', 'Cityline 38 Everard Park Real Estate'],
+    'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
+  keywords: [
+    'Cityline 38',
+    'Cityline 38 Adelaide',
+    'Everard Park Real Estate',
+    'Modern Townhouses Adelaide',
+    'New Development Everard Park',
+    '3-Storey Townhomes SA',
+    'Off-the-plan townhouses Adelaide',
+    'Property for sale Everard Park'
+  ],
   authors: [{ name: 'Cityline 38' }],
   creator: 'Cityline 38',
+  alternates: {
+    canonical: 'https://www.cityline38.com.au'
+  },
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     url: 'https://www.cityline38.com.au',
-    title: 'Cityline 38 | Modern Townhouses in Everard Park',
+    title: 'Cityline 38 Adelaide | Modern Townhouses in Everard Park',
     description:
-      'Where urban energy meets everyday calm. Discover modern 3-storey townhouses in Everard Park, just 10 minutes from Adelaide CBD.',
+      'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
     siteName: 'Cityline 38',
     images: [
       { url: '/imgs/05.jpg', width: 1200, height: 630, alt: 'Cityline 38 Townhouses' }
@@ -44,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cityline 38 | Modern Townhouses in Everard Park',
-    description: 'Where urban energy meets everyday calm. Discover modern 3-storey townhouses in Everard Park.',
+    title: 'Cityline 38 Adelaide | Modern Townhouses in Everard Park',
+    description: 'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
     images: ['/imgs/05.jpg']
   },
   robots: {
@@ -77,6 +89,27 @@ export default async function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
+        {/* JSON-LD Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'RealEstateListing',
+              name: 'Cityline 38 Adelaide',
+              url: 'https://www.cityline38.com.au',
+              description: 'Cityline 38 is a premium 3-storey townhouse development in Everard Park, SA, dedicated to addressing high-quality urban living needs through exceptional modern architectural design.',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Everard Park',
+                addressRegion: 'SA',
+                addressCountry: 'AU'
+              },
+              image: 'https://www.cityline38.com.au/imgs/05.jpg'
+            })
+          }}
+        />
+
         {/* ✅ Google Tag Manager (head) */}
         <Script id="gtm" strategy="afterInteractive">
           {`
