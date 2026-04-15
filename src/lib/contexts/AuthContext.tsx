@@ -1,6 +1,5 @@
 'use client'
 
-import { createClient } from '@/lib/supabase'
 import { User } from '@supabase/supabase-js'
 import { createContext, useContext, useEffect, useState } from 'react'
 
@@ -15,27 +14,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
-  const supabase = createClient()
 
   useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
-      setLoading(false)
-    }
-
-    getUser()
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [supabase.auth])
+    // Supabase auth is temporarily disabled while the related env vars are absent.
+    setUser(null)
+    setLoading(false)
+  }, [])
 
   const signOut = async () => {
-    await supabase.auth.signOut()
+    setUser(null)
   }
 
   return (
