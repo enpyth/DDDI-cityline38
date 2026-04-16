@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Box, Container, Typography, TextField, Grid, Paper, Link } from '@mui/material'
+import emailjs from '@emailjs/browser'
 import UnderlineButton from '@/components/utils/UnderlineButton'
 import { toast } from 'sonner'
 
@@ -10,6 +11,12 @@ interface ContactFormProps {
     title2?: string
     subtitle?: string
     subtitle2?: string
+}
+
+const EMAILJS_CONFIG = {
+    serviceId: 'service_bjienjn',
+    templateId: 'template_kh6ebwf',
+    publicKey: 'PcHzeyHQ7091mGvgC',
 }
 
 export default function ContactForm({
@@ -98,6 +105,10 @@ export default function ContactForm({
             toast.error('Please enter your email address')
             return
         }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+            toast.error('Please enter a valid email address')
+            return
+        }
         if (!formData.mobile.trim()) {
             toast.error('Please enter your mobile number')
             return
@@ -113,26 +124,29 @@ export default function ContactForm({
 
         setIsLoading(true)
         try {
-            const response = await fetch('/api/resend', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...formData,
-                    turnstileToken
-                }),
-            })
-
-            // Check if response is JSON
-            const contentType = response.headers.get('content-type')
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Server error: Invalid response format')
+            const templateParams = {
+                subject: `New enquiry from ${formData.firstName} ${formData.lastName}`,
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                full_name: `${formData.firstName} ${formData.lastName}`.trim(),
+                email: formData.email,
+                mobile: formData.mobile,
+                suburb: formData.suburb || 'N/A',
+                postcode: formData.postcode || 'N/A',
+                message: formData.message || 'N/A',
+                stay_updated: formData.stayUpdated ? 'Yes' : 'No',
+                submitted_at: new Date().toLocaleString(),
+                turnstile_token: turnstileToken,
             }
 
-            const data = await response.json()
-
-            if (!response.ok) {
-                throw new Error(data.error || 'Failed to send enquiry')
-            }
+            await emailjs.send(
+                EMAILJS_CONFIG.serviceId,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || EMAILJS_CONFIG.templateId,
+                templateParams,
+                {
+                    publicKey: EMAILJS_CONFIG.publicKey,
+                }
+            )
 
             toast.success('Thank you! Your enquiry has been sent successfully. We will contact you soon.')
             setFormData({
@@ -145,6 +159,10 @@ export default function ContactForm({
                 message: '',
                 stayUpdated: false
             })
+            if (widgetIdRef.current && typeof window !== 'undefined' && window.turnstile) {
+                window.turnstile.reset(widgetIdRef.current)
+                setTurnstileToken(null)
+            }
         } catch (error) {
             console.error('Form submission error:', error)
             toast.error(error instanceof Error ? error.message : 'Failed to send enquiry. Please try again.')
