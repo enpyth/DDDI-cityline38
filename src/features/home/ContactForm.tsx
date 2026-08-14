@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Box, Container, Typography, TextField, Grid, Paper, Link } from '@mui/material'
-import emailjs from '@emailjs/browser'
 import UnderlineButton from '@/components/utils/UnderlineButton'
+import { submitContactFormMessage } from '@/lib/submitContactFormMessage'
 import { toast } from 'sonner'
 
 interface ContactFormProps {
@@ -11,12 +11,6 @@ interface ContactFormProps {
     title2?: string
     subtitle?: string
     subtitle2?: string
-}
-
-const EMAILJS_CONFIG = {
-    serviceId: 'service_bjienjn',
-    templateId: 'template_kh6ebwf',
-    publicKey: 'PcHzeyHQ7091mGvgC',
 }
 
 export default function ContactForm({
@@ -113,40 +107,27 @@ export default function ContactForm({
             toast.error('Please enter your mobile number')
             return
         }
-        if (!turnstileToken) {
-            toast.error('Please complete the security check')
-            // Reset and re-render the widget
-            if (widgetIdRef.current && typeof window !== 'undefined' && window.turnstile) {
-                window.turnstile.reset(widgetIdRef.current)
-            }
-            return
-        }
+        // if (!turnstileToken) {
+        //     toast.error('Please complete the security check')
+        //     // Reset and re-render the widget
+        //     if (widgetIdRef.current && typeof window !== 'undefined' && window.turnstile) {
+        //         window.turnstile.reset(widgetIdRef.current)
+        //     }
+        //     return
+        // }
 
         setIsLoading(true)
         try {
-            const templateParams = {
-                subject: `New enquiry from ${formData.firstName} ${formData.lastName}`,
-                first_name: formData.firstName,
-                last_name: formData.lastName,
-                full_name: `${formData.firstName} ${formData.lastName}`.trim(),
+            await submitContactFormMessage({
+                firstName: formData.firstName,
+                lastName: formData.lastName,
                 email: formData.email,
                 mobile: formData.mobile,
-                suburb: formData.suburb || 'N/A',
-                postcode: formData.postcode || 'N/A',
-                message: formData.message || 'N/A',
-                stay_updated: formData.stayUpdated ? 'Yes' : 'No',
-                submitted_at: new Date().toLocaleString(),
-                turnstile_token: turnstileToken,
-            }
-
-            await emailjs.send(
-                EMAILJS_CONFIG.serviceId,
-                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || EMAILJS_CONFIG.templateId,
-                templateParams,
-                {
-                    publicKey: EMAILJS_CONFIG.publicKey,
-                }
-            )
+                suburb: formData.suburb,
+                postcode: formData.postcode,
+                message: formData.message,
+                stayUpdated: formData.stayUpdated,
+            })
 
             toast.success('Thank you! Your enquiry has been sent successfully. We will contact you soon.')
             setFormData({

@@ -13,6 +13,9 @@ RESEND_API_KEY=
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
 OPENAI_API_KEY=
 NEXT_PUBLIC_CHATKIT_WORKFLOW_ID=
+# DDDI Core 询盘落库（contact_form_message）
+NEXT_PUBLIC_DDDI_API_BASE_URL=https://api.dddi.com.au
+# NEXT_PUBLIC_CONTACT_API=https://api.dddi.com.au/api/v1/contact/cityline38
 ```
 
 Then run the development server:
